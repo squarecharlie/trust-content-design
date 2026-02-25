@@ -510,19 +510,12 @@ const SlideDeck = () => {
               fontWeight: '500'
             }}>High impact</div>
 
-            {/* Quadrants positioned relative to axes */}
+            {/* Top Left - Low Impact × High Criticality */}
             <div style={{
-              position: 'relative',
-              width: '100%',
-              height: '100%',
-              padding: '70px'
-            }}>
-              {/* Top Left - Low Impact × High Criticality */}
-              <div style={{
-                position: 'absolute',
-                left: '80px',
-                top: '80px',
-                width: '38%',
+              position: 'absolute',
+              left: '70px',
+              top: '80px',
+              width: 'calc(50% - 100px)',
                 background: 'rgba(255, 255, 255, 0.03)',
                 border: '2px solid rgba(255,255,255,0.25)',
                 borderRadius: '16px',
@@ -552,12 +545,12 @@ const SlideDeck = () => {
                 </p>
               </div>
 
-              {/* Top Right - High Impact × High Criticality (emphasized) */}
-              <div style={{
-                position: 'absolute',
-                right: '80px',
-                top: '80px',
-                width: '38%',
+            {/* Top Right - High Impact × High Criticality (emphasized) */}
+            <div style={{
+              position: 'absolute',
+              right: '70px',
+              top: '80px',
+              width: 'calc(50% - 100px)',
                 background: 'rgba(255, 255, 255, 0.05)',
                 border: '2px solid rgba(255,255,255,0.5)',
                 borderRadius: '16px',
@@ -591,12 +584,12 @@ const SlideDeck = () => {
                 </p>
               </div>
 
-              {/* Bottom Left - Low Impact × Low Criticality */}
-              <div style={{
-                position: 'absolute',
-                left: '80px',
-                bottom: '80px',
-                width: '38%',
+            {/* Bottom Left - Low Impact × Low Criticality */}
+            <div style={{
+              position: 'absolute',
+              left: '70px',
+              bottom: '80px',
+              width: 'calc(50% - 100px)',
                 background: 'rgba(255, 255, 255, 0.02)',
                 border: '2px solid rgba(255,255,255,0.15)',
                 borderRadius: '16px',
@@ -626,12 +619,12 @@ const SlideDeck = () => {
                 </p>
               </div>
 
-              {/* Bottom Right - High Impact × Low Criticality */}
-              <div style={{
-                position: 'absolute',
-                right: '80px',
-                bottom: '80px',
-                width: '38%',
+            {/* Bottom Right - High Impact × Low Criticality */}
+            <div style={{
+              position: 'absolute',
+              right: '70px',
+              bottom: '80px',
+              width: 'calc(50% - 100px)',
                 background: 'rgba(255, 255, 255, 0.03)',
                 border: '2px solid rgba(255,255,255,0.25)',
                 borderRadius: '16px',
@@ -659,7 +652,6 @@ const SlideDeck = () => {
                 <p style={{ fontSize: '0.95rem', opacity: 0.8, fontStyle: 'italic', borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: '20px' }}>
                   Thoughtful, scalable design matters more than polish.
                 </p>
-              </div>
             </div>
           </div>
         </div>

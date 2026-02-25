@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './SlideDeck.css'
 import emailImage from '../images/emailtemplate.png'
+import trustLogo from '../images/trust design logo.svg'
 
 const SlideDeck = () => {
   const [gptPrompt, setGptPrompt] = useState('')
@@ -224,7 +225,7 @@ const SlideDeck = () => {
 
   return (
     <div className="slide-deck">
-      <img src="/src/images/trust design logo.svg" alt="Trust Design Team" className="trust-logo" />
+      <img src={trustLogo} alt="Trust Design Team" className="trust-logo" />
 
       {/* Slide 1 - Gentle: Opening slide, big reveal moment with gravitas */}
       <section id="slide-0" className="slide motion-gentle">
@@ -429,7 +430,7 @@ const SlideDeck = () => {
         <div className="slide-content" style={{ alignItems: 'center', justifyContent: 'center', padding: '40px', display: 'flex' }}>
           <div className="email-output-animated" style={{ width: '100%', maxWidth: '900px', position: 'relative' }}>
             <img
-              src="/src/images/emailtemplate.png"
+              src={emailImage}
               alt="Email Template"
               style={{ width: '100%', height: 'auto', display: 'block', visibility: 'visible' }}
             />

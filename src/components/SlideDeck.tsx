@@ -392,266 +392,204 @@ const SlideDeck = () => {
         </div>
       </section>
 
-      {/* Slide 9c - Steady: Monochrome 2x2 matrix with axes */}
+      {/* Slide 9c - Steady: Clean 2x2 matrix with Cash App typography */}
       <section id="slide-8c" className="slide motion-steady">
-        <div className="slide-content" style={{ padding: '40px 60px' }}>
+        <div className="slide-content" style={{ padding: '60px 100px' }}>
           <div style={{
-            maxWidth: '1200px',
+            maxWidth: '1100px',
             margin: '0 auto',
             position: 'relative',
-            height: '700px'
+            height: '600px'
           }}>
             {/* Y-axis (vertical) */}
             <div style={{
               position: 'absolute',
               left: '50%',
-              top: '60px',
-              bottom: '60px',
+              top: '40px',
+              bottom: '40px',
               width: '1px',
-              background: 'rgba(255,255,255,0.4)'
+              background: 'rgba(255,255,255,0.3)',
+              transform: 'translateX(-50%)'
             }}></div>
 
             {/* Y-axis arrow top */}
             <div style={{
               position: 'absolute',
               left: '50%',
-              top: '50px',
+              top: '30px',
               transform: 'translateX(-50%)',
               width: 0,
               height: 0,
-              borderLeft: '6px solid transparent',
-              borderRight: '6px solid transparent',
-              borderBottom: '10px solid rgba(255,255,255,0.4)'
+              borderLeft: '5px solid transparent',
+              borderRight: '5px solid transparent',
+              borderBottom: '8px solid rgba(255,255,255,0.3)'
             }}></div>
 
             {/* Y-axis arrow bottom */}
             <div style={{
               position: 'absolute',
               left: '50%',
-              bottom: '50px',
+              bottom: '30px',
               transform: 'translateX(-50%)',
               width: 0,
               height: 0,
-              borderLeft: '6px solid transparent',
-              borderRight: '6px solid transparent',
-              borderTop: '10px solid rgba(255,255,255,0.4)'
+              borderLeft: '5px solid transparent',
+              borderRight: '5px solid transparent',
+              borderTop: '8px solid rgba(255,255,255,0.3)'
             }}></div>
 
             {/* X-axis (horizontal) */}
             <div style={{
               position: 'absolute',
               top: '50%',
-              left: '60px',
-              right: '60px',
+              left: '40px',
+              right: '40px',
               height: '1px',
-              background: 'rgba(255,255,255,0.4)'
+              background: 'rgba(255,255,255,0.3)',
+              transform: 'translateY(-50%)'
             }}></div>
 
             {/* X-axis arrow left */}
             <div style={{
               position: 'absolute',
-              left: '50px',
+              left: '30px',
               top: '50%',
               transform: 'translateY(-50%)',
               width: 0,
               height: 0,
-              borderTop: '6px solid transparent',
-              borderBottom: '6px solid transparent',
-              borderRight: '10px solid rgba(255,255,255,0.4)'
+              borderTop: '5px solid transparent',
+              borderBottom: '5px solid transparent',
+              borderRight: '8px solid rgba(255,255,255,0.3)'
             }}></div>
 
             {/* X-axis arrow right */}
             <div style={{
               position: 'absolute',
-              right: '50px',
+              right: '30px',
               top: '50%',
               transform: 'translateY(-50%)',
               width: 0,
               height: 0,
-              borderTop: '6px solid transparent',
-              borderBottom: '6px solid transparent',
-              borderLeft: '10px solid rgba(255,255,255,0.4)'
+              borderTop: '5px solid transparent',
+              borderBottom: '5px solid transparent',
+              borderLeft: '8px solid rgba(255,255,255,0.3)'
             }}></div>
 
-            {/* Axis labels */}
+            {/* Axis labels - Cash App typography */}
             <div style={{
               position: 'absolute',
               left: '52%',
-              top: '20px',
-              fontSize: '0.95rem',
-              opacity: 0.7,
-              fontWeight: '500'
+              top: '10px',
+              fontSize: '0.875rem',
+              fontWeight: '400',
+              letterSpacing: '0.02em'
             }}>high criticality</div>
 
             <div style={{
               position: 'absolute',
               left: '52%',
-              bottom: '20px',
-              fontSize: '0.95rem',
-              opacity: 0.7,
-              fontWeight: '500'
+              bottom: '10px',
+              fontSize: '0.875rem',
+              fontWeight: '400',
+              letterSpacing: '0.02em'
             }}>Low criticality</div>
 
             <div style={{
               position: 'absolute',
-              left: '20px',
-              top: '48%',
-              fontSize: '0.95rem',
-              opacity: 0.7,
-              fontWeight: '500'
+              left: '10px',
+              top: '47%',
+              fontSize: '0.875rem',
+              fontWeight: '400',
+              letterSpacing: '0.02em'
             }}>Low impact</div>
 
             <div style={{
               position: 'absolute',
-              right: '20px',
-              top: '48%',
-              fontSize: '0.95rem',
-              opacity: 0.7,
-              fontWeight: '500'
+              right: '10px',
+              top: '47%',
+              fontSize: '0.875rem',
+              fontWeight: '400',
+              letterSpacing: '0.02em'
             }}>High impact</div>
 
-            {/* Top Left - Low Impact × High Criticality */}
+            {/* Top Left - Quick wins */}
             <div style={{
               position: 'absolute',
-              left: '70px',
-              top: '80px',
-              width: 'calc(50% - 100px)',
-                background: 'rgba(255, 255, 255, 0.03)',
-                border: '2px solid rgba(255,255,255,0.25)',
-                borderRadius: '16px',
-                padding: '30px',
-                textAlign: 'left'
-              }}>
-                <h3 style={{ fontSize: '1.3rem', marginBottom: '8px', fontWeight: '600' }}>Quick wins</h3>
-                <p style={{ fontSize: '0.9rem', opacity: 0.6, marginBottom: '24px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                  Low Impact × High Criticality
-                </p>
-                <ul style={{ fontSize: '1rem', lineHeight: '1.8rem', listStyle: 'none', paddingLeft: 0, marginBottom: '24px' }}>
-                  <li style={{ paddingLeft: '20px', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, opacity: 0.6 }}>●</span>
-                    First-time feature tours
-                  </li>
-                  <li style={{ paddingLeft: '20px', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, opacity: 0.6 }}>●</span>
-                    Success confirmations
-                  </li>
-                  <li style={{ paddingLeft: '20px', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, opacity: 0.6 }}>●</span>
-                    Delight moments
-                  </li>
-                </ul>
-                <p style={{ fontSize: '0.95rem', opacity: 0.8, fontStyle: 'italic', borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: '20px' }}>
-                  Invest deeply in experience and narrative, but avoid over-engineering.
-                </p>
-              </div>
+              left: '60px',
+              top: '70px',
+              width: '380px',
+              textAlign: 'left'
+            }}>
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '16px', fontWeight: '600', letterSpacing: '-0.01em' }}>Quick wins</h3>
+              <ul style={{ fontSize: '0.95rem', lineHeight: '1.6', listStyle: 'disc', paddingLeft: '20px', marginBottom: '16px' }}>
+                <li>First-time feature tours</li>
+                <li>Success confirmations</li>
+                <li>Delight moments</li>
+                <li>Brand storytelling</li>
+              </ul>
+              <p style={{ fontSize: '0.9rem', lineHeight: '1.5', opacity: 0.85 }}>
+                Invest deeply in experience and narrative, but avoid over-engineering the backend.
+              </p>
+            </div>
 
-            {/* Top Right - High Impact × High Criticality (emphasized) */}
+            {/* Top Right - Trust-defining moments */}
             <div style={{
               position: 'absolute',
-              right: '70px',
-              top: '80px',
-              width: 'calc(50% - 100px)',
-                background: 'rgba(255, 255, 255, 0.05)',
-                border: '2px solid rgba(255,255,255,0.5)',
-                borderRadius: '16px',
-                padding: '30px',
-                textAlign: 'left'
-              }}>
-                <h3 style={{ fontSize: '1.4rem', marginBottom: '8px', fontWeight: '700' }}>Trust-defining moments</h3>
-                <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: '24px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                  High Impact × High Criticality
-                </p>
-                <ul style={{ fontSize: '1rem', lineHeight: '1.8rem', listStyle: 'none', paddingLeft: 0, marginBottom: '24px' }}>
-                  <li style={{ paddingLeft: '20px', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, opacity: 0.8 }}>●</span>
-                    Account deactivation
-                  </li>
-                  <li style={{ paddingLeft: '20px', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, opacity: 0.8 }}>●</span>
-                    Funds frozen
-                  </li>
-                  <li style={{ paddingLeft: '20px', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, opacity: 0.8 }}>●</span>
-                    Identity verification
-                  </li>
-                  <li style={{ paddingLeft: '20px', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, opacity: 0.8 }}>●</span>
-                    Fraud & disputes
-                  </li>
-                </ul>
-                <p style={{ fontSize: '1rem', opacity: 0.9, fontStyle: 'italic', fontWeight: '500', borderTop: '1px solid rgba(255,255,255,0.25)', paddingTop: '20px' }}>
-                  Precision, clarity, accessibility, and failure states matter.
-                </p>
-              </div>
+              right: '60px',
+              top: '70px',
+              width: '380px',
+              textAlign: 'left'
+            }}>
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '16px', fontWeight: '700', letterSpacing: '-0.01em' }}>Trust-defining moments</h3>
+              <ul style={{ fontSize: '0.95rem', lineHeight: '1.6', listStyle: 'disc', paddingLeft: '20px', marginBottom: '16px' }}>
+                <li>Account deactivation</li>
+                <li>Funds frozen</li>
+                <li>First-time onboarding</li>
+                <li>Fraud, disputes, identity verification</li>
+              </ul>
+              <p style={{ fontSize: '0.9rem', lineHeight: '1.5', opacity: 0.9 }}>
+                Precision, clarity, edge cases, accessibility, and failure states matter.
+              </p>
+            </div>
 
-            {/* Bottom Left - Low Impact × Low Criticality */}
+            {/* Bottom Left - Optimize later */}
             <div style={{
               position: 'absolute',
-              left: '70px',
-              bottom: '80px',
-              width: 'calc(50% - 100px)',
-                background: 'rgba(255, 255, 255, 0.02)',
-                border: '2px solid rgba(255,255,255,0.15)',
-                borderRadius: '16px',
-                padding: '30px',
-                textAlign: 'left'
-              }}>
-                <h3 style={{ fontSize: '1.3rem', marginBottom: '8px', fontWeight: '600', opacity: 0.7 }}>Optimize later</h3>
-                <p style={{ fontSize: '0.9rem', opacity: 0.5, marginBottom: '24px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                  Low Impact × Low Criticality
-                </p>
-                <ul style={{ fontSize: '1rem', lineHeight: '1.8rem', listStyle: 'none', paddingLeft: 0, marginBottom: '24px', opacity: 0.8 }}>
-                  <li style={{ paddingLeft: '20px', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, opacity: 0.5 }}>●</span>
-                    Admin settings
-                  </li>
-                  <li style={{ paddingLeft: '20px', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, opacity: 0.5 }}>●</span>
-                    Rarely used tools
-                  </li>
-                  <li style={{ paddingLeft: '20px', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, opacity: 0.5 }}>●</span>
-                    Internal-only flows
-                  </li>
-                </ul>
-                <p style={{ fontSize: '0.95rem', opacity: 0.7, fontStyle: 'italic', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '20px' }}>
-                  80% is good enough. Revisit only if signals change.
-                </p>
-              </div>
+              left: '60px',
+              bottom: '70px',
+              width: '380px',
+              textAlign: 'left'
+            }}>
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '16px', fontWeight: '600', letterSpacing: '-0.01em' }}>Optimize later</h3>
+              <ul style={{ fontSize: '0.95rem', lineHeight: '1.6', listStyle: 'disc', paddingLeft: '20px', marginBottom: '16px' }}>
+                <li>Admin settings</li>
+                <li>Rarely used tools</li>
+                <li>Internal-only flows</li>
+                <li>Nice-to-have optimizations</li>
+              </ul>
+              <p style={{ fontSize: '0.9rem', lineHeight: '1.5', opacity: 0.85 }}>
+                80% is good enough. Revisit only if signals change.
+              </p>
+            </div>
 
-            {/* Bottom Right - High Impact × Low Criticality */}
+            {/* Bottom Right - Scale and reliability first */}
             <div style={{
               position: 'absolute',
-              right: '70px',
-              bottom: '80px',
-              width: 'calc(50% - 100px)',
-                background: 'rgba(255, 255, 255, 0.03)',
-                border: '2px solid rgba(255,255,255,0.25)',
-                borderRadius: '16px',
-                padding: '30px',
-                textAlign: 'left'
-              }}>
-                <h3 style={{ fontSize: '1.3rem', marginBottom: '8px', fontWeight: '600' }}>Scale & reliability first</h3>
-                <p style={{ fontSize: '0.9rem', opacity: 0.6, marginBottom: '24px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                  High Impact × Low Criticality
-                </p>
-                <ul style={{ fontSize: '1rem', lineHeight: '1.8rem', listStyle: 'none', paddingLeft: 0, marginBottom: '24px' }}>
-                  <li style={{ paddingLeft: '20px', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, opacity: 0.6 }}>●</span>
-                    Repeated flows
-                  </li>
-                  <li style={{ paddingLeft: '20px', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, opacity: 0.6 }}>●</span>
-                    Compliance steps
-                  </li>
-                  <li style={{ paddingLeft: '20px', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, opacity: 0.6 }}>●</span>
-                    Payments setup
-                  </li>
-                </ul>
-                <p style={{ fontSize: '0.95rem', opacity: 0.8, fontStyle: 'italic', borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: '20px' }}>
-                  Thoughtful, scalable design matters more than polish.
-                </p>
+              right: '60px',
+              bottom: '70px',
+              width: '380px',
+              textAlign: 'left'
+            }}>
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '16px', fontWeight: '600', letterSpacing: '-0.01em' }}>Scale and reliability first</h3>
+              <ul style={{ fontSize: '0.95rem', lineHeight: '1.6', listStyle: 'disc', paddingLeft: '20px', marginBottom: '16px' }}>
+                <li>Repeated flows everyone must do</li>
+                <li>Compliance steps</li>
+                <li>Payments setup used constantly</li>
+                <li>Identity verification retries</li>
+              </ul>
+              <p style={{ fontSize: '0.9rem', lineHeight: '1.5', opacity: 0.85 }}>
+                Thoughtful, scalable, durable design matters more than polish.
+              </p>
             </div>
           </div>
         </div>

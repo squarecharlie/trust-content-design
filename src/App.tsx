@@ -5,7 +5,7 @@ import SlideCounter from './components/SlideCounter'
 
 function App() {
   const [currentSlide, setCurrentSlide] = useState(1)
-  const totalSlides = 30
+  const totalSlides = 26
 
   useEffect(() => {
     const handleScroll = () => {

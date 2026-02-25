@@ -401,14 +401,14 @@ const SlideDeck = () => {
             position: 'relative',
             height: '600px'
           }}>
-            {/* Y-axis (vertical) */}
+            {/* Y-axis (vertical line) */}
             <div style={{
               position: 'absolute',
               left: '50%',
-              top: '40px',
-              bottom: '40px',
-              width: '1px',
-              background: 'rgba(255,255,255,0.3)',
+              top: '50px',
+              bottom: '50px',
+              width: '1.5px',
+              background: '#000',
               transform: 'translateX(-50%)'
             }}></div>
 
@@ -416,100 +416,105 @@ const SlideDeck = () => {
             <div style={{
               position: 'absolute',
               left: '50%',
-              top: '30px',
+              top: '42px',
               transform: 'translateX(-50%)',
               width: 0,
               height: 0,
-              borderLeft: '5px solid transparent',
-              borderRight: '5px solid transparent',
-              borderBottom: '8px solid rgba(255,255,255,0.3)'
+              borderLeft: '6px solid transparent',
+              borderRight: '6px solid transparent',
+              borderBottom: '10px solid #000'
             }}></div>
 
             {/* Y-axis arrow bottom */}
             <div style={{
               position: 'absolute',
               left: '50%',
-              bottom: '30px',
+              bottom: '42px',
               transform: 'translateX(-50%)',
               width: 0,
               height: 0,
-              borderLeft: '5px solid transparent',
-              borderRight: '5px solid transparent',
-              borderTop: '8px solid rgba(255,255,255,0.3)'
+              borderLeft: '6px solid transparent',
+              borderRight: '6px solid transparent',
+              borderTop: '10px solid #000'
             }}></div>
 
-            {/* X-axis (horizontal) */}
+            {/* X-axis (horizontal line) */}
             <div style={{
               position: 'absolute',
               top: '50%',
-              left: '40px',
-              right: '40px',
-              height: '1px',
-              background: 'rgba(255,255,255,0.3)',
+              left: '50px',
+              right: '50px',
+              height: '1.5px',
+              background: '#000',
               transform: 'translateY(-50%)'
             }}></div>
 
             {/* X-axis arrow left */}
             <div style={{
               position: 'absolute',
-              left: '30px',
+              left: '42px',
               top: '50%',
               transform: 'translateY(-50%)',
               width: 0,
               height: 0,
-              borderTop: '5px solid transparent',
-              borderBottom: '5px solid transparent',
-              borderRight: '8px solid rgba(255,255,255,0.3)'
+              borderTop: '6px solid transparent',
+              borderBottom: '6px solid transparent',
+              borderRight: '10px solid #000'
             }}></div>
 
             {/* X-axis arrow right */}
             <div style={{
               position: 'absolute',
-              right: '30px',
+              right: '42px',
               top: '50%',
               transform: 'translateY(-50%)',
               width: 0,
               height: 0,
-              borderTop: '5px solid transparent',
-              borderBottom: '5px solid transparent',
-              borderLeft: '8px solid rgba(255,255,255,0.3)'
+              borderTop: '6px solid transparent',
+              borderBottom: '6px solid transparent',
+              borderLeft: '10px solid #000'
             }}></div>
 
-            {/* Axis labels - Cash App typography */}
+            {/* Y-axis label - top */}
             <div style={{
               position: 'absolute',
-              left: '52%',
-              top: '10px',
+              left: '50%',
+              top: '15px',
+              transform: 'translateX(-50%)',
               fontSize: '0.875rem',
               fontWeight: '400',
-              letterSpacing: '0.02em'
+              textAlign: 'center'
             }}>high criticality</div>
 
+            {/* Y-axis label - bottom */}
             <div style={{
               position: 'absolute',
-              left: '52%',
-              bottom: '10px',
+              left: '50%',
+              bottom: '15px',
+              transform: 'translateX(-50%)',
               fontSize: '0.875rem',
               fontWeight: '400',
-              letterSpacing: '0.02em'
+              textAlign: 'center'
             }}>Low criticality</div>
 
+            {/* X-axis label - left */}
             <div style={{
               position: 'absolute',
-              left: '10px',
-              top: '47%',
+              left: '15px',
+              top: '50%',
+              transform: 'translateY(-50%)',
               fontSize: '0.875rem',
-              fontWeight: '400',
-              letterSpacing: '0.02em'
+              fontWeight: '400'
             }}>Low impact</div>
 
+            {/* X-axis label - right */}
             <div style={{
               position: 'absolute',
-              right: '10px',
-              top: '47%',
+              right: '15px',
+              top: '50%',
+              transform: 'translateY(-50%)',
               fontSize: '0.875rem',
-              fontWeight: '400',
-              letterSpacing: '0.02em'
+              fontWeight: '400'
             }}>High impact</div>
 
             {/* Top Left - Quick wins */}

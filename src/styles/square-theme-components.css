@@ -1,0 +1,1043 @@
+/* Square Market Design Tokens - Layer 3: Component Tokens
+ *
+ * Purpose: Component-specific tokens that reference semantic token IDs
+ * Benefits: Components get specific values while staying connected to semantic layer
+ *
+ * Token naming: --component-<name>-<property>-<variant>
+ * Example: --component-button-padding-small
+ *
+ * This layer provides component-specific customization while referencing
+ * semantic IDs (Layer 2) instead of primitives directly.
+ */
+
+:root {
+  /* ========================================
+   * BADGE COMPONENT TOKENS
+   * ======================================== */
+
+  /* Badge/Pill - Shared Properties */
+  --component-badge-gap: var(--sq-spacing-50); /* 4px */
+  --component-badge-font-weight: var(--sq-font-weight-semibold); /* 600 */
+  --component-badge-radius: var(--sq-radius-circle); /* 1000px */
+  --component-badge-icon-size: var(--sq-icon-size-sm); /* 16px */
+  --component-badge-indicator-size: var(--sq-spacing-100); /* 8px */
+
+  /* Badge/Pill - Size Variants */
+  --component-badge-height-small: 24px;
+  --component-badge-padding-vertical-small: var(--sq-spacing-25); /* 2px */
+  --component-badge-padding-horizontal-small: var(--sq-spacing-100); /* 8px */
+  --component-badge-font-size-small: var(--type-styles-paragraph-size-10); /* 12px */
+  --component-badge-line-height-small: var(--type-styles-paragraph-leading-10); /* 18px */
+
+  --component-badge-height-medium: var(--sq-size-xs); /* 32px */
+  --component-badge-padding-vertical-medium: var(--sq-spacing-50); /* 4px */
+  --component-badge-padding-horizontal-medium: var(--sq-spacing-150); /* 12px */
+  --component-badge-font-size-medium: var(--type-styles-paragraph-size-20); /* 14px */
+  --component-badge-line-height-medium: var(--type-styles-paragraph-leading-20); /* 22px */
+
+  /* Badge/Pill - Color Variants */
+  /* Default (Gray) */
+  --component-badge-default-bg: hsl(var(--sq-fill-40));
+  --component-badge-default-text: hsl(var(--sq-text-20));
+  --component-badge-default-bg-hover: hsl(var(--sq-fill-30));
+
+  /* Emphasis (Blue) */
+  --component-badge-emphasis-bg: hsl(var(--sq-blue-40));
+  --component-badge-emphasis-text: hsl(var(--sq-blue-text));
+  --component-badge-emphasis-bg-hover: hsl(var(--sq-blue-30));
+
+  /* Success (Green) */
+  --component-badge-success-bg: hsl(var(--sq-success-40));
+  --component-badge-success-text: hsl(var(--sq-success-text));
+  --component-badge-success-bg-hover: hsl(var(--sq-success-30));
+
+  /* Critical (Red) */
+  --component-badge-critical-bg: hsl(var(--sq-critical-40));
+  --component-badge-critical-text: hsl(var(--sq-critical-text));
+  --component-badge-critical-bg-hover: hsl(var(--sq-critical-30));
+
+  /* Warning (Yellow/Orange) */
+  --component-badge-warning-bg: hsl(var(--sq-warning-40));
+  --component-badge-warning-text: hsl(var(--sq-warning-text));
+  --component-badge-warning-bg-hover: hsl(var(--sq-warning-30));
+
+  /* Beta (Teal) */
+  --component-badge-beta-bg: hsl(var(--sq-teal-40));
+  --component-badge-beta-text: hsl(var(--sq-teal-text));
+  --component-badge-beta-bg-hover: hsl(var(--sq-teal-30));
+
+  /* Alpha (Pink) */
+  --component-badge-alpha-bg: hsl(var(--sq-pink-40));
+  --component-badge-alpha-text: hsl(var(--sq-pink-text));
+  --component-badge-alpha-bg-hover: hsl(var(--sq-pink-30));
+
+  /* ========================================
+   * FIELD (INPUT) COMPONENT TOKENS
+   * ======================================== */
+
+  /* Field - Size Variants */
+  --component-field-height-small: var(--token-id-size-control-small);
+  --component-field-padding-horizontal-small: var(--token-id-spacing-component-medium);
+  --component-field-font-size-small: var(--token-id-font-size-body-small);
+
+  --component-field-height-medium: var(--token-id-size-control-medium);
+  --component-field-padding-horizontal-medium: var(--token-id-spacing-component-medium);
+  --component-field-font-size-medium: var(--token-id-font-size-body-medium);
+
+  --component-field-height-large: var(--token-id-size-control-large);
+  --component-field-padding-horizontal-large: var(--token-id-spacing-component-large);
+  --component-field-font-size-large: var(--token-id-font-size-body-large);
+
+  /* Field - States */
+  --component-field-bg: hsl(var(--sq-gray-white)); /* White - 0 0% 100% */
+  --component-field-border: hsl(var(--sq-fill-30)); /* Light gray - 0 0% 85% */
+  --component-field-border-hover: hsl(var(--sq-fill-20)); /* Mid gray - 0 0% 58% */
+  --component-field-border-focus: hsl(var(--sq-blue-fill)); /* Blue - 212 100% 50% */
+  --component-field-border-error: hsl(var(--sq-red-fill)); /* Red - 352 100% 40% */
+  --component-field-text: hsl(var(--sq-gray-10)); /* Dark text - 0 0% 6% */
+  --component-field-placeholder: hsl(var(--sq-gray-65)); /* Light gray - 0 0% 58% */
+  --component-field-radius: var(--token-id-radius-form-control);
+  --component-field-border-width: var(--token-id-border-width-thin);
+
+  /* Field - Focus Ring */
+  --component-field-focus-ring-color: var(--token-id-focus-ring-color);
+  --component-field-focus-ring-width: var(--token-id-focus-ring-width);
+  --component-field-focus-ring-offset: var(--token-id-focus-ring-offset);
+
+  /* ========================================
+   * TEXTAREA COMPONENT TOKENS
+   * ======================================== */
+
+  --component-textarea-padding-horizontal: var(--token-id-spacing-component-medium);
+  --component-textarea-padding-vertical: var(--token-id-spacing-component-medium);
+  --component-textarea-font-size: var(--token-id-font-size-body-medium);
+  --component-textarea-line-height: 1.5;
+  --component-textarea-min-height: 80px;
+
+  /* Textarea inherits most styles from Field */
+  --component-textarea-bg: var(--component-field-bg);
+  --component-textarea-border: var(--component-field-border);
+  --component-textarea-border-hover: var(--component-field-border-hover);
+  --component-textarea-border-focus: var(--component-field-border-focus);
+  --component-textarea-border-error: var(--component-field-border-error);
+  --component-textarea-text: var(--component-field-text);
+  --component-textarea-placeholder: var(--component-field-placeholder);
+  --component-textarea-radius: var(--component-field-radius);
+  --component-textarea-border-width: var(--component-field-border-width);
+
+  /* ========================================
+   * SELECT COMPONENT TOKENS
+   * ======================================== */
+
+  /* Select inherits sizing from Field */
+  --component-select-height-small: var(--component-field-height-small);
+  --component-select-height-medium: var(--component-field-height-medium);
+  --component-select-height-large: var(--component-field-height-large);
+  --component-select-padding-horizontal: var(--component-field-padding-horizontal-medium);
+  --component-select-font-size: var(--component-field-font-size-medium);
+
+  /* Select inherits most styles from Field */
+  --component-select-bg: var(--component-field-bg);
+  --component-select-border: var(--component-field-border);
+  --component-select-border-hover: var(--component-field-border-hover);
+  --component-select-border-focus: var(--component-field-border-focus);
+  --component-select-text: var(--component-field-text);
+  --component-select-radius: var(--component-field-radius);
+  --component-select-border-width: var(--component-field-border-width);
+
+  /* Select - Dropdown Icon */
+  --component-select-icon-size: var(--token-id-size-icon-small);
+  --component-select-icon-color: hsl(var(--sq-gray-50)); /* Mid gray - 0 0% 40% */
+
+  /* Select - Dropdown Menu */
+  --component-select-dropdown-bg: hsl(var(--sq-gray-white)); /* White - 0 0% 100% */
+  --component-select-dropdown-border: hsl(var(--sq-fill-30)); /* Light gray - 0 0% 85% */
+  --component-select-dropdown-shadow: var(--token-id-elevation-medium);
+  --component-select-dropdown-radius: var(--token-id-radius-medium);
+
+  /* Select - Option States */
+  --component-select-option-bg-hover: hsl(var(--sq-gray-90)); /* Light gray hover - 0 0% 91% */
+  --component-select-option-bg-selected: hsl(var(--sq-blue-40)); /* Light blue selected - 212 100% 95% */
+  --component-select-option-text: hsl(var(--sq-gray-10)); /* Dark text - 0 0% 6% */
+  --component-select-option-padding: var(--token-id-spacing-component-medium);
+
+  /* ========================================
+   * BANNER COMPONENT TOKENS
+   * ======================================== */
+
+  /* Banner - Base Sizing */
+  --component-banner-padding-vertical: var(--token-id-spacing-component-large); /* 16px */
+  --component-banner-padding-horizontal: var(--token-id-spacing-component-large); /* 16px */
+  --component-banner-gap: var(--token-id-spacing-component-medium); /* 12px */
+  --component-banner-min-height: 56px; /* TODO: Find or create appropriate token */
+
+  /* Banner - Typography */
+  --component-banner-font-size: var(--token-id-font-size-body-large); /* 16px - IMPORTANT: Keep at 16px */
+
+  /* Banner - Borders & Radius */
+  --component-banner-radius: var(--token-id-radius-medium); /* 12px */
+  --component-banner-border-width: var(--token-id-border-width-thin); /* 1px */
+
+  /* Banner - Icons */
+  --component-banner-icon-size: 24px; /* TODO: Find token-id level token for 24px icon */
+
+  /* Banner - Close Button */
+  --component-banner-close-color: hsl(var(--sq-gray-10)); /* Dark text - 0 0% 6% */
+
+  /* Banner - Default Variant */
+  --component-banner-default-bg: hsl(var(--sq-fill-40));
+  --component-banner-default-text: hsl(var(--sq-text-10));
+  --component-banner-default-border: hsl(var(--sq-emphasis-40));
+  --component-banner-default-link: #101010; /* TODO: Find token */
+
+  /* Banner - Info Variant (originally same as default in the original CSS) */
+  --component-banner-info-bg: hsl(var(--sq-blue-30));
+  --component-banner-info-text: hsl(var(--sq-text-10));
+  --component-banner-info-border: hsl(var(--sq-blue-20));
+  --component-banner-info-link: #101010; /* TODO: Find token */
+
+  /* Banner - Success Variant */
+  --component-banner-success-bg: hsl(var(--sq-success-40));
+  --component-banner-success-text: hsl(var(--sq-text-10));
+  --component-banner-success-border: hsl(var(--sq-success-30));
+  --component-banner-success-icon: #00B23B; /* TODO: Find token */
+  --component-banner-success-link: #007D2A; /* TODO: Find token */
+
+  /* Banner - Warning Variant */
+  --component-banner-warning-bg: hsl(var(--sq-warning-40));
+  --component-banner-warning-text: hsl(var(--sq-text-10));
+  --component-banner-warning-border: hsl(var(--sq-warning-30));
+  --component-banner-warning-icon: #FF9F40; /* TODO: Find token */
+  --component-banner-warning-link: #945C25; /* TODO: Find token */
+
+  /* Banner - Critical Variant */
+  --component-banner-critical-bg: hsl(var(--sq-critical-40));
+  --component-banner-critical-text: hsl(var(--sq-text-10));
+  --component-banner-critical-border: hsl(var(--sq-critical-30));
+  --component-banner-critical-icon: #CC0023; /* TODO: Find token */
+  --component-banner-critical-link: #BF0020; /* TODO: Find token */
+
+  /* ========================================
+   * BUTTON COMPONENT TOKENS
+   * ======================================== */
+
+  /* Button - Size Variants */
+  --component-button-height-small: var(--sq-size-small);
+  --component-button-height-medium: var(--sq-size-medium);
+  --component-button-height-large: var(--sq-size-large);
+
+  --component-button-padding-vertical-small: var(--sq-spacing-100);
+  --component-button-padding-vertical-medium: var(--sq-spacing-150);
+  --component-button-padding-vertical-large: var(--sq-spacing-250);
+
+  --component-button-padding-horizontal-small: var(--sq-spacing-200);
+  --component-button-padding-horizontal-medium: var(--sq-spacing-250);
+  --component-button-padding-horizontal-large: var(--sq-spacing-300);
+
+  --component-button-font-size-small: var(--token-id-font-size-body-medium);
+  --component-button-font-size-medium: var(--token-id-font-size-body-large);
+  --component-button-font-size-large: var(--token-id-font-size-body-large);
+
+  --component-button-gap: var(--sq-spacing-100); /* for icon+text */
+
+  /* Button - Border Radius */
+  --component-button-radius: var(--token-id-radius-full); /* pill shape */
+
+  /* Button - Icon Size */
+  --component-button-icon-size: var(--sq-icon-size-md); /* 20px */
+
+  /* Button - Focus Outline */
+  --component-button-outline-width: var(--token-id-border-width-medium); /* 2px */
+  --component-button-outline-offset: var(--token-id-border-width-medium); /* 2px */
+
+  /* Button - Primary Neutral (Black) */
+  --component-button-primary-neutral-bg: hsl(0 0% 9%); /* gray-900 */
+  --component-button-primary-neutral-bg-hover: hsl(0 0% 20%); /* #333 */
+  --component-button-primary-neutral-bg-active: hsl(0 0% 40%); /* #666 */
+  --component-button-primary-neutral-text: hsl(0 0% 100%); /* white */
+  --component-button-primary-neutral-outline: hsl(0 0% 9%);
+
+  /* Button - Primary Brand (same as neutral for now) */
+  --component-button-primary-brand-bg: hsl(0 0% 9%);
+  --component-button-primary-brand-bg-hover: hsl(0 0% 20%); /* #333 */
+  --component-button-primary-brand-bg-active: hsl(0 0% 40%); /* #666 */
+  --component-button-primary-brand-text: hsl(0 0% 100%);
+  --component-button-primary-brand-outline: hsl(0 0% 9%);
+
+  /* Button - Primary Destructive (Square Red: #CC0023) */
+  --component-button-primary-destructive-bg: hsl(352 100% 40%); /* #CC0023 */
+  --component-button-primary-destructive-bg-hover: hsl(352 100% 30%);
+  --component-button-primary-destructive-bg-active: hsl(352 100% 25%);
+  --component-button-primary-destructive-text: hsl(0 0% 100%);
+  --component-button-primary-destructive-outline: hsl(352 100% 40%);
+
+  /* Button - Secondary Neutral (Light Gray) */
+  --component-button-secondary-neutral-bg: hsl(0 0% 94%); /* gray-100 */
+  --component-button-secondary-neutral-bg-hover: hsl(0 0% 90%); /* gray-200 */
+  --component-button-secondary-neutral-bg-active: hsl(0 0% 83%); /* gray-300 */
+  --component-button-secondary-neutral-text: hsl(0 0% 9%); /* gray-900 */
+  --component-button-secondary-neutral-outline: hsl(0 0% 42%); /* gray-500 */
+
+  /* Button - Secondary Brand (same as neutral) */
+  --component-button-secondary-brand-bg: hsl(0 0% 94%);
+  --component-button-secondary-brand-bg-hover: hsl(0 0% 90%);
+  --component-button-secondary-brand-bg-active: hsl(0 0% 83%);
+  --component-button-secondary-brand-text: hsl(0 0% 9%);
+  --component-button-secondary-brand-outline: hsl(0 0% 42%);
+
+  /* Button - Secondary Destructive (Light Red) */
+  --component-button-secondary-destructive-bg: hsl(348 100% 95%);
+  --component-button-secondary-destructive-bg-hover: hsl(350 100% 90%);
+  --component-button-secondary-destructive-bg-active: hsl(350 100% 85%);
+  --component-button-secondary-destructive-text: hsl(352 100% 40%);
+  --component-button-secondary-destructive-outline: hsl(352 100% 40%);
+
+  /* Button - Tertiary Neutral (Transparent with underline) */
+  --component-button-tertiary-neutral-bg-hover: hsl(0 0% 94%); /* gray-100 */
+  --component-button-tertiary-neutral-bg-active: hsl(0 0% 90%); /* gray-200 */
+  --component-button-tertiary-neutral-text: hsl(0 0% 9%); /* gray-900 */
+  --component-button-tertiary-neutral-outline: hsl(0 0% 42%); /* gray-500 */
+
+  /* Button - Tertiary Brand (same as neutral) */
+  --component-button-tertiary-brand-bg-hover: hsl(0 0% 94%);
+  --component-button-tertiary-brand-bg-active: hsl(0 0% 90%);
+  --component-button-tertiary-brand-text: hsl(0 0% 9%);
+  --component-button-tertiary-brand-outline: hsl(0 0% 42%);
+
+  /* Button - Tertiary Destructive (Red with underline) */
+  --component-button-tertiary-destructive-bg-hover: hsl(348 100% 95%);
+  --component-button-tertiary-destructive-bg-active: hsl(350 100% 90%);
+  --component-button-tertiary-destructive-text: hsl(352 100% 40%);
+  --component-button-tertiary-destructive-outline: hsl(352 100% 40%);
+
+  /* Button - Disabled State (all variants) */
+  --component-button-disabled-bg: hsl(0 0% 94%);
+  --component-button-disabled-text: hsl(0 0% 58%);
+
+  /* ========================================
+   * CHOICE BUTTON COMPONENT TOKENS
+   * ======================================== */
+
+  /* Choice Button - Size Variants */
+  --component-choice-button-height-small: var(--sq-size-small);
+  --component-choice-button-height-medium: var(--sq-size-medium);
+  --component-choice-button-height-large: var(--sq-size-large);
+
+  --component-choice-button-padding-vertical-small: var(--sq-spacing-100);
+  --component-choice-button-padding-vertical-medium: var(--sq-spacing-150);
+  --component-choice-button-padding-vertical-large: var(--sq-spacing-250);
+
+  --component-choice-button-padding-horizontal-small: var(--sq-spacing-200);
+  --component-choice-button-padding-horizontal-medium: var(--sq-spacing-250);
+  --component-choice-button-padding-horizontal-large: var(--sq-spacing-300);
+
+  --component-choice-button-font-size-small: var(--token-id-font-size-body-medium);
+  --component-choice-button-font-size-medium: var(--token-id-font-size-body-large);
+  --component-choice-button-font-size-large: var(--token-id-font-size-body-large);
+
+  --component-choice-button-gap: var(--sq-spacing-100); /* for icon+text */
+
+  /* Choice Button - Border Radius */
+  --component-choice-button-radius: var(--token-id-radius-full); /* pill shape */
+
+  /* Choice Button - Icon Size */
+  --component-choice-button-icon-size: var(--sq-icon-size-md); /* 20px */
+
+  /* Choice Button - Border Width */
+  --component-choice-button-border-width: var(--token-id-border-width-thin); /* 1px */
+
+  /* Choice Button - Focus Outline */
+  --component-choice-button-outline-width: var(--token-id-border-width-medium); /* 2px */
+  --component-choice-button-outline-offset: var(--token-id-border-width-medium); /* 2px */
+
+  /* Choice Button - Unselected State (Light Gray) */
+  --component-choice-button-unselected-bg: hsl(0 0% 94%); /* gray-100 */
+  --component-choice-button-unselected-bg-hover: hsl(0 0% 90%); /* gray-200 */
+  --component-choice-button-unselected-bg-active: hsl(0 0% 83%); /* gray-300 */
+  --component-choice-button-unselected-text: hsl(0 0% 9%); /* gray-900 */
+  --component-choice-button-unselected-border: hsl(0 0% 85%); /* gray-200 */
+  --component-choice-button-unselected-border-hover: hsl(0 0% 75%); /* gray-300 */
+  --component-choice-button-unselected-outline: hsl(0 0% 42%); /* gray-500 */
+
+  /* Choice Button - Selected State (Black) */
+  --component-choice-button-selected-bg: hsl(0 0% 9%); /* gray-900 */
+  --component-choice-button-selected-bg-hover: hsl(0 0% 20%); /* #333 */
+  --component-choice-button-selected-bg-active: hsl(0 0% 40%); /* #666 */
+  --component-choice-button-selected-text: hsl(0 0% 100%); /* white */
+  --component-choice-button-selected-border: hsl(0 0% 9%); /* gray-900 */
+  --component-choice-button-selected-border-hover: hsl(0 0% 20%);
+  --component-choice-button-selected-outline: hsl(0 0% 9%);
+
+  /* Choice Button - Disabled State */
+  --component-choice-button-disabled-bg: hsl(0 0% 94%);
+  --component-choice-button-disabled-text: hsl(0 0% 58%);
+  --component-choice-button-disabled-border: hsl(0 0% 85%);
+
+  /* ========================================
+   * CARD COMPONENT TOKENS
+   * ======================================== */
+
+  /* Card - Border Radius */
+  --component-card-radius: 12px;
+
+  /* Card - Variants */
+  --component-card-bg-default: hsl(0 0% 100%); /* white */
+  --component-card-border-default: hsl(0 0% 88%); /* gray-200 */
+
+  --component-card-bg-emphasis: hsl(0 0% 97%); /* #F7F7F7 */
+  --component-card-border-emphasis: hsl(0 0% 80%); /* #CCCCCC */
+
+  /* Card - Padding */
+  --component-card-padding: 20px; /* px-5 py-5 = 1.25rem = 20px */
+
+  /* Card - Header */
+  --component-card-header-border: hsl(0 0% 88%); /* gray-200 */
+
+  /* Card - Title */
+  --component-card-title-font-size: 24px; /* text-2xl = 1.5rem */
+  --component-card-title-font-weight: 600; /* semibold */
+  --component-card-title-color: hsl(0 0% 9%); /* gray-900 */
+  --component-card-title-line-height: 1.375; /* leading-snug */
+
+  /* Card - Content */
+  --component-card-content-color: hsl(0 0% 28%); /* gray-700 */
+
+  /* ========================================
+   * CHECKBOX COMPONENT TOKENS
+   * ======================================== */
+
+  /* Checkbox - Size */
+  --component-checkbox-size: 20px; /* 5 in Tailwind = 1.25rem = 20px */
+  --component-checkbox-icon-size: 12px; /* h-3 w-3 = 0.75rem = 12px */
+  --component-checkbox-radius: 4px;
+  --component-checkbox-border-width: 2px;
+
+  /* Checkbox - Default (unchecked) */
+  --component-checkbox-bg: transparent;
+  --component-checkbox-border: hsl(0 0% 58%); /* #959595 */
+  --component-checkbox-border-hover: hsl(var(--sq-emphasis-10));
+  --component-checkbox-border-active: hsl(var(--sq-emphasis-20));
+
+  /* Checkbox - Checked */
+  --component-checkbox-checked-bg: hsl(0 0% 6%); /* #101010 */
+  --component-checkbox-checked-border: hsl(0 0% 6%); /* #101010 */
+  --component-checkbox-checked-bg-hover: hsl(0 0% 13%); /* #212121 */
+  --component-checkbox-checked-border-hover: hsl(0 0% 13%); /* #212121 */
+  --component-checkbox-checked-icon-color: hsl(0 0% 100%); /* white */
+
+  /* Checkbox - Indeterminate */
+  --component-checkbox-indeterminate-icon-color: hsl(0 0% 6%); /* #101010 */
+  --component-checkbox-indeterminate-icon-hover: hsl(var(--sq-emphasis-10));
+  --component-checkbox-indeterminate-icon-active: hsl(var(--sq-emphasis-20));
+
+  /* Checkbox - Disabled */
+  --component-checkbox-disabled-bg: hsl(var(--sq-fill-50)); /* #F7F7F7 */
+  --component-checkbox-disabled-border: hsl(var(--sq-emphasis-30));
+  --component-checkbox-disabled-icon-color: hsl(var(--sq-emphasis-30));
+
+  /* Checkbox - Error */
+  --component-checkbox-error-border: hsl(352 100% 40%); /* #CC0023 */
+  --component-checkbox-error-checked-bg: hsl(352 100% 40%); /* #CC0023 */
+  --component-checkbox-error-checked-border: hsl(352 100% 40%); /* #CC0023 */
+  --component-checkbox-error-indeterminate-icon: hsl(352 100% 40%); /* #CC0023 */
+
+  /* Checkbox - Focus */
+  --component-checkbox-focus-ring: hsl(var(--sq-emphasis-10));
+  --component-checkbox-focus-ring-width: 2px;
+  --component-checkbox-focus-ring-offset: 2px;
+
+  /* Checkbox - Label */
+  --component-checkbox-label-gap: 8px; /* gap-2 = 0.5rem = 8px */
+  --component-checkbox-label-font-size: 14px; /* text-sm = 0.875rem = 14px */
+  --component-checkbox-label-color: hsl(var(--sq-text-10));
+
+  /* ========================================
+   * SEARCH COMPONENT TOKENS
+   * ======================================== */
+
+  /* Search - Size Variants */
+  --component-search-height-small: var(--token-id-size-control-small); /* 32px */
+  --component-search-height-medium: var(--token-id-size-control-medium); /* 40px */
+  --component-search-width-full: 280px;
+  --component-search-padding-horizontal: var(--token-id-spacing-component-medium);
+  --component-search-icon-size: 24px;
+  --component-search-gap: var(--token-id-spacing-component-small);
+
+  /* Search - Colors */
+  --component-search-bg: hsl(var(--sq-gray-white)); /* White - 0 0% 100% */
+  --component-search-border: hsl(var(--sq-fill-30)); /* Light gray - 0 0% 85% */
+  --component-search-border-hover: hsl(var(--sq-fill-20)); /* Mid gray - 0 0% 58% */
+  --component-search-border-focus: hsl(var(--sq-blue-fill)); /* Blue - 212 100% 50% */
+  --component-search-text: hsl(var(--sq-gray-10)); /* Dark text - 0 0% 6% */
+  --component-search-placeholder: hsl(var(--sq-gray-65)); /* Light gray - 0 0% 58% */
+  --component-search-icon-color: hsl(var(--sq-gray-50)); /* Mid gray - 0 0% 40% */
+
+  /* Search - Radius */
+  --component-search-radius-full: var(--token-id-radius-full); /* pill shape for full input */
+  --component-search-radius-icon-only: var(--token-id-radius-medium); /* 12px for icon button */
+
+  /* Search - Border Width */
+  --component-search-border-width: var(--token-id-border-width-thin);
+  --component-search-border-width-focus: var(--token-id-border-width-thick); /* 2px when focused */
+
+  /* Search - Focus Ring */
+  --component-search-focus-ring-color: var(--token-id-focus-ring-color);
+  --component-search-focus-ring-width: var(--token-id-focus-ring-width);
+  --component-search-focus-ring-offset: var(--token-id-focus-ring-offset);
+
+  /* ========================================
+   * TABLE COMPONENT TOKENS
+   * ======================================== */
+
+  --component-table-bg: var(--token-id-color-bg-base);
+  --component-table-border: var(--token-id-color-border-subtle);
+  --component-table-border-width: var(--token-id-border-width-thin);
+  --component-table-radius: var(--token-id-radius-medium);
+
+  /* Table - Header */
+  --component-table-header-bg: var(--token-id-color-bg-subtle);
+  --component-table-header-text: var(--token-id-color-text-secondary);
+  --component-table-header-font-size: var(--token-id-font-size-body-small);
+  --component-table-header-font-weight: var(--token-id-font-weight-semibold);
+  --component-table-header-padding-vertical: var(--token-id-spacing-component-medium);
+  --component-table-header-padding-horizontal: var(--token-id-spacing-component-large);
+
+  /* Table - Cell */
+  --component-table-cell-text: var(--token-id-color-text-primary);
+  --component-table-cell-font-size: var(--token-id-font-size-body-medium);
+  --component-table-cell-padding-vertical: var(--token-id-spacing-component-large);
+  --component-table-cell-padding-horizontal: var(--token-id-spacing-component-large);
+
+  /* Table - Row States */
+  --component-table-row-bg-hover: hsl(var(--sq-fill-50)); /* Very light gray hover - #F7F7F7 */
+  --component-table-row-bg-selected: hsl(var(--sq-blue-40));
+  --component-table-row-border: var(--token-id-color-divider-subtle);
+
+  /* ========================================
+   * DIVIDER COMPONENT TOKENS
+   * ======================================== */
+
+  --component-divider-color-default: var(--token-id-color-divider-subtle);
+  --component-divider-color-strong: var(--token-id-color-divider-strong);
+  --component-divider-width: 1px;
+
+  /* ========================================
+   * ACCESSORY (AVATAR) COMPONENT TOKENS
+   * ======================================== */
+
+  /* Accessory - Size Variants */
+  --component-accessory-size-md: var(--sq-size-small); /* 40px */
+  --component-accessory-size-lg: var(--sq-size-large); /* 64px */
+
+  /* Accessory - Font Sizes */
+  --component-accessory-font-size-md: var(--token-id-font-size-body-medium); /* 14px */
+  --component-accessory-font-size-lg: 28px; /* TODO: Find or create appropriate token */
+
+  /* Accessory - Icon Sizes */
+  --component-accessory-icon-size-box-md: var(--sq-icon-size-md); /* 20px */
+  --component-accessory-icon-size-box-lg: 28px; /* TODO: Find or create appropriate token */
+  --component-accessory-icon-size-only-md: var(--sq-icon-size-lg); /* 24px */
+  --component-accessory-icon-size-only-lg: var(--sq-icon-size-xl); /* 32px */
+
+  /* ========================================
+   * TOGGLE COMPONENT TOKENS
+   * ======================================== */
+
+  /* Toggle - Dimensions */
+  --component-toggle-width: 36px;
+  --component-toggle-height: 20px;
+  --component-toggle-thumb-size: 16px;
+  --component-toggle-radius: var(--sq-radius-circle); /* 1000px */
+
+  /* Toggle - Transitions */
+  --component-toggle-transition-duration: 200ms;
+  --component-toggle-transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Toggle - Unchecked State */
+  --component-toggle-unchecked-bg: hsl(var(--sq-fill-75));
+  --component-toggle-unchecked-border: hsl(var(--sq-fill-75));
+  --component-toggle-unchecked-bg-hover: hsl(var(--sq-fill-70));
+  --component-toggle-unchecked-border-hover: hsl(var(--sq-fill-70));
+  --component-toggle-unchecked-bg-pressed: hsl(var(--sq-fill-65));
+  --component-toggle-unchecked-border-pressed: hsl(var(--sq-fill-65));
+
+  /* Toggle - Unchecked Thumb */
+  --component-toggle-unchecked-thumb-bg: hsl(var(--sq-surface-primary));
+  --component-toggle-unchecked-thumb-bg-hover: hsl(var(--sq-surface-primary));
+  --component-toggle-unchecked-thumb-bg-pressed: hsl(var(--sq-surface-primary));
+
+  /* Toggle - Checked State */
+  --component-toggle-checked-bg: hsl(var(--sq-brand-primary));
+  --component-toggle-checked-border: hsl(var(--sq-brand-primary));
+  --component-toggle-checked-bg-hover: hsl(var(--sq-brand-text));
+  --component-toggle-checked-border-hover: hsl(var(--sq-brand-text));
+  --component-toggle-checked-bg-pressed: hsl(var(--sq-emphasis-10));
+  --component-toggle-checked-border-pressed: hsl(var(--sq-emphasis-10));
+
+  /* Toggle - Checked Thumb */
+  --component-toggle-checked-thumb-bg: hsl(var(--sq-surface-primary));
+  --component-toggle-checked-thumb-bg-hover: hsl(var(--sq-surface-primary));
+  --component-toggle-checked-thumb-bg-pressed: hsl(var(--sq-surface-primary));
+
+  /* Toggle - Disabled State */
+  --component-toggle-opacity-disabled: 0.4;
+  --component-toggle-unchecked-bg-disabled: hsl(var(--sq-fill-75));
+  --component-toggle-unchecked-border-disabled: hsl(var(--sq-fill-75));
+  --component-toggle-checked-bg-disabled: hsl(var(--sq-brand-primary));
+  --component-toggle-checked-border-disabled: hsl(var(--sq-brand-primary));
+  --component-toggle-unchecked-thumb-bg-disabled: hsl(var(--sq-surface-primary));
+  --component-toggle-checked-thumb-bg-disabled: hsl(var(--sq-surface-primary));
+
+  /* ========================================
+   * LINK COMPONENT TOKENS
+   * ======================================== */
+
+  /* Link - Typography */
+  --component-link-size-small: var(--token-id-font-size-body-small); /* 12px */
+  --component-link-size-medium: var(--token-id-font-size-body-medium); /* 14px */
+  --component-link-line-height-small: var(--sq-line-height-sm); /* 18px */
+  --component-link-line-height-medium: var(--sq-line-height-md); /* 22px */
+  --component-link-font-weight: var(--sq-font-weight-medium); /* 500 */
+
+  /* Link - Underline */
+  --component-link-underline-offset: 2px;
+  --component-link-underline-thickness: 1px;
+
+  /* Link - Transitions */
+  --component-link-transition-duration: 150ms;
+  --component-link-transition-easing: ease-in-out;
+
+  /* Link - Neutral Tone */
+  --component-link-neutral-color: hsl(var(--sq-text-primary));
+  --component-link-neutral-color-hover: hsl(var(--sq-text-secondary));
+  --component-link-neutral-color-pressed: hsl(var(--sq-text-10));
+  --component-link-neutral-color-disabled: hsl(var(--sq-text-tertiary));
+
+  /* Link - Critical Tone */
+  --component-link-critical-color: hsl(var(--sq-critical-text));
+  --component-link-critical-color-hover: hsl(var(--sq-critical-20));
+  --component-link-critical-color-pressed: hsl(var(--sq-critical-10));
+
+  /* Link - Disabled */
+  --component-link-opacity-disabled: 0.4;
+
+  /* ========================================
+   * SEGMENTED CONTROL COMPONENT TOKENS
+   * ======================================== */
+
+  /* Segmented Control - Dimensions */
+  --component-segmented-control-height: var(--sq-size-300); /* 48px */
+  --component-segmented-control-item-min-width: var(--sq-size-250); /* 40px */
+  --component-segmented-control-item-height: 44px; /* 44px (48px - 4px padding) */
+
+  /* Segmented Control - Spacing */
+  --component-segmented-control-padding: var(--sq-spacing-25); /* 2px */
+  --component-segmented-control-item-padding-horizontal: var(--sq-spacing-250); /* 20px */
+  --component-segmented-control-gap: var(--sq-spacing-50); /* 4px */
+
+  /* Segmented Control - Typography */
+  --component-segmented-control-font-family: var(--sq-font-family-primary);
+  --component-segmented-control-font-size: var(--type-styles-paragraph-size-20); /* 14px */
+  --component-segmented-control-font-weight: var(--sq-font-weight-medium); /* 500 */
+  --component-segmented-control-line-height: var(--type-styles-paragraph-leading-20); /* 22px */
+
+  /* Segmented Control - Borders & Radius */
+  --component-segmented-control-radius: var(--sq-radius-400); /* 24px - Pill shape */
+  --component-segmented-control-item-radius: var(--sq-radius-modals); /* 20px - Pill shape for items */
+  --component-segmented-control-border-color: transparent;
+  --component-segmented-control-border-width: 0px;
+
+  /* Segmented Control - Colors */
+  --component-segmented-control-bg: hsl(var(--sq-gray-95)); /* Light gray background */
+  --component-segmented-control-item-text: hsl(var(--sq-text-primary));
+  --component-segmented-control-item-text-hover: hsl(var(--sq-text-primary));
+  --component-segmented-control-item-bg: transparent;
+  --component-segmented-control-item-bg-hover: hsl(var(--sq-fill-05)); /* Subtle hover */
+  --component-segmented-control-item-bg-active: hsl(var(--sq-gray-90)); /* Pressed state */
+
+  /* Segmented Control - Selected State */
+  --component-segmented-control-item-text-selected: hsl(var(--sq-text-primary));
+  --component-segmented-control-item-bg-selected: hsl(var(--sq-surface-primary)); /* White */
+  --component-segmented-control-item-bg-selected-hover: hsl(var(--sq-surface-primary));
+  --component-segmented-control-item-shadow-selected: var(--elevation-10-shadow);
+
+  /* Segmented Control - Disabled */
+  --component-segmented-control-item-text-disabled: hsl(var(--sq-text-tertiary));
+  --component-segmented-control-opacity-disabled: 0.4;
+
+  /* Segmented Control - Icon Size */
+  --component-segmented-control-icon-size: var(--sq-size-125); /* 20px */
+
+  /* Segmented Control - Transitions */
+  --component-segmented-control-transition-duration: 200ms;
+
+  /* ========================================
+   * SIDEBAR COMPONENT TOKENS
+   * ======================================== */
+
+  /* Sidebar - Base */
+  --component-sidebar-bg: hsl(var(--sq-gray-98));
+  --component-sidebar-border: hsl(var(--sq-gray-90));
+
+  /* Sidebar - Header */
+  --component-sidebar-header-padding: var(--sq-spacing-200); /* 16px */
+  --component-sidebar-header-gap: var(--sq-spacing-200);
+
+  /* Sidebar - Content */
+  --component-sidebar-content-padding-horizontal: var(--sq-spacing-200);
+
+  /* Sidebar - Business Selector */
+  --component-sidebar-business-selector-padding-vertical: var(--sq-spacing-150); /* 12px */
+  --component-sidebar-business-selector-padding-horizontal: var(--sq-spacing-200); /* 16px */
+  --component-sidebar-business-selector-gap: var(--sq-spacing-100); /* 8px */
+  --component-sidebar-business-selector-border: hsl(var(--sq-gray-90));
+  --component-sidebar-business-selector-radius: var(--sq-radius-200); /* 12px */
+  --component-sidebar-business-selector-bg: transparent;
+  --component-sidebar-business-selector-bg-hover: hsl(var(--sq-gray-95));
+  --component-sidebar-business-selector-text: hsl(var(--sq-text-primary));
+  --component-sidebar-business-selector-font-size: var(--sq-font-size-100); /* 14px */
+  --component-sidebar-business-selector-font-weight: var(--sq-font-medium);
+
+  /* Sidebar - Nav Menu */
+  --component-sidebar-nav-gap: var(--sq-spacing-050); /* 4px */
+
+  /* Sidebar - Nav Item */
+  --component-sidebar-nav-item-padding-vertical: var(--sq-spacing-150); /* 12px */
+  --component-sidebar-nav-item-padding-horizontal: var(--sq-spacing-200); /* 16px */
+  --component-sidebar-nav-item-gap: var(--sq-spacing-150); /* 12px */
+  --component-sidebar-nav-item-radius: 6px;
+  --component-sidebar-nav-item-text: hsl(var(--sq-text-primary));
+  --component-sidebar-nav-item-font-size: var(--type-styles-paragraph-size-20); /* 14px */
+  --component-sidebar-nav-item-font-weight: var(--sq-font-weight-medium);
+  --component-sidebar-nav-item-bg-hover: hsl(var(--sq-gray-90)); /* #E8E8E8 */
+  --component-sidebar-nav-item-bg-pressed: hsl(var(--sq-gray-80)); /* #CCCCCC */
+  --component-sidebar-nav-item-bg-active: hsl(var(--sq-gray-90)); /* #E8E8E8 */
+  --component-sidebar-nav-item-min-height: var(--sq-size-medium); /* 44px */
+
+  /* Sidebar - Submenu */
+  --component-sidebar-submenu-gap: var(--sq-spacing-050); /* 4px */
+  --component-sidebar-submenu-margin-top: var(--sq-spacing-050);
+  --component-sidebar-submenu-margin-bottom: var(--sq-spacing-100);
+  --component-sidebar-submenu-item-padding-left: var(--sq-spacing-300); /* 24px - indentation */
+  --component-sidebar-submenu-item-font-weight: var(--sq-font-regular);
+  --component-sidebar-submenu-item-font-weight-active: var(--sq-font-medium);
+
+  /* Sidebar - Section Header */
+  --component-sidebar-section-header-padding-vertical: var(--sq-spacing-300); /* 24px */
+  --component-sidebar-section-header-padding-horizontal: var(--sq-spacing-100); /* 8px */
+  --component-sidebar-section-header-margin-bottom: var(--sq-spacing-200);
+  --component-sidebar-section-header-gap: var(--sq-spacing-150);
+  --component-sidebar-section-header-font-size: var(--type-styles-paragraph-size-20); /* 14px */
+  --component-sidebar-section-header-font-weight: var(--sq-font-weight-semibold);
+
+  /* Sidebar - Footer */
+  --component-sidebar-footer-padding: var(--sq-spacing-200);
+  --component-sidebar-footer-gap: var(--sq-spacing-200);
+  --component-sidebar-footer-border-top: hsl(var(--sq-gray-90));
+
+  /* Sidebar - Icon Button (footer) */
+  --component-sidebar-icon-button-size: 36px; /* w-9 h-9 */
+  --component-sidebar-icon-button-radius: var(--sq-radius-200);
+  --component-sidebar-icon-button-text: hsl(var(--sq-text-secondary));
+  --component-sidebar-icon-button-bg-hover: hsl(var(--sq-gray-95));
+
+  /* ========================================
+   * TOOLTIP COMPONENT TOKENS
+   * ======================================== */
+
+  --component-tooltip-bg: var(--token-id-color-bg-inverse);
+  --component-tooltip-text: var(--token-id-color-text-inverse);
+  --component-tooltip-padding-vertical: var(--token-id-spacing-component-small);
+  --component-tooltip-padding-horizontal: var(--token-id-spacing-component-medium);
+  --component-tooltip-radius: var(--token-id-radius-small);
+  --component-tooltip-font-size: var(--token-id-font-size-body-small);
+  --component-tooltip-shadow: var(--token-id-elevation-high);
+  --component-tooltip-animation-duration: var(--token-id-animation-enter-fast);
+
+  /* ========================================
+   * DIALOG COMPONENT TOKENS
+   * ======================================== */
+
+  /* Dialog - Overlay */
+  --component-dialog-overlay-bg: hsl(0 0% 0% / 0.6); /* 60% opacity black overlay */
+
+  /* Dialog - Size Variants */
+  --component-dialog-width-sm: 400px;
+  --component-dialog-width-md: 500px;
+  --component-dialog-width-lg: 640px;
+  --component-dialog-max-height: 85vh; /* Maximum height relative to viewport */
+
+  /* Dialog - Spacing */
+  --component-dialog-padding: var(--token-id-spacing-layout-medium); /* 24px */
+  --component-dialog-gap: var(--token-id-spacing-component-large); /* 16px */
+
+  /* Dialog - Header Spacing */
+  --component-dialog-header-gap: var(--token-id-spacing-component-xs); /* 4px for title/description */
+
+  /* Dialog - Footer Spacing */
+  --component-dialog-footer-gap: var(--token-id-spacing-component-medium); /* 12px between buttons */
+
+  /* Dialog - Border & Radius */
+  --component-dialog-radius: var(--token-id-radius-modal); /* 20px */
+  --component-dialog-border: var(--token-id-color-border-subtle);
+  --component-dialog-border-width: var(--token-id-border-width-thin); /* 1px */
+
+  /* Dialog - Colors */
+  --component-dialog-bg: hsl(var(--sq-fill-white)); /* White - #FFFFFF */
+  --component-dialog-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25); /* TODO: Create elevation token */
+
+  /* Dialog - Title */
+  --component-dialog-title-font-size: 25px;
+  --component-dialog-title-font-weight: 700; /* Bold */
+  --component-dialog-title-color: var(--token-id-color-text-primary);
+  --component-dialog-title-line-height: var(--sq-line-height-tight); /* 1.25 */
+
+  /* Dialog - Description */
+  --component-dialog-description-font-size: var(--token-id-font-size-body-medium); /* 14px */
+  --component-dialog-description-color: var(--token-id-color-text-secondary);
+  --component-dialog-description-line-height: var(--sq-line-height-normal); /* 1.5 */
+
+  /* Dialog - Close Button */
+  --component-dialog-close-size: var(--sq-size-xs); /* 32px */
+  --component-dialog-close-icon-size: var(--sq-icon-size-sm); /* 16px */
+  --component-dialog-close-color: var(--token-id-color-text-secondary);
+  --component-dialog-close-color-hover: var(--token-id-color-text-primary);
+  --component-dialog-close-bg-hover: var(--token-id-color-bg-subtle);
+  --component-dialog-close-radius: var(--token-id-radius-small); /* 6px */
+
+  /* Dialog - Animations */
+  --component-dialog-animation-duration: 200ms;
+  --component-dialog-animation-easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ========================================
+   * MODAL FULL COMPONENT TOKENS
+   * ======================================== */
+
+  /* Modal Full - Layout Widths */
+  --component-modal-full-layout-regular-width: 600px; /* Regular layout max width */
+  --component-modal-full-layout-wide-width: 1200px; /* Wide layout max width */
+
+  /* Modal Full - Padding */
+  --component-modal-full-padding-vertical: var(--sq-spacing-300); /* 24px - top and bottom padding */
+  --component-modal-full-padding-horizontal: var(--sq-spacing-200); /* 16px - mobile horizontal padding */
+
+  /* Modal Full - Header */
+  --component-modal-full-header-margin-bottom: var(--sq-spacing-300); /* 24px - space below header */
+
+  /* Modal Full - Colors */
+  --component-modal-full-bg: hsl(var(--sq-fill-white)); /* White background - #FFFFFF */
+  --component-modal-full-overlay-bg: hsl(0 0% 0% / 0.5); /* 50% opacity black overlay */
+
+  /* Modal Full - Animations */
+  --component-modal-full-animation-enter-duration: 250ms;
+  --component-modal-full-animation-exit-duration: 200ms;
+  --component-modal-full-animation-easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ========================================
+   * MODAL PARTIAL COMPONENT TOKENS
+   * ======================================== */
+
+  /* Modal Partial - Dimensions */
+  --component-modal-partial-width: 480px; /* Fixed width on desktop (800px+) */
+  --component-modal-partial-screen-buffer: 40px; /* Top/bottom margin on desktop */
+  --component-modal-partial-border-radius: var(--token-id-radius-modal); /* 20px - left corners only */
+
+  /* Modal Partial - Padding */
+  --component-modal-partial-padding-vertical: var(--sq-spacing-300); /* 24px - top and bottom */
+  --component-modal-partial-padding-horizontal: var(--sq-spacing-200); /* 16px - horizontal */
+
+  /* Modal Partial - Header */
+  --component-modal-partial-header-margin-bottom: var(--sq-spacing-300); /* 24px - space below header */
+
+  /* Modal Partial - Colors */
+  --component-modal-partial-bg: hsl(var(--sq-fill-white)); /* White background - #FFFFFF */
+  --component-modal-partial-overlay-bg: hsl(0 0% 0% / 0.5); /* 50% opacity black overlay */
+  --component-modal-partial-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* Modal Partial - Animations */
+  --component-modal-partial-animation-enter-duration: 250ms;
+  --component-modal-partial-animation-exit-duration: 200ms;
+  --component-modal-partial-animation-easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ========================================
+   * ROW COMPONENT TOKENS
+   * ======================================== */
+
+  /* Row - Border */
+  --component-row-border-color: hsl(var(--sq-fill-40)); /* Light gray - #F0F0F0 */
+
+  /* Row - Spacing */
+  --component-row-gap: var(--sq-spacing-200); /* 16px - gap between row elements */
+  --component-row-padding-y-md: var(--sq-spacing-300); /* 16px - vertical padding for md */
+  --component-row-padding-y-sm: var(--sq-spacing-100); /* 8px - vertical padding for sm */
+  --component-row-hover-inset: calc(var(--sq-spacing-100) * -1); /* -8px - hover bg extends beyond content */
+
+  /* Row - Interactive States */
+  --component-row-bg-hover: hsl(var(--sq-fill-50)); /* Very light gray hover - #F7F7F7 */
+  --component-row-bg-active: hsl(var(--sq-fill-40)); /* Light gray active/pressed - #F0F0F0 */
+  --component-row-radius: var(--sq-radius-10); /* 6px - border radius for hover/focus states */
+
+  /* Row - Focus State */
+  --component-row-focus-outline: hsl(var(--sq-blue-fill)); /* Blue - 212 100% 50% */
+
+  /* Row - Text Colors */
+  --component-row-text-primary: hsl(var(--sq-text-10)); /* Dark text - 0 0% 6% */
+  --component-row-text-secondary: hsl(var(--sq-text-20)); /* Mid gray text - 0 0% 40% */
+  --component-row-text-tertiary: hsl(var(--sq-text-30)); /* Light gray text - 0 0% 58% */
+  --component-row-accessory-color: hsl(var(--sq-text-20)); /* Mid gray for accessories - 0 0% 40% */
+
+  /* ========================================
+   * TOGGLE COMPONENT TOKENS
+   * ======================================== */
+
+  /* Toggle - Sizing */
+  --component-toggle-width: 40px; /* Total width of toggle track */
+  --component-toggle-height: 24px; /* Total height of toggle track */
+  --component-toggle-thumb-size: 16px; /* Thumb diameter */
+  --component-toggle-radius: 1000px; /* Fully rounded track */
+  --component-toggle-border-width: 2px; /* Border thickness */
+
+  /* Toggle - Transitions */
+  --component-toggle-transition-duration: 200ms;
+  --component-toggle-transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Toggle - Unchecked State (OFF) */
+  --component-toggle-unchecked-bg: hsl(var(--sq-gray-white)); /* White background - #FFFFFF */
+  --component-toggle-unchecked-border: hsl(var(--sq-fill-30)); /* Light gray border - #DADADA */
+  --component-toggle-unchecked-thumb-bg: hsl(var(--sq-fill-20)); /* Mid gray thumb - #959595 */
+
+  /* Toggle - Unchecked Hover */
+  --component-toggle-unchecked-bg-hover: hsl(var(--sq-gray-white)); /* White background */
+  --component-toggle-unchecked-border-hover: hsl(var(--sq-fill-20)); /* Mid gray border - #959595 */
+  --component-toggle-unchecked-thumb-bg-hover: hsl(var(--sq-gray-10)); /* Dark thumb - #101010 */
+
+  /* Toggle - Unchecked Active/Pressed */
+  --component-toggle-unchecked-bg-pressed: hsl(var(--sq-gray-white)); /* White background */
+  --component-toggle-unchecked-border-pressed: hsl(var(--sq-fill-20)); /* Mid gray border */
+  --component-toggle-unchecked-thumb-bg-pressed: hsl(var(--sq-gray-10)); /* Dark thumb */
+
+  /* Toggle - Checked State (ON) */
+  --component-toggle-checked-bg: hsl(var(--sq-gray-10)); /* Dark background - #101010 */
+  --component-toggle-checked-border: hsl(var(--sq-gray-10)); /* Dark border - #101010 */
+  --component-toggle-checked-thumb-bg: hsl(var(--sq-gray-white)); /* White thumb - #FFFFFF */
+
+  /* Toggle - Checked Hover */
+  --component-toggle-checked-bg-hover: hsl(var(--sq-fill-20)); /* Mid gray background - #959595 */
+  --component-toggle-checked-border-hover: hsl(var(--sq-fill-20)); /* Mid gray border */
+  --component-toggle-checked-thumb-bg-hover: hsl(var(--sq-gray-white)); /* White thumb */
+
+  /* Toggle - Checked Active/Pressed */
+  --component-toggle-checked-bg-pressed: hsl(var(--sq-fill-20)); /* Mid gray background */
+  --component-toggle-checked-border-pressed: hsl(var(--sq-fill-20)); /* Mid gray border */
+  --component-toggle-checked-thumb-bg-pressed: hsl(var(--sq-gray-white)); /* White thumb */
+
+  /* Toggle - Disabled State */
+  --component-toggle-opacity-disabled: 0.4; /* Opacity for disabled state */
+  --component-toggle-unchecked-bg-disabled: hsl(var(--sq-gray-white)); /* White background */
+  --component-toggle-unchecked-border-disabled: hsl(var(--sq-fill-30)); /* Light gray border */
+  --component-toggle-unchecked-thumb-bg-disabled: hsl(var(--sq-fill-30)); /* Light gray thumb */
+  --component-toggle-checked-bg-disabled: hsl(var(--sq-gray-10)); /* Dark background */
+  --component-toggle-checked-border-disabled: hsl(var(--sq-gray-10)); /* Dark border */
+  --component-toggle-checked-thumb-bg-disabled: hsl(var(--sq-gray-white)); /* White thumb */
+
+  /* ========================================
+   * LINK COMPONENT TOKENS
+   * ======================================== */
+
+  /* Link - Sizing */
+  --component-link-size-small: 14px; /* Small link text size */
+  --component-link-line-height-small: 20px; /* Line height for small links */
+  --component-link-size-medium: 16px; /* Medium link text size */
+  --component-link-line-height-medium: 24px; /* Line height for medium links */
+
+  /* Link - Typography */
+  --component-link-font-weight: 500; /* Medium weight */
+  --component-link-underline-offset: 2px; /* Distance between text and underline */
+  --component-link-underline-thickness: 1px; /* Underline stroke width */
+
+  /* Link - Transitions */
+  --component-link-transition-duration: 200ms;
+  --component-link-transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Link - Neutral Tone */
+  --component-link-neutral-color: hsl(var(--sq-text-10)); /* Default - #101010 */
+  --component-link-neutral-color-hover: hsl(var(--sq-text-20)); /* Hover - #666666 */
+  --component-link-neutral-color-pressed: hsl(var(--sq-text-10)); /* Pressed - #101010 */
+  --component-link-neutral-color-disabled: hsl(var(--sq-text-30)); /* Disabled - #959595 */
+
+  /* Link - Critical Tone */
+  --component-link-critical-color: hsl(var(--sq-critical-text)); /* Default - red */
+  --component-link-critical-color-hover: hsl(var(--sq-critical-text-hover)); /* Hover - darker red */
+  --component-link-critical-color-pressed: hsl(var(--sq-critical-text)); /* Pressed - red */
+
+  /* Link - Disabled State */
+  --component-link-opacity-disabled: 0.4; /* Opacity for disabled links */
+
+  /* ========================================
+   * PAGINATION COMPONENT TOKENS
+   * ======================================== */
+
+  /* Pagination uses existing button components (MarketButton + MarketFilterButton) */
+  /* Only spacing tokens needed for layout */
+  --component-pagination-gap: var(--sq-spacing-150); /* 12px - gap between nav elements */
+  --component-pagination-nav-vertical-margin: var(--sq-spacing-200); /* 16px */
+  --component-pagination-nav-horizontal-margin: var(--sq-spacing-200); /* 16px */
+
+  /* Pagination buttons (prev/next) */
+  --component-pagination-button-radius: var(--token-id-radius-full); /* Fully rounded - 1000px */
+  --component-pagination-button-disabled-text: hsl(var(--sq-fill-20)); /* Disabled icon color - #959595 */
+
+  /* Page info pill styling */
+  --component-pagination-page-info-min-width: 120px;
+  --component-pagination-page-info-bg: hsl(var(--sq-fill-white)); /* White - #FFFFFF */
+  --component-pagination-page-info-border: hsl(var(--sq-fill-30)); /* Light gray - #DADADA */
+  --component-pagination-page-info-radius: var(--token-id-radius-medium); /* 12px */
+  --component-pagination-page-info-text: hsl(var(--sq-text-primary)); /* Primary text color */
+
+  /* ========================================
+   * DIALOG COMPONENT TOKENS
+   * ======================================== */
+
+  /* Dialog - Layout & Sizing */
+  --component-dialog-width-sm: 400px; /* Small dialog - 400px */
+  --component-dialog-width-md: 520px; /* Medium dialog - 520px */
+  --component-dialog-width-lg: 640px; /* Large dialog - 640px */
+  --component-dialog-max-height: calc(100vh - 80px); /* Max height with spacing */
+  --component-dialog-padding: var(--sq-spacing-300); /* 24px - internal padding */
+  --component-dialog-gap: var(--sq-spacing-300); /* 24px - gap between sections */
+  --component-dialog-radius: var(--token-id-radius-large); /* 16px - rounded corners */
+
+  /* Dialog - Header */
+  --component-dialog-header-gap: var(--sq-spacing-100); /* 8px - gap between title and description */
+
+  /* Dialog - Footer */
+  --component-dialog-footer-gap: var(--sq-spacing-150); /* 12px - gap between buttons */
+
+  /* Dialog - Background & Overlay */
+  --component-dialog-bg: hsl(var(--sq-fill-white)); /* White background - #FFFFFF */
+  --component-dialog-overlay-bg: hsl(var(--sq-surface-overlay) / 0.4); /* Semi-transparent overlay */
+  --component-dialog-shadow: 0px 8px 32px 0px rgba(0, 0, 0, 0.12); /* Elevation shadow */
+
+  /* Dialog - Title Typography */
+  --component-dialog-title-font-size: var(--type-styles-heading-size-30); /* 25px - Heading size 30 */
+  --component-dialog-title-font-weight: 600; /* Semibold */
+  --component-dialog-title-line-height: var(--type-styles-heading-leading-30); /* 32px - Heading leading 30 */
+  --component-dialog-title-color: hsl(var(--sq-text-10)); /* Primary text - #101010 */
+
+  /* Dialog - Description Typography */
+  --component-dialog-description-font-size: 16px; /* Description text size */
+  --component-dialog-description-line-height: 24px; /* Description line height */
+  --component-dialog-description-color: hsl(var(--sq-text-20)); /* Secondary text - #666666 */
+
+  /* Dialog - Animation */
+  --component-dialog-animation-duration: 200ms; /* Animation timing */
+}
+
+/* ========================================
+ * DARK MODE OVERRIDES
+ * ======================================== */
+
+[data-theme="dark"] {
+  /* Component tokens automatically adapt to dark mode through semantic layer
+   * No overrides needed - semantic IDs handle dark mode via primitives */
+}

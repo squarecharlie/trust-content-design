@@ -1,0 +1,19 @@
+/**
+ * AccountPattern Styles - Market Theme
+ *
+ * Styles specific to the AccountPattern component.
+ * All styles use Square Market design tokens.
+ * MarketBlade handles panel, header, overlay, and close button styles.
+ * MarketList and MarketRow handle menu item styles.
+ */
+
+/* ========================================
+   ACCOUNT PATTERN
+   ======================================== */
+
+/* Content */
+.account-content {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--sq-font-sans);
+}

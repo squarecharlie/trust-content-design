@@ -1,0 +1,852 @@
+.slide-deck {
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  position: relative;
+  background: #ffffff;
+  padding: 80px 0;
+}
+
+.slide-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Stat slides with big numbers */
+.stat-slide {
+  gap: 32px;
+}
+
+.big-number {
+  font-size: 220px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000000;
+  letter-spacing: -0.02em;
+  font-family: 'Cash Sans', -apple-system, system-ui, sans-serif;
+  display: flex;
+}
+
+.big-number .digit {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(60px);
+}
+
+.slide.active .big-number .digit {
+  animation: slideUpNumber 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes slideUpNumber {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stat-description {
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #000000;
+  max-width: 700px;
+  opacity: 0.8;
+}
+
+/* Animation system - spring-based motion tokens */
+.slide-content {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.slide.active .slide-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Gentle - Dramatic moments, big reveals (400ms, dramatic ease) */
+.slide.motion-gentle .slide-content {
+  transition: opacity 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Soft - Reflective beats, breathing room (350ms, soft ease) */
+.slide.motion-soft .slide-content {
+  transition: opacity 350ms cubic-bezier(0.33, 0.52, 0.55, 0.91),
+              transform 350ms cubic-bezier(0.33, 0.52, 0.55, 0.91);
+}
+
+/* Steady - Default, standard transitions (280ms, balanced ease) */
+.slide.motion-steady .slide-content {
+  transition: opacity 280ms cubic-bezier(0.4, 0.0, 0.2, 1),
+              transform 280ms cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* Fast - Quick responsiveness (200ms, quick ease) */
+.slide.motion-fast .slide-content {
+  transition: opacity 200ms cubic-bezier(0.45, 0.05, 0.55, 0.95),
+              transform 200ms cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+
+/* Sharp - Micro interactions, instantaneous feel (120ms, sharp ease) */
+.slide.motion-sharp .slide-content {
+  transition: opacity 120ms cubic-bezier(0.55, 0.085, 0.68, 0.53),
+              transform 120ms cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+
+/* Stagger animations for multi-element slides */
+.slide.active .column-left {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide.active .column-right {
+  animation: slideUpContent 280ms cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+  opacity: 0;
+}
+
+.slide.active .column-right h2 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* List item stagger for project lists */
+.slide.active.motion-fast ol li {
+  opacity: 0;
+  animation: slideUpContent 200ms cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards;
+}
+
+.slide.active.motion-fast ol li:nth-child(1) { animation-delay: 100ms; }
+.slide.active.motion-fast ol li:nth-child(2) { animation-delay: 150ms; }
+.slide.active.motion-fast ol li:nth-child(3) { animation-delay: 200ms; }
+.slide.active.motion-fast ol li:nth-child(4) { animation-delay: 250ms; }
+.slide.active.motion-fast ol li:nth-child(5) { animation-delay: 300ms; }
+
+@keyframes slideUpContent {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Chat Input */
+.chat-input-wrapper {
+  width: 100%;
+  max-width: 4200px;
+  position: relative;
+}
+
+.input-with-cursor {
+  position: relative;
+  width: 100%;
+}
+
+.chat-input-field {
+  width: 100%;
+  padding: 36px 320px 36px 96px;
+  background: #ffffff;
+  border: 3px solid #000000;
+  border-radius: 60px;
+  font-size: 30px;
+  color: #000000;
+  font-family: 'Cash Sans', -apple-system, system-ui, sans-serif;
+  outline: none;
+  transition: border-color 200ms ease;
+}
+
+.chat-input-field::placeholder {
+  color: #cccccc;
+}
+
+.chat-input-field:focus {
+  border-color: #000000;
+}
+
+.blinking-cursor {
+  position: absolute;
+  left: 96px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  color: #000000;
+  pointer-events: none;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+.chat-buttons {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 12px;
+}
+
+.chat-button {
+  padding: 12px 32px;
+  border-radius: 32px;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: 'Cash Sans', -apple-system, system-ui, sans-serif;
+  cursor: pointer;
+  transition: all 200ms ease;
+  border: none;
+  outline: none;
+}
+
+.chat-button-icon {
+  padding: 16px;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.chat-button-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.chat-button-clear {
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+}
+
+.chat-button-clear:hover {
+  background: #f5f5f5;
+}
+
+.chat-button-send {
+  background: #000000;
+  color: #ffffff;
+}
+
+.chat-button-send:hover {
+  background: #333333;
+}
+
+.chat-button:active {
+  transform: scale(0.95);
+}
+
+.gpt-link {
+  margin-top: 16px;
+  color: #000000;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 'Cash Sans', -apple-system, system-ui, sans-serif;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 200ms ease;
+}
+
+.gpt-link:hover {
+  opacity: 0.7;
+}
+
+.gpt-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Back to top link */
+.slide-with-back-to-top {
+  justify-content: center;
+  align-items: center;
+}
+
+.slide-with-back-to-top .slide-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  gap: 80px;
+}
+
+.slide-with-back-to-top .slide-content h2 {
+  margin: 0;
+}
+
+.back-to-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  color: #000000;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 500;
+  font-family: 'Cash Sans', -apple-system, system-ui, sans-serif;
+  transition: all 200ms ease;
+  cursor: pointer;
+}
+
+.back-to-top:hover {
+  opacity: 0.7;
+}
+
+.back-to-top svg {
+  width: 32px;
+  height: 32px;
+}
+
+.back-to-top:hover svg {
+  transform: translateY(-4px);
+}
+
+/* Keyboard navigation indicator */
+.keyboard-nav-indicator {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  animation: fadeInOut 3s ease-in-out infinite;
+}
+
+.keyboard-keys {
+  display: flex;
+  gap: 8px;
+}
+
+.keyboard-key {
+  width: 40px;
+  height: 40px;
+  background: #ffffff;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.keyboard-key svg {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.keyboard-hint {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.5);
+  font-family: 'Cash Sans', -apple-system, system-ui, sans-serif;
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.cursor-blink {
+  font-size: 20px;
+  font-weight: 300;
+  animation: blink 1s infinite;
+  color: #00E013;
+}
+
+.cursor-blink-inline {
+  display: inline-block;
+  font-weight: 200;
+  animation: blink 1s infinite;
+  color: #000000;
+  margin-right: 4px;
+  transform: scaleX(0.5);
+}
+
+@keyframes blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+/* GPT Demo Slide */
+.gpt-demo {
+  gap: 48px;
+  max-width: none;
+  width: 100%;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.slide:has(.gpt-demo) {
+  align-items: flex-start;
+}
+
+.gpt-title {
+  margin-bottom: 16px;
+  font-size: 38px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Email Output */
+.email-output {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: visible;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  background: white;
+}
+
+.email-slide.active .email-output {
+  animation: slideUpEmail 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.email-output-animated {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: visible;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  background: white;
+  display: block !important;
+  position: relative;
+}
+
+.email-output-animated img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.email-output img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+.email-output::-webkit-scrollbar {
+  width: 8px;
+}
+
+.email-output::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+.email-output::-webkit-scrollbar-thumb {
+  background: #cccccc;
+  border-radius: 4px;
+}
+
+.email-output::-webkit-scrollbar-thumb:hover {
+  background: #999999;
+}
+
+@keyframes slideUpEmail {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.email-header {
+  width: 100%;
+  padding: 40px 16px;
+  background: #101010;
+  border-bottom: 1px solid #333333;
+}
+
+.email-header-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.email-header-from {
+  color: #F0F0F0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  margin-bottom: 4px;
+}
+
+.email-header-subject {
+  color: #F0F0F0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 4px;
+}
+
+.email-header-preview {
+  color: #909090;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.email-hero {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px 0 0 0;
+}
+
+.email-logo {
+  width: 88px;
+  height: 22px;
+  background: #101010;
+  margin-bottom: 40px;
+}
+
+.email-hero-title {
+  color: #101010;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 42px;
+  margin-bottom: 40px;
+}
+
+.email-body-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 0 64px 0;
+}
+
+.email-section {
+  margin-bottom: 40px;
+}
+
+.email-section-title {
+  color: #101010;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  margin-bottom: 4px;
+}
+
+.email-section-text {
+  color: #101010;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.email-section-text strong {
+  font-weight: 500;
+}
+
+.email-cta {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #006AFF;
+  border-radius: 32px;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-decoration: none;
+  margin: 16px 0 40px 0;
+}
+
+.email-footer {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px 16px;
+  border-top: 1px solid #959595;
+}
+
+.email-footer-logo {
+  width: 88px;
+  height: 22px;
+  background: #101010;
+  margin-bottom: 24px;
+}
+
+.email-footer-text {
+  color: #101010;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  margin-bottom: 16px;
+}
+
+.slide-content {
+  max-width: 1000px;
+  padding: 80px;
+  text-align: center;
+}
+
+/* Email slide - always visible, no animation */
+.email-slide .slide-content {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+.email-slide .email-output-animated {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* Ensure email image is always visible and properly sized */
+.email-slide .email-output-animated img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  visibility: visible !important;
+  max-width: 100% !important;
+  opacity: 1 !important;
+}
+
+.trust-logo {
+  position: fixed;
+  top: 48px;
+  left: 48px;
+  width: 156px;
+  height: auto;
+  z-index: 100;
+}
+
+.fixed-left-text {
+  position: fixed;
+  left: 50%;
+  top: 50vh;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 80px;
+  z-index: 50;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 280ms cubic-bezier(0.4, 0.0, 0.2, 1);
+  box-sizing: border-box;
+}
+
+.fixed-left-text.visible {
+  opacity: 1;
+}
+
+.fixed-left-text h2 {
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #000000;
+  margin: 0;
+  font-family: 'Cash Sans', -apple-system, system-ui, sans-serif;
+  max-width: 375px;
+}
+
+.square-logo {
+  position: absolute;
+  top: 48px;
+  left: 48px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.slide h1 {
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #000000;
+  margin: 0;
+  font-family: 'Cash Sans', -apple-system, system-ui, sans-serif;
+}
+
+.slide h2 {
+  font-size: 52px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: #000000;
+  margin: 0;
+  font-family: 'Cash Sans', -apple-system, system-ui, sans-serif;
+}
+
+.slide h3 {
+  font-size: 28px;
+  font-weight: 500;
+  color: #000000;
+  margin-bottom: 16px;
+  font-family: 'Cash Sans', -apple-system, system-ui, sans-serif;
+}
+
+.slide p {
+  font-size: 24px;
+  line-height: 1.5;
+  color: #000000;
+  margin-top: 24px;
+  opacity: 0.85;
+}
+
+.subtext {
+  opacity: 0.5;
+  font-size: 20px;
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  text-align: left;
+  align-items: center;
+  max-width: 1200px;
+}
+
+/* Fixed left column slides - completely different approach */
+/* Override the base slide-content animation */
+.slide-fixed-left .slide-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Keep left column always visible - set initial state to final state */
+.slide-fixed-left .column-left.fixed-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-fixed-left .column-left.fixed-text h2 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Explicitly disable all animations on left column */
+.slide-fixed-left .column-left.fixed-text,
+.slide-fixed-left .column-left.fixed-text * {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Only animate the right column */
+.slide-fixed-left .column-right {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.slide-fixed-left.active .column-right {
+  animation: slideUpContent 280ms cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+}
+
+.slide-fixed-left.active .column-right h2 {
+  animation: slideUpContent 280ms cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+}
+
+.column-left h2 {
+  font-size: 56px;
+  line-height: 1.2;
+}
+
+.column-right {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.column-right h2 {
+  font-size: 72px;
+  line-height: 1.2;
+}
+
+.column-right ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.column-right li {
+  color: #000000;
+  margin: 0;
+}
+
+.slide-list ol {
+  list-style-position: inside;
+  font-size: 24px;
+  line-height: 1.8;
+  text-align: left;
+  color: #000000;
+  margin-top: 48px;
+}
+
+.highlight {
+  color: #00E013;
+  font-weight: 500;
+}
+
+.highlight-question {
+  color: #000000;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .slide-content {
+    padding: 40px;
+  }
+
+  .slide h1 {
+    font-size: 42px;
+  }
+
+  .slide h2 {
+    font-size: 32px;
+  }
+
+  .two-column {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

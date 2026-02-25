@@ -1,0 +1,98 @@
+/**
+ * NotificationsPattern Styles - Market Theme
+ *
+ * Styles specific to the NotificationsPattern component.
+ * All styles use Square Market design tokens.
+ * MarketBlade handles panel, header, overlay, and close button styles.
+ */
+
+/* ========================================
+   NOTIFICATIONS PATTERN
+   ======================================== */
+
+/* Notifications List Container */
+.notifications-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.notifications-empty {
+  padding-top: var(--sq-spacing-600);
+  text-align: center;
+  color: hsl(var(--sq-text-30));
+  font-size: var(--type-styles-paragraph-size-20);
+}
+
+.notifications-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sq-spacing-400);
+}
+
+.notification-item {
+  position: relative;
+  padding-bottom: var(--sq-spacing-300);
+  border-bottom: 1px solid hsl(var(--sq-gray-95));
+}
+
+.notification-item[data-is-last="true"] {
+  border-bottom: none;
+}
+
+/* Read/Unread Dot */
+.notification-dot {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: var(--sq-radius-circle);
+}
+
+.notification-dot-unread {
+  background-color: hsl(var(--sq-blue-fill)); /* Blue for unread */
+}
+
+.notification-dot-read {
+  background-color: hsl(var(--sq-gray-80)); /* Gray for read */
+}
+
+/* Notification Content */
+.notification-content {
+  padding-left: var(--sq-spacing-250);
+}
+
+.notification-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sq-spacing-200);
+}
+
+.notification-text {
+  flex: 1;
+}
+
+.notification-title {
+  font-size: var(--type-styles-paragraph-size-20);
+  color: hsl(var(--sq-text-10));
+  font-weight: var(--sq-font-weight-semibold);
+  margin-bottom: var(--sq-spacing-50);
+}
+
+.notification-description {
+  font-size: var(--type-styles-paragraph-size-20);
+  color: hsl(var(--sq-text-20));
+  line-height: var(--type-styles-paragraph-leading-20);
+  margin: 0;
+}
+
+.notification-timestamp {
+  font-size: var(--type-styles-paragraph-size-10);
+  color: hsl(var(--sq-text-30));
+  margin-top: var(--sq-spacing-100);
+  margin-bottom: 0;
+}
+
+/* Dismiss Button - uses MarketIconButton component, no custom styles needed */

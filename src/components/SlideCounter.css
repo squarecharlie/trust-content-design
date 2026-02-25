@@ -1,0 +1,9 @@
+.slide-counter {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.4);
+  z-index: 100;
+  font-family: -apple-system, system-ui, sans-serif;
+}

@@ -1,0 +1,289 @@
+/**
+ * Square AI Pattern Styles - Market Theme
+ *
+ * All styles use Square Market design tokens (3-layer system).
+ * Pattern: hsl(var(--sq-*)) for colors, var(--sq-*) for spacing/sizing.
+ */
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* ========================================
+   WIDGET CONTAINER
+   ======================================== */
+
+.square-ai-widget {
+  width: 448px;
+  min-height: 600px;
+  max-height: 680px;
+  background-color: hsl(var(--sq-surface-primary));
+  border-radius: var(--sq-radius-400); /* 24px */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  padding: var(--sq-spacing-400); /* 24px */
+  font-family: var(--sq-font-sans);
+}
+
+/* Position variants */
+.square-ai-widget-bottom-right {
+  position: fixed;
+  bottom: var(--sq-spacing-400); /* 24px */
+  right: var(--sq-spacing-400);
+  z-index: 1000;
+}
+
+.square-ai-widget-bottom-left {
+  position: fixed;
+  bottom: var(--sq-spacing-400);
+  left: var(--sq-spacing-400);
+  z-index: 1000;
+}
+
+.square-ai-widget-top-right {
+  position: fixed;
+  top: var(--sq-spacing-400);
+  right: var(--sq-spacing-400);
+  z-index: 1000;
+}
+
+.square-ai-widget-top-left {
+  position: fixed;
+  top: var(--sq-spacing-400);
+  left: var(--sq-spacing-400);
+  z-index: 1000;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+.square-ai-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding-top: 0;
+  padding-bottom: var(--sq-spacing-200); /* 12px */
+  margin-bottom: var(--sq-spacing-400);
+  margin-left: calc(-1 * var(--sq-spacing-400));
+  margin-right: calc(-1 * var(--sq-spacing-400));
+  padding-left: var(--sq-spacing-400);
+  padding-right: var(--sq-spacing-400);
+  border-bottom: 1px solid hsl(var(--sq-gray-90));
+}
+
+.square-ai-title {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: hsl(var(--sq-text-primary));
+  text-transform: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ========================================
+   WELCOME TITLE
+   ======================================== */
+
+.square-ai-welcome {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  color: hsl(var(--sq-text-primary));
+  text-align: center;
+  margin: 0 0 var(--sq-spacing-400) 0;
+}
+
+/* ========================================
+   SUGGESTED PROMPTS
+   ======================================== */
+
+.square-ai-prompt {
+  --component-row-text-primary: hsl(var(--sq-text-secondary));
+}
+
+/* ========================================
+   MESSAGES CONTAINER
+   ======================================== */
+
+.square-ai-messages {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sq-spacing-300); /* 16px */
+  flex: 1;
+  overflow-y: auto;
+  max-height: 450px;
+  margin-bottom: var(--sq-spacing-300);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.square-ai-messages::-webkit-scrollbar {
+  display: none;
+}
+
+/* ========================================
+   MESSAGE BUBBLES
+   ======================================== */
+
+/* User message - gray pill */
+.square-ai-message-user-bubble {
+  background-color: hsl(var(--sq-gray-95)); /* #f0f0f0 */
+  color: hsl(var(--sq-text-primary));
+  padding: var(--sq-spacing-100) var(--sq-spacing-300); /* 8px 16px */
+  border-radius: 9999px;
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 75%;
+}
+
+/* AI message text - no background */
+.square-ai-message-ai-text {
+  color: hsl(var(--sq-text-primary));
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ========================================
+   CHOICE BUTTONS
+   ======================================== */
+
+.square-ai-choice-button {
+  padding: var(--sq-spacing-100) var(--sq-spacing-300); /* 8px 16px */
+  border-radius: 9999px;
+  border: 1px solid hsl(var(--sq-gray-90));
+  background-color: hsl(var(--sq-surface-primary));
+  color: hsl(var(--sq-text-primary));
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.square-ai-choice-button:hover {
+  background-color: hsl(var(--sq-gray-98));
+  border-color: hsl(var(--sq-gray-80));
+}
+
+.square-ai-choice-button:active {
+  background-color: hsl(var(--sq-gray-95));
+}
+
+/* ========================================
+   FEEDBACK & DISCLAIMER
+   ======================================== */
+
+.square-ai-feedback {
+  display: flex;
+  gap: var(--sq-spacing-100); /* 8px */
+  margin-top: var(--sq-spacing-050); /* 4px */
+}
+
+.square-ai-feedback-icon {
+  color: hsl(var(--sq-gray-60));
+}
+
+.square-ai-disclaimer {
+  color: hsl(var(--sq-text-tertiary));
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* ========================================
+   INPUT FIELD
+   ======================================== */
+
+.square-ai-input {
+  flex: 1;
+  min-height: 117px;
+  padding-top: var(--sq-spacing-150);
+  padding-bottom: var(--sq-spacing-250);
+  padding-left: var(--sq-spacing-200);
+  padding-right: 60px;
+  border: 1px solid hsl(var(--sq-gray-90));
+  border-radius: var(--sq-radius-200); /* 12px */
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: hsl(var(--sq-text-primary));
+  background-color: hsl(var(--sq-surface-primary));
+  font-family: inherit;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  resize: none;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.square-ai-input:focus {
+  border-color: hsl(var(--sq-gray-10));
+}
+
+.square-ai-input::placeholder {
+  color: hsl(var(--sq-text-tertiary));
+}
+
+/* ========================================
+   FULLSCREEN EXTENSION
+   ======================================== */
+
+.square-ai-fullscreen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: hsl(var(--sq-surface-primary));
+  z-index: 2000;
+  display: flex;
+  flex-direction: row;
+}
+
+.square-ai-fullscreen-card-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: var(--sq-spacing-500);
+  background-color: hsl(var(--sq-gray-98));
+  overflow-y: auto;
+  position: relative;
+}
+
+.square-ai-fullscreen-close-button {
+  position: absolute;
+  top: var(--sq-spacing-400);
+  left: var(--sq-spacing-400);
+  z-index: 10;
+}
+
+.square-ai-fullscreen-card {
+  background-color: hsl(var(--sq-surface-primary));
+  border-radius: var(--sq-radius-100); /* 8px */
+  border: 1px solid hsl(var(--sq-gray-90));
+  padding: var(--sq-spacing-400);
+}
+
+.square-ai-fullscreen-chat {
+  width: 448px;
+  min-width: 448px;
+  max-width: 448px;
+  background-color: hsl(var(--sq-surface-primary));
+  border-left: 1px solid hsl(var(--sq-gray-90));
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  padding: var(--sq-spacing-400);
+}

@@ -1,0 +1,58 @@
+/**
+ * Arcade Theme Overrides
+ * Playful, bold, vibrant design with geometric shapes
+ */
+
+:root[data-theme="arcade"] {
+  /* Primary brand colors - vibrant pink/purple */
+  --sq-fill-10: #ec4899; /* pink-500 */
+  --sq-text-10: #000000; /* Bold black text */
+
+  /* Emphasis colors - bold and vibrant */
+  --sq-emphasis-fill: #000000;
+  --sq-emphasis-text: #000000;
+  --sq-emphasis-20: #1f2937; /* gray-800 */
+
+  /* Backgrounds - clean with pops of color */
+  --background: #ffffff;
+  --foreground: #000000;
+  --muted: #fef3c7; /* amber-100 */
+  --accent: #f59e0b; /* amber-500 */
+
+  /* Borders - strong and bold */
+  --border: #000000;
+  --sq-border-width-thick: 4px;
+
+  /* Radius - more rounded for playful feel */
+  --sq-radius-md: 1.5rem;
+  --sq-radius-lg: 2rem;
+
+  /* Button colors */
+  --primary: #ec4899;
+  --primary-foreground: #ffffff;
+  --secondary: #8b5cf6; /* purple-500 */
+  --secondary-foreground: #ffffff;
+
+  /* Success/Critical colors - maintain vivid */
+  --sq-critical-fill: #ef4444; /* red-500 */
+  --sq-critical-text: #dc2626; /* red-600 */
+}
+
+/* Arcade-specific component styles */
+[data-theme="arcade"] button[data-variant="solid"] {
+  border-width: 4px;
+  border-color: #000000;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+[data-theme="arcade"] .v-card {
+  border-width: 4px;
+  border-color: #000000;
+  border-radius: 1.5rem;
+}
+
+[data-theme="arcade"] .arcade-gradient-bg {
+  background: linear-gradient(135deg, #9333ea 0%, #ec4899 50%, #f59e0b 100%);
+}

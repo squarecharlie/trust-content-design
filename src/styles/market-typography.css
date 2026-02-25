@@ -1,0 +1,121 @@
+/**
+ * Market Typography Classes
+ *
+ * Typography utility classes following Square Market design system.
+ * Based on Square Market typography tokens and patterns.
+ */
+
+/* Display Styles */
+.display-20 {
+  font-family: var(--sq-font-display);
+  font-size: var(--type-styles-display-size-20);
+  font-weight: var(--sq-font-weight-bold);
+  line-height: var(--type-styles-display-leading-20);
+}
+
+.display-10 {
+  font-family: var(--sq-font-display);
+  font-size: var(--type-styles-display-size-10);
+  font-weight: var(--sq-font-weight-bold);
+  line-height: var(--type-styles-display-leading-10);
+}
+
+/* Heading Styles */
+.heading-30 {
+  font-family: var(--sq-font-sans);
+  font-size: var(--type-styles-heading-size-30);
+  font-weight: var(--sq-font-weight-semibold);
+  line-height: var(--type-styles-heading-leading-30);
+}
+
+.heading-20 {
+  font-family: var(--sq-font-sans);
+  font-size: var(--type-styles-heading-size-20);
+  font-weight: var(--sq-font-weight-semibold);
+  line-height: var(--type-styles-heading-leading-20);
+}
+
+.heading-10 {
+  font-family: var(--sq-font-sans);
+  font-size: var(--type-styles-heading-size-10);
+  font-weight: var(--sq-font-weight-semibold);
+  line-height: var(--type-styles-heading-leading-10);
+}
+
+.heading-5 {
+  font-family: var(--sq-font-sans);
+  font-size: var(--type-styles-heading-size-5);
+  font-weight: var(--sq-font-weight-semibold);
+  line-height: var(--type-styles-heading-leading-5);
+}
+
+/* Paragraph Styles */
+.paragraph-30 {
+  font-family: var(--sq-font-sans);
+  font-size: var(--type-styles-paragraph-size-30);
+  font-weight: var(--sq-font-weight-regular);
+  line-height: var(--type-styles-paragraph-leading-30);
+}
+
+.paragraph-20 {
+  font-family: var(--sq-font-sans);
+  font-size: var(--type-styles-paragraph-size-20);
+  font-weight: var(--sq-font-weight-regular);
+  line-height: var(--type-styles-paragraph-leading-20);
+}
+
+.paragraph-10 {
+  font-family: var(--sq-font-sans);
+  font-size: var(--type-styles-paragraph-size-10);
+  font-weight: var(--sq-font-weight-regular);
+  line-height: var(--type-styles-paragraph-leading-10);
+}
+
+/* Semibold Variants */
+.semibold-30 {
+  font-family: var(--sq-font-sans);
+  font-size: var(--type-styles-paragraph-size-30);
+  font-weight: var(--sq-font-weight-semibold);
+  line-height: var(--type-styles-paragraph-leading-30);
+}
+
+.semibold-20 {
+  font-family: var(--sq-font-sans);
+  font-size: var(--type-styles-paragraph-size-20);
+  font-weight: var(--sq-font-weight-semibold);
+  line-height: var(--type-styles-paragraph-leading-20);
+}
+
+.semibold-10 {
+  font-family: var(--sq-font-sans);
+  font-size: var(--type-styles-paragraph-size-10);
+  font-weight: var(--sq-font-weight-semibold);
+  line-height: var(--type-styles-paragraph-leading-10);
+}
+
+/* Medium Variants */
+.medium-30 {
+  font-family: var(--sq-font-sans);
+  font-size: var(--type-styles-paragraph-size-30);
+  font-weight: var(--sq-font-weight-medium);
+  line-height: var(--type-styles-paragraph-leading-30);
+}
+
+.medium-20 {
+  font-family: var(--sq-font-sans);
+  font-size: var(--type-styles-paragraph-size-20);
+  font-weight: var(--sq-font-weight-medium);
+  line-height: var(--type-styles-paragraph-leading-20);
+}
+
+.medium-10 {
+  font-family: var(--sq-font-sans);
+  font-size: var(--type-styles-paragraph-size-10);
+  font-weight: var(--sq-font-weight-medium);
+  line-height: var(--type-styles-paragraph-leading-10);
+}
+
+/* Monospace */
+.monospace {
+  font-family: var(--sq-font-mono);
+}

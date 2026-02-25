@@ -1,0 +1,55 @@
+/**
+ * Dashboard Items Template Styles
+ * Used by: _DashboardItemsPageTemplate.tsx
+ *
+ * Styles specific to the Items page layout with table, search, and filters.
+ */
+
+/* ========== Table Container ========== */
+.items-table-container {
+  background: var(--sq-surface-primary);
+  border-radius: var(--sq-radius-300);
+  overflow: hidden;
+}
+
+.items-table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--sq-spacing-300) 0 var(--sq-spacing-300) 0;
+  gap: var(--sq-spacing-300);
+  flex-wrap: wrap;
+}
+
+.items-table-search {
+  display: flex;
+  gap: var(--sq-spacing-200);
+  align-items: center;
+  flex: 1;
+  min-width: 300px;
+  justify-content: flex-start;
+}
+
+.items-table-actions {
+  display: flex;
+  gap: var(--sq-spacing-200);
+  align-items: center;
+}
+
+/* ========== Item Image/Icon ========== */
+.item-image {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--sq-radius-200);
+  background: hsl(var(--sq-gray-95));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.item-image-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--sq-text-tertiary);
+}

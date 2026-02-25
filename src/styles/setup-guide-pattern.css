@@ -1,0 +1,115 @@
+/**
+ * SetupGuidePattern Styles - Market Theme
+ *
+ * Styles specific to the SetupGuidePattern component.
+ * All styles use Square Market design tokens.
+ * MarketBlade handles panel, header, overlay, and close button styles.
+ */
+
+/* ========================================
+   SETUP GUIDE PATTERN
+   ======================================== */
+
+/* Content */
+.setup-guide-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Section */
+.setup-section {
+  border-bottom: 1px solid hsl(var(--sq-gray-95));
+}
+
+.setup-section:last-child {
+  border-bottom: none;
+}
+
+/* Section Header */
+.setup-section-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sq-spacing-300) 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.setup-section-header:hover {
+  background-color: hsl(var(--sq-surface-overlay) / 0.05);
+}
+
+.setup-section-header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--sq-spacing-200);
+}
+
+.setup-section-title {
+  font-size: var(--type-styles-paragraph-size-20);
+  font-weight: var(--sq-font-weight-semibold);
+  color: hsl(var(--sq-content));
+}
+
+.setup-section-count {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--sq-radius-circle);
+  background-color: hsl(var(--sq-surface-overlay) / 0.1);
+  color: hsl(var(--sq-content-subdued));
+  font-size: var(--type-styles-paragraph-size-10);
+  font-weight: var(--sq-font-weight-medium);
+}
+
+/* Tasks */
+.setup-tasks {
+  display: flex;
+  flex-direction: column;
+}
+
+.setup-task {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sq-spacing-300);
+  padding: var(--sq-spacing-300) 0;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.setup-task:hover {
+  background-color: hsl(var(--sq-surface-overlay) / 0.1);
+}
+
+/* Task Content */
+.setup-task-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.setup-task-title {
+  font-size: var(--type-styles-paragraph-size-20);
+  font-weight: var(--sq-font-weight-semibold);
+  color: hsl(var(--sq-content));
+  margin: 0 0 var(--sq-spacing-50) 0;
+}
+
+.setup-task-description {
+  font-size: var(--type-styles-paragraph-size-10);
+  color: hsl(var(--sq-content-subdued));
+  line-height: var(--type-styles-paragraph-leading-10);
+  margin: 0;
+}
+
+/* Task Actions */
+.setup-task-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sq-spacing-50);
+  flex-shrink: 0;
+}

@@ -1,0 +1,64 @@
+/**
+ * Universal Theme Overrides
+ * Neutral, versatile design that works for any use case
+ */
+
+:root[data-theme="universal"] {
+  /* Primary brand colors - neutral black/gray */
+  --sq-fill-10: #0f0f0f;
+  --sq-text-10: #0f0f0f;
+
+  /* Emphasis colors - balanced */
+  --sq-emphasis-fill: #0f0f0f;
+  --sq-emphasis-text: #0f0f0f;
+  --sq-emphasis-20: #666666;
+
+  /* Backgrounds - neutral and clean */
+  --background: #ffffff;
+  --foreground: #0f0f0f;
+  --muted: #fafafa;
+  --accent: #f5f5f5;
+
+  /* Borders - minimal */
+  --border: #e8e8e8;
+  --sq-border-width-thin: 1px;
+
+  /* Radius - slight rounding */
+  --sq-radius-md: 0.375rem;
+  --sq-radius-lg: 0.5rem;
+
+  /* Button colors - neutral with blue accent */
+  --primary: #0f0f0f;
+  --primary-foreground: #ffffff;
+  --secondary: #666666;
+  --secondary-foreground: #ffffff;
+
+  /* Accent color for interactive elements */
+  --accent-color: #3b82f6; /* blue-500 */
+
+  /* Success/Critical colors - standard */
+  --sq-critical-fill: #dc2626; /* red-600 */
+  --sq-critical-text: #991b1b; /* red-800 */
+}
+
+/* Universal-specific component styles */
+[data-theme="universal"] button[data-variant="solid"] {
+  border-width: 0;
+}
+
+[data-theme="universal"] button[data-variant="ghost"] {
+  border-width: 1px;
+}
+
+[data-theme="universal"] .v-card {
+  border-width: 1px;
+  border-color: #e8e8e8;
+  border-radius: 0.375rem;
+}
+
+/* Add subtle accent color for interactive elements */
+[data-theme="universal"] a:hover,
+[data-theme="universal"] button[data-variant="ghost"]:hover {
+  color: #3b82f6;
+  border-color: #3b82f6;
+}

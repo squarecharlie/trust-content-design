@@ -1,0 +1,110 @@
+/* Square Market Design Tokens - Semantic Layer */
+:root {
+    /* Semantic Fill tokens (for backgrounds) */
+    --sq-fill-05: 0 0% 95%; /* #F2F2F2 - Very light gray for hover states */
+    --sq-fill-10: 0 0% 6%; /* #101010 - Black */
+    --sq-fill-20: 0 0% 58%; /* #959595 - Mid gray */
+    --sq-fill-30: 0 0% 85%; /* #dadada - Light gray */
+    --sq-fill-40: 0 0% 94%; /* #f0f0f0 - Very light gray */
+    --sq-fill-50: 0 0% 97%; /* #F7F7F7 - Almost white */
+    --sq-fill-black: 0 0% 0%; /* #000000 */
+    --sq-fill-white: 0 0% 100%; /* #FFFFFF */
+    --sq-fill-inverse: 0 0% 100%; /* #FFFFFF */
+
+    /* Semantic Text tokens */
+    --sq-text-10: var(--sq-gray-10); /* 0 0% 6% - #101010 */
+    --sq-text-20: var(--sq-gray-50); /* 0 0% 40% - #666666 */
+    --sq-text-30: var(--sq-gray-65); /* 0 0% 58% - #959595 */
+    --sq-text-black: var(--sq-gray-10); /* 0 0% 6% - #101010 */
+    --sq-text-white: var(--sq-gray-white); /* 0 0% 100% - #FFFFFF */
+    --sq-text-inverse: var(--sq-gray-white); /* 0 0% 100% - #FFFFFF */
+    --sq-text-size: 16px;
+
+    /* Semantic Surface tokens */
+    --sq-surface-5: var(--sq-gray-white); /* rgb(255, 255, 255) */
+    --sq-surface-10: var(--sq-gray-white); /* rgb(255, 255, 255) */
+    --sq-surface-20: var(--sq-gray-white); /* rgb(255, 255, 255) */
+    --sq-surface-30: var(--sq-gray-white); /* rgb(255, 255, 255) */
+    --sq-surface-inverse: var(--sq-gray-25); /* #232323 */
+    --sq-surface-overlay: var(--sq-gray-black); /* rgba(0, 0, 0, 0.8) - use with alpha */
+
+    /* Semantic Stroke/Border tokens */
+    --sq-stroke-10: var(--sq-gray-95); /* Light gray border */
+    --sq-stroke-20: var(--sq-gray-90); /* Standard border */
+    --sq-stroke-30: var(--sq-gray-80); /* Strong border */
+
+    /* Shadcn compatibility tokens */
+    --background: var(--sq-gray-0);
+    --foreground: var(--sq-fill-10);
+    --primary: var(--sq-fill-10);
+    --primary-foreground: var(--sq-gray-0);
+    --secondary: var(--sq-gray-95);
+    --secondary-foreground: var(--sq-gray-20);
+    --accent: var(--sq-gray-90);
+    --accent-foreground: var(--sq-gray-20);
+    --destructive: var(--sq-critical-fill);
+    --destructive-foreground: var(--sq-gray-0);
+    --border: var(--sq-gray-90);
+    --input: var(--sq-gray-90);
+    --ring: var(--sq-gray-20);
+    --card: var(--sq-gray-0);
+    --card-foreground: var(--sq-gray-10);
+    --muted: var(--sq-gray-95);
+    --muted-foreground: var(--sq-gray-50);
+    --popover: var(--sq-gray-25); /* #232323 - Market tooltip background */
+    --popover-foreground: var(--sq-text-white); /* White text for tooltips */
+}
+
+/* Dark theme token overrides */
+[data-theme="dark"] {
+    /* Core fill tokens dark mode overrides */
+    --sq-fill-05: 0 0% 10%; /* #1A1A1A - Subtle hover on dark backgrounds */
+    --sq-fill-10: 0 0% 94%; /* #f0f0f0 */
+    --sq-fill-20: 0 0% 40%; /* #666666 */
+    --sq-fill-30: 0 0% 35%; /* #595959 */
+    --sq-fill-40: 0 0% 20%; /* #333333 */
+    --sq-fill-50: 0 0% 16%; /* #2A2A2A */
+    --sq-fill-black: 0 0% 0%; /* #000000 */
+    --sq-fill-white: 0 0% 100%; /* #FFFFFF */
+    --sq-fill-inverse: 0 0% 0%; /* #000000 */
+
+    /* Core stroke/border tokens dark mode overrides */
+    --sq-stroke-10: var(--sq-gray-98); /* Darker border in dark mode */
+    --sq-stroke-20: var(--sq-gray-90); /* Standard border in dark mode */
+    --sq-stroke-30: var(--sq-gray-80); /* Strong border */
+
+    /* Core surface tokens dark mode overrides */
+    --sq-surface-5: var(--sq-gray-98); /* rgb(20, 20, 20) - 8% */
+    --sq-surface-10: var(--sq-gray-98); /* rgb(20, 20, 20) - 8% */
+    --sq-surface-20: var(--sq-gray-95); /* rgb(28, 28, 28) - 11% (closest: 12%) */
+    --sq-surface-30: 0 0% 18%; /* rgb(45, 45, 45) - no exact gray match */
+    --sq-surface-inverse: var(--sq-gray-white); /* rgb(255, 255, 255) */
+    --sq-surface-overlay: var(--sq-gray-black); /* rgba(0, 0, 0, 0.8) - stays same */
+
+    /* Core text tokens dark mode overrides */
+    --sq-text-10: var(--sq-gray-white); /* 0 0% 100% - #FFFFFF */
+    --sq-text-20: 0 0% 61%; /* #9B9B9B - no matching gray token */
+    --sq-text-30: var(--sq-gray-65); /* 0 0% 58% - #959595 */
+    --sq-text-black: var(--sq-gray-10); /* 0 0% 6% - #101010 */
+    --sq-text-white: var(--sq-gray-white); /* 0 0% 100% - #FFFFFF */
+    --sq-text-inverse: var(--sq-gray-10); /* 0 0% 6% - #101010 */
+
+    /* Shadcn compatibility dark mode overrides */
+    --background: var(--sq-gray-0);
+    --foreground: var(--sq-text-10);
+    --primary: var(--sq-text-10);
+    --primary-foreground: var(--sq-gray-0);
+    --secondary: var(--sq-gray-95);
+    --secondary-foreground: var(--sq-gray-20);
+    --accent: var(--sq-gray-90);
+    --accent-foreground: var(--sq-gray-20);
+    --destructive: var(--sq-critical-fill);
+    --destructive-foreground: var(--sq-gray-0);
+    --border: var(--sq-gray-90);
+    --input: var(--sq-gray-90);
+    --ring: var(--sq-gray-20);
+    --card: var(--sq-gray-95);
+    --card-foreground: var(--sq-gray-10);
+    --popover: var(--sq-gray-25); /* #232323 - Market tooltip background (same in dark mode) */
+    --popover-foreground: var(--sq-gray-10);
+}

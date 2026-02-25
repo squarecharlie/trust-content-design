@@ -1,0 +1,85 @@
+/**
+ * Market Theme Overrides
+ * Clean, modern e-commerce design with professional blue tones
+ */
+
+:root[data-theme="market"] {
+  /* Primary brand colors - professional blue */
+  --sq-fill-10: #2563eb; /* blue-600 */
+  --sq-text-10: #111827; /* gray-900 */
+
+  /* Emphasis colors - subtle and professional */
+  --sq-emphasis-fill: #111827;
+  --sq-emphasis-text: #111827;
+  --sq-emphasis-20: #374151; /* gray-700 */
+
+  /* Backgrounds - clean and minimal */
+  --background: #ffffff;
+  --foreground: #111827;
+  --muted: #f9fafb; /* gray-50 */
+  --accent: #f3f4f6; /* gray-100 */
+
+  /* Surface tokens for panels and overlays */
+  --sq-surface-raised: 0 0% 100%; /* white panels by default */
+  --sq-surface-overlay: 0 0% 0%; /* black overlay backdrop */
+
+  /* Content/text tokens for panels */
+  --sq-content: 0 0% 7%; /* #111827 gray-900 dark text */
+  --sq-content-subdued: 0 0% 64%; /* #9ca3af gray-400 */
+
+  /* Interactive elements */
+  --sq-interactive: 212 100% 50%; /* blue for interactive elements */
+
+  /* Borders - subtle */
+  --border: #e5e7eb; /* gray-200 */
+  --sq-border: 0 0% 90%; /* #e5e7eb gray-200 light border */
+  --sq-border-width-thin: 1px;
+
+  /* Radius - subtle rounding */
+  --sq-radius-md: 0.5rem;
+  --sq-radius-lg: 0.75rem;
+
+  /* Button colors */
+  --primary: #2563eb;
+  --primary-foreground: #ffffff;
+  --secondary: #4f46e5; /* indigo-600 */
+  --secondary-foreground: #ffffff;
+
+  /* Success/Critical colors - professional */
+  --sq-critical-fill: #dc2626; /* red-600 */
+  --sq-critical-text: #991b1b; /* red-800 */
+
+  /* Shadows for cards (e-commerce style) */
+  --sq-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --sq-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --sq-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+/* Market-specific component styles */
+[data-theme="market"] button[data-variant="solid"] {
+  border-width: 0;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+[data-theme="market"] button[data-variant="solid"]:hover {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+[data-theme="market"] .v-card {
+  border-width: 1px;
+  border-color: #e5e7eb;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+}
+
+[data-theme="market"] .market-hero-gradient {
+  background: linear-gradient(to right, #2563eb 0%, #4f46e5 100%);
+}
+
+/* Dark panel variant for setup guide and similar components */
+[data-theme="market"] .dark-panel {
+  --sq-surface-raised: 0 0% 0%; /* black background */
+  --sq-content: 0 0% 100%; /* white text */
+  --sq-content-subdued: 0 0% 60%; /* gray text */
+  --sq-border: 0 0% 20%; /* dark gray borders */
+}

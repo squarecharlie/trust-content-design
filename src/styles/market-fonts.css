@@ -1,0 +1,46 @@
+/**
+ * Square Sans Font Family
+ * Variable fonts for Market components, templates, and patterns
+ * From Square's design system
+ *
+ * These @font-face declarations load the font files.
+ * Font application is handled through CSS variables in all-tokens.css:
+ * - var(--sq-font-sans) → Square Sans Text VF
+ * - var(--sq-font-display) → Square Sans Display VF
+ * - var(--sq-font-mono) → Square Sans Mono VF
+ */
+
+/* Square Sans Text - Body/paragraph text */
+@font-face {
+  font-family: "Square Sans Text VF";
+  src: url("/fonts/SquareSansText-VF.woff2") format("woff2-variations");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Square Sans Text VF";
+  src: url("/fonts/SquareSansText-Italic-VF.woff2") format("woff2-variations");
+  font-weight: 300 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Square Sans Display - Headings/large text */
+@font-face {
+  font-family: "Square Sans Display VF";
+  src: url("/fonts/SquareSansDisplay-VF.woff2") format("woff2-variations");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Square Sans Mono - Code/monospace */
+@font-face {
+  font-family: "Square Sans Mono VF";
+  src: url("/fonts/SquareSansMono-VF.woff2") format("woff2-variations");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}

@@ -1,0 +1,172 @@
+/**
+ * MarketRow Styles - Market Theme
+ *
+ * Styles for the MarketRow component.
+ * All styles use Square Market design tokens.
+ */
+
+/* ========================================
+   BASE ROW STYLES
+   ======================================== */
+
+.market-row {
+  position: relative;
+  width: 100%;
+  border-bottom: 1px solid hsl(var(--sq-gray-95)); /* #F0F0F0 equivalent */
+  transition: all 0.2s ease-in-out;
+}
+
+.market-row-interactive {
+  cursor: pointer;
+  user-select: none;
+}
+
+.market-row-interactive:focus-visible {
+  outline: 2px solid hsl(var(--sq-blue-60));
+  outline-offset: -2px;
+  border-radius: var(--sq-radius-150); /* 6px */
+}
+
+/* Hover background layer - extends 8px on each side with 6px border radius */
+.market-row-hover-bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--sq-spacing-100) * -1); /* -8px */
+  right: calc(var(--sq-spacing-100) * -1); /* -8px */
+  border-radius: var(--sq-radius-150); /* 6px */
+  background-color: transparent;
+  transition: background-color 0.2s ease-in-out;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.market-row-interactive:hover .market-row-hover-bg {
+  background-color: hsl(var(--sq-gray-98)); /* #F7F7F7 equivalent */
+}
+
+.market-row-interactive:active .market-row-hover-bg {
+  background-color: hsl(var(--sq-gray-90)); /* #E8E8E8 equivalent */
+}
+
+/* Content container */
+.market-row-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--sq-spacing-200); /* 12px */
+  z-index: 1;
+}
+
+/* ========================================
+   SIZE VARIANTS
+   ======================================== */
+
+/* Medium size - 16px top/bottom padding only
+   On hover, background extends 8px beyond content on each side */
+.market-row-md .market-row-content {
+  padding: var(--sq-spacing-300) 0; /* 16px 0 */
+}
+
+/* Small size - 8px top/bottom padding only
+   On hover, background extends 8px beyond content on each side */
+.market-row-sm .market-row-content {
+  padding: var(--sq-spacing-100) 0; /* 8px 0 */
+}
+
+/* ========================================
+   TEXT CONTENT
+   ======================================== */
+
+.market-row-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sq-spacing-25); /* 2px between text lines */
+  min-width: 0; /* Allow text to shrink */
+}
+
+/* Primary text */
+.market-row-primary-text {
+  color: hsl(var(--sq-text-10));
+  line-height: var(--type-styles-paragraph-leading-30);
+}
+
+/* Medium row - 16px text */
+.market-row-md .market-row-primary-text {
+  font-size: var(--type-styles-paragraph-size-30);
+}
+
+/* Small row - 14px text */
+.market-row-sm .market-row-primary-text {
+  font-size: var(--type-styles-paragraph-size-20);
+}
+
+/* Weight variants for primary text */
+.market-row-weight-medium .market-row-primary-text {
+  font-weight: var(--sq-font-weight-medium); /* 500 */
+}
+
+.market-row-weight-regular .market-row-primary-text {
+  font-weight: var(--sq-font-weight-regular); /* 400 */
+}
+
+/* Secondary text - always regular weight */
+.market-row-secondary-text {
+  color: hsl(var(--sq-text-20));
+  font-weight: var(--sq-font-weight-regular);
+  line-height: var(--type-styles-paragraph-leading-20);
+}
+
+.market-row-md .market-row-secondary-text {
+  font-size: var(--type-styles-paragraph-size-20);
+}
+
+.market-row-sm .market-row-secondary-text {
+  font-size: var(--type-styles-paragraph-size-10);
+}
+
+/* Tertiary text - always 12px equivalent */
+.market-row-tertiary-text {
+  font-size: var(--type-styles-paragraph-size-10);
+  color: hsl(var(--sq-text-30));
+  font-weight: var(--sq-font-weight-regular);
+  line-height: var(--type-styles-paragraph-leading-10);
+}
+
+/* ========================================
+   ACCESSORIES & SIDE TEXT
+   ======================================== */
+
+.market-row-leading-accessory {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: hsl(var(--sq-text-20));
+}
+
+.market-row-trailing-accessory {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: hsl(var(--sq-text-20));
+}
+
+.market-row-side-text {
+  flex-shrink: 0;
+  color: hsl(var(--sq-text-10));
+  text-align: right;
+  line-height: var(--type-styles-paragraph-leading-30);
+}
+
+.market-row-md .market-row-side-text {
+  font-size: var(--type-styles-paragraph-size-30);
+  font-weight: var(--sq-font-weight-medium);
+}
+
+.market-row-sm .market-row-side-text {
+  font-size: var(--type-styles-paragraph-size-20);
+  font-weight: var(--sq-font-weight-medium);
+}

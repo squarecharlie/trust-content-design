@@ -439,104 +439,79 @@ const SlideDeck = () => {
               gap: '20px',
               padding: '0 40px'
             }}>
-              {/* Top Left - Low Impact × High Criticality - Azure accent */}
+              {/* Top Left - Low Impact × High Criticality */}
               <div style={{
-                background: 'linear-gradient(135deg, rgba(102, 207, 255, 0.15) 0%, rgba(102, 207, 255, 0.05) 100%)',
-                border: '2px solid rgba(102, 207, 255, 0.4)',
+                background: 'rgba(255, 255, 255, 0.03)',
+                border: '2px solid rgba(255,255,255,0.25)',
                 borderRadius: '16px',
                 padding: '40px',
                 textAlign: 'left',
                 position: 'relative',
                 overflow: 'hidden'
               }}>
-                {/* Corner accent */}
-                <div style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '60px',
-                  height: '60px',
-                  background: '#66CFFF',
-                  opacity: 0.3,
-                  borderRadius: '0 0 100% 0'
-                }}></div>
-
                 <h3 style={{ fontSize: '1.3rem', marginBottom: '8px', fontWeight: '600' }}>Quick wins</h3>
                 <p style={{ fontSize: '0.9rem', opacity: 0.6, marginBottom: '24px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                   Low Impact × High Criticality
                 </p>
                 <ul style={{ fontSize: '1rem', lineHeight: '1.8rem', listStyle: 'none', paddingLeft: 0, marginBottom: '24px' }}>
                   <li style={{ paddingLeft: '20px', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, color: '#66CFFF' }}>●</span>
+                    <span style={{ position: 'absolute', left: 0, opacity: 0.6 }}>●</span>
                     First-time feature tours
                   </li>
                   <li style={{ paddingLeft: '20px', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, color: '#66CFFF' }}>●</span>
+                    <span style={{ position: 'absolute', left: 0, opacity: 0.6 }}>●</span>
                     Success confirmations
                   </li>
                   <li style={{ paddingLeft: '20px', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, color: '#66CFFF' }}>●</span>
+                    <span style={{ position: 'absolute', left: 0, opacity: 0.6 }}>●</span>
                     Delight moments
                   </li>
                 </ul>
-                <p style={{ fontSize: '0.95rem', opacity: 0.8, fontStyle: 'italic', borderTop: '1px solid rgba(102, 207, 255, 0.2)', paddingTop: '20px' }}>
+                <p style={{ fontSize: '0.95rem', opacity: 0.8, fontStyle: 'italic', borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: '20px' }}>
                   Invest deeply in experience and narrative, but avoid over-engineering.
                 </p>
               </div>
 
-              {/* Top Right - High Impact × High Criticality - Cash Green accent (PRIORITY) */}
+              {/* Top Right - High Impact × High Criticality (emphasized) */}
               <div style={{
-                background: 'linear-gradient(135deg, rgba(0, 224, 19, 0.2) 0%, rgba(0, 224, 19, 0.08) 100%)',
-                border: '3px solid #00E013',
+                background: 'rgba(255, 255, 255, 0.05)',
+                border: '2px solid rgba(255,255,255,0.5)',
                 borderRadius: '16px',
                 padding: '40px',
                 textAlign: 'left',
                 position: 'relative',
-                overflow: 'hidden',
-                boxShadow: '0 0 30px rgba(0, 224, 19, 0.3)'
+                overflow: 'hidden'
               }}>
-                {/* Corner accent - stronger */}
-                <div style={{
-                  position: 'absolute',
-                  top: 0,
-                  right: 0,
-                  width: '80px',
-                  height: '80px',
-                  background: '#00E013',
-                  opacity: 0.4,
-                  borderRadius: '0 0 0 100%'
-                }}></div>
-
-                <h3 style={{ fontSize: '1.4rem', marginBottom: '8px', fontWeight: '700', color: '#00E013' }}>Trust-defining moments</h3>
+                <h3 style={{ fontSize: '1.4rem', marginBottom: '8px', fontWeight: '700' }}>Trust-defining moments</h3>
                 <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: '24px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                   High Impact × High Criticality
                 </p>
                 <ul style={{ fontSize: '1rem', lineHeight: '1.8rem', listStyle: 'none', paddingLeft: 0, marginBottom: '24px' }}>
                   <li style={{ paddingLeft: '20px', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, color: '#00E013', fontSize: '1.2em' }}>●</span>
+                    <span style={{ position: 'absolute', left: 0, opacity: 0.8 }}>●</span>
                     Account deactivation
                   </li>
                   <li style={{ paddingLeft: '20px', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, color: '#00E013', fontSize: '1.2em' }}>●</span>
+                    <span style={{ position: 'absolute', left: 0, opacity: 0.8 }}>●</span>
                     Funds frozen
                   </li>
                   <li style={{ paddingLeft: '20px', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, color: '#00E013', fontSize: '1.2em' }}>●</span>
+                    <span style={{ position: 'absolute', left: 0, opacity: 0.8 }}>●</span>
                     Identity verification
                   </li>
                   <li style={{ paddingLeft: '20px', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, color: '#00E013', fontSize: '1.2em' }}>●</span>
+                    <span style={{ position: 'absolute', left: 0, opacity: 0.8 }}>●</span>
                     Fraud & disputes
                   </li>
                 </ul>
-                <p style={{ fontSize: '1rem', opacity: 0.95, fontStyle: 'italic', fontWeight: '500', borderTop: '1px solid rgba(0, 224, 19, 0.3)', paddingTop: '20px' }}>
+                <p style={{ fontSize: '1rem', opacity: 0.9, fontStyle: 'italic', fontWeight: '500', borderTop: '1px solid rgba(255,255,255,0.25)', paddingTop: '20px' }}>
                   Precision, clarity, accessibility, and failure states matter.
                 </p>
               </div>
 
-              {/* Bottom Left - Low Impact × Low Criticality - Muted gray */}
+              {/* Bottom Left - Low Impact × Low Criticality */}
               <div style={{
-                background: 'rgba(255, 255, 255, 0.03)',
+                background: 'rgba(255, 255, 255, 0.02)',
                 border: '2px solid rgba(255,255,255,0.15)',
                 borderRadius: '16px',
                 padding: '40px',
@@ -566,47 +541,35 @@ const SlideDeck = () => {
                 </p>
               </div>
 
-              {/* Bottom Right - High Impact × Low Criticality - Violet accent */}
+              {/* Bottom Right - High Impact × Low Criticality */}
               <div style={{
-                background: 'linear-gradient(135deg, rgba(191, 176, 255, 0.15) 0%, rgba(191, 176, 255, 0.05) 100%)',
-                border: '2px solid rgba(191, 176, 255, 0.4)',
+                background: 'rgba(255, 255, 255, 0.03)',
+                border: '2px solid rgba(255,255,255,0.25)',
                 borderRadius: '16px',
                 padding: '40px',
                 textAlign: 'left',
                 position: 'relative',
                 overflow: 'hidden'
               }}>
-                {/* Corner accent */}
-                <div style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  right: 0,
-                  width: '60px',
-                  height: '60px',
-                  background: '#BFB0FF',
-                  opacity: 0.3,
-                  borderRadius: '100% 0 0 0'
-                }}></div>
-
                 <h3 style={{ fontSize: '1.3rem', marginBottom: '8px', fontWeight: '600' }}>Scale & reliability first</h3>
                 <p style={{ fontSize: '0.9rem', opacity: 0.6, marginBottom: '24px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                   High Impact × Low Criticality
                 </p>
                 <ul style={{ fontSize: '1rem', lineHeight: '1.8rem', listStyle: 'none', paddingLeft: 0, marginBottom: '24px' }}>
                   <li style={{ paddingLeft: '20px', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, color: '#BFB0FF' }}>●</span>
+                    <span style={{ position: 'absolute', left: 0, opacity: 0.6 }}>●</span>
                     Repeated flows
                   </li>
                   <li style={{ paddingLeft: '20px', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, color: '#BFB0FF' }}>●</span>
+                    <span style={{ position: 'absolute', left: 0, opacity: 0.6 }}>●</span>
                     Compliance steps
                   </li>
                   <li style={{ paddingLeft: '20px', position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, color: '#BFB0FF' }}>●</span>
+                    <span style={{ position: 'absolute', left: 0, opacity: 0.6 }}>●</span>
                     Payments setup
                   </li>
                 </ul>
-                <p style={{ fontSize: '0.95rem', opacity: 0.8, fontStyle: 'italic', borderTop: '1px solid rgba(191, 176, 255, 0.2)', paddingTop: '20px' }}>
+                <p style={{ fontSize: '0.95rem', opacity: 0.8, fontStyle: 'italic', borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: '20px' }}>
                   Thoughtful, scalable design matters more than polish.
                 </p>
               </div>

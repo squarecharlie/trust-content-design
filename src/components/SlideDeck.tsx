@@ -392,62 +392,142 @@ const SlideDeck = () => {
         </div>
       </section>
 
-      {/* Slide 9c - Steady: The 2x2 matrix - Visual chart with Cash App design standards */}
+      {/* Slide 9c - Steady: Monochrome 2x2 matrix with axes */}
       <section id="slide-8c" className="slide motion-steady">
-        <div className="slide-content" style={{ padding: '20px 40px' }}>
-          {/* Chart container with axes */}
+        <div className="slide-content" style={{ padding: '40px 60px' }}>
           <div style={{
-            maxWidth: '1300px',
+            maxWidth: '1200px',
             margin: '0 auto',
-            position: 'relative'
+            position: 'relative',
+            height: '700px'
           }}>
-            {/* Y-axis label - Criticality */}
+            {/* Y-axis (vertical) */}
             <div style={{
               position: 'absolute',
-              left: '-20px',
-              top: '50%',
-              transform: 'translateY(-50%) rotate(-90deg)',
-              transformOrigin: 'center',
-              fontSize: '1.1rem',
-              fontWeight: '600',
-              color: 'rgba(255,255,255,0.6)',
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase'
-            }}>
-              Criticality →
-            </div>
-
-            {/* X-axis label - Impact */}
-            <div style={{
-              position: 'absolute',
-              bottom: '-30px',
               left: '50%',
-              transform: 'translateX(-50%)',
-              fontSize: '1.1rem',
-              fontWeight: '600',
-              color: 'rgba(255,255,255,0.6)',
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase'
-            }}>
-              ← Impact →
-            </div>
+              top: '60px',
+              bottom: '60px',
+              width: '1px',
+              background: 'rgba(255,255,255,0.4)'
+            }}></div>
 
-            {/* Matrix Grid */}
+            {/* Y-axis arrow top */}
             <div style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
-              gap: '20px',
-              padding: '0 40px'
+              position: 'absolute',
+              left: '50%',
+              top: '50px',
+              transform: 'translateX(-50%)',
+              width: 0,
+              height: 0,
+              borderLeft: '6px solid transparent',
+              borderRight: '6px solid transparent',
+              borderBottom: '10px solid rgba(255,255,255,0.4)'
+            }}></div>
+
+            {/* Y-axis arrow bottom */}
+            <div style={{
+              position: 'absolute',
+              left: '50%',
+              bottom: '50px',
+              transform: 'translateX(-50%)',
+              width: 0,
+              height: 0,
+              borderLeft: '6px solid transparent',
+              borderRight: '6px solid transparent',
+              borderTop: '10px solid rgba(255,255,255,0.4)'
+            }}></div>
+
+            {/* X-axis (horizontal) */}
+            <div style={{
+              position: 'absolute',
+              top: '50%',
+              left: '60px',
+              right: '60px',
+              height: '1px',
+              background: 'rgba(255,255,255,0.4)'
+            }}></div>
+
+            {/* X-axis arrow left */}
+            <div style={{
+              position: 'absolute',
+              left: '50px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              width: 0,
+              height: 0,
+              borderTop: '6px solid transparent',
+              borderBottom: '6px solid transparent',
+              borderRight: '10px solid rgba(255,255,255,0.4)'
+            }}></div>
+
+            {/* X-axis arrow right */}
+            <div style={{
+              position: 'absolute',
+              right: '50px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              width: 0,
+              height: 0,
+              borderTop: '6px solid transparent',
+              borderBottom: '6px solid transparent',
+              borderLeft: '10px solid rgba(255,255,255,0.4)'
+            }}></div>
+
+            {/* Axis labels */}
+            <div style={{
+              position: 'absolute',
+              left: '52%',
+              top: '20px',
+              fontSize: '0.95rem',
+              opacity: 0.7,
+              fontWeight: '500'
+            }}>high criticality</div>
+
+            <div style={{
+              position: 'absolute',
+              left: '52%',
+              bottom: '20px',
+              fontSize: '0.95rem',
+              opacity: 0.7,
+              fontWeight: '500'
+            }}>Low criticality</div>
+
+            <div style={{
+              position: 'absolute',
+              left: '20px',
+              top: '48%',
+              fontSize: '0.95rem',
+              opacity: 0.7,
+              fontWeight: '500'
+            }}>Low impact</div>
+
+            <div style={{
+              position: 'absolute',
+              right: '20px',
+              top: '48%',
+              fontSize: '0.95rem',
+              opacity: 0.7,
+              fontWeight: '500'
+            }}>High impact</div>
+
+            {/* Quadrants positioned relative to axes */}
+            <div style={{
+              position: 'relative',
+              width: '100%',
+              height: '100%',
+              padding: '70px'
             }}>
               {/* Top Left - Low Impact × High Criticality */}
               <div style={{
+                position: 'absolute',
+                left: '80px',
+                top: '80px',
+                width: '38%',
                 background: 'rgba(255, 255, 255, 0.03)',
                 border: '2px solid rgba(255,255,255,0.25)',
                 borderRadius: '16px',
-                padding: '40px',
-                textAlign: 'left',
-                position: 'relative',
-                overflow: 'hidden'
+                padding: '30px',
+                textAlign: 'left'
               }}>
                 <h3 style={{ fontSize: '1.3rem', marginBottom: '8px', fontWeight: '600' }}>Quick wins</h3>
                 <p style={{ fontSize: '0.9rem', opacity: 0.6, marginBottom: '24px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
@@ -474,13 +554,15 @@ const SlideDeck = () => {
 
               {/* Top Right - High Impact × High Criticality (emphasized) */}
               <div style={{
+                position: 'absolute',
+                right: '80px',
+                top: '80px',
+                width: '38%',
                 background: 'rgba(255, 255, 255, 0.05)',
                 border: '2px solid rgba(255,255,255,0.5)',
                 borderRadius: '16px',
-                padding: '40px',
-                textAlign: 'left',
-                position: 'relative',
-                overflow: 'hidden'
+                padding: '30px',
+                textAlign: 'left'
               }}>
                 <h3 style={{ fontSize: '1.4rem', marginBottom: '8px', fontWeight: '700' }}>Trust-defining moments</h3>
                 <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: '24px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
@@ -511,12 +593,15 @@ const SlideDeck = () => {
 
               {/* Bottom Left - Low Impact × Low Criticality */}
               <div style={{
+                position: 'absolute',
+                left: '80px',
+                bottom: '80px',
+                width: '38%',
                 background: 'rgba(255, 255, 255, 0.02)',
                 border: '2px solid rgba(255,255,255,0.15)',
                 borderRadius: '16px',
-                padding: '40px',
-                textAlign: 'left',
-                position: 'relative'
+                padding: '30px',
+                textAlign: 'left'
               }}>
                 <h3 style={{ fontSize: '1.3rem', marginBottom: '8px', fontWeight: '600', opacity: 0.7 }}>Optimize later</h3>
                 <p style={{ fontSize: '0.9rem', opacity: 0.5, marginBottom: '24px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
@@ -543,13 +628,15 @@ const SlideDeck = () => {
 
               {/* Bottom Right - High Impact × Low Criticality */}
               <div style={{
+                position: 'absolute',
+                right: '80px',
+                bottom: '80px',
+                width: '38%',
                 background: 'rgba(255, 255, 255, 0.03)',
                 border: '2px solid rgba(255,255,255,0.25)',
                 borderRadius: '16px',
-                padding: '40px',
-                textAlign: 'left',
-                position: 'relative',
-                overflow: 'hidden'
+                padding: '30px',
+                textAlign: 'left'
               }}>
                 <h3 style={{ fontSize: '1.3rem', marginBottom: '8px', fontWeight: '600' }}>Scale & reliability first</h3>
                 <p style={{ fontSize: '0.9rem', opacity: 0.6, marginBottom: '24px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>

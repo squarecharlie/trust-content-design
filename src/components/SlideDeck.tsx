@@ -356,6 +356,148 @@ const SlideDeck = () => {
         </div>
       </section>
 
+      {/* Slide 9a - Steady: Introducing 80% framework as part of solution */}
+      <section id="slide-8a" className="slide motion-steady">
+        <div className="slide-content" style={{ alignItems: 'flex-start', textAlign: 'left' }}>
+          <h2 style={{ marginBottom: '40px' }}>Our approach: the 80%<br/>Design Polish framework</h2>
+          <p style={{ fontSize: '1.5rem', lineHeight: '2rem', opacity: 0.8, maxWidth: '800px' }}>
+            We evaluate the fidelity of our output by assessing <strong>risk</strong>, <strong>leverage</strong>,
+            and <strong>trust</strong> based on their <strong>impact</strong> and <strong>criticality</strong> to
+            the seller experience.
+          </p>
+        </div>
+      </section>
+
+      {/* Slide 9b - Steady: When to go 100% vs 80% */}
+      <section id="slide-8b" className="slide motion-steady">
+        <div className="slide-content" style={{ alignItems: 'flex-start', textAlign: 'left', padding: '60px 80px' }}>
+          <div style={{ maxWidth: '900px' }}>
+            <div style={{ marginBottom: '50px' }}>
+              <h3 style={{ fontSize: '2rem', marginBottom: '20px' }}>"100%" moments happen when:</h3>
+              <ul style={{ fontSize: '1.3rem', lineHeight: '2rem', listStyle: 'none', paddingLeft: 0 }}>
+                <li style={{ marginBottom: '12px' }}>• The stakes are high (harm, money, access, trust)</li>
+                <li style={{ marginBottom: '12px' }}>• The moment defines the relationship (first-time, celebration, failure)</li>
+                <li style={{ marginBottom: '12px' }}>• The interaction repeats at scale (systemic impact)</li>
+              </ul>
+            </div>
+            <div>
+              <h3 style={{ fontSize: '2rem', marginBottom: '20px' }}>"80% is okay" moments happen when:</h3>
+              <ul style={{ fontSize: '1.3rem', lineHeight: '2rem', listStyle: 'none', paddingLeft: 0 }}>
+                <li style={{ marginBottom: '12px' }}>• Stakes are low</li>
+                <li style={{ marginBottom: '12px' }}>• The moment is reversible</li>
+                <li style={{ marginBottom: '12px' }}>• The interaction is peripheral or non-defining</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Slide 9c - Steady: The 2x2 matrix */}
+      <section id="slide-8c" className="slide motion-steady">
+        <div className="slide-content" style={{ padding: '40px 60px' }}>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gap: '30px',
+            maxWidth: '1200px',
+            margin: '0 auto'
+          }}>
+            {/* Top Left - Low Impact × High Criticality */}
+            <div style={{
+              border: '2px solid rgba(255,255,255,0.2)',
+              borderRadius: '12px',
+              padding: '30px',
+              textAlign: 'left'
+            }}>
+              <h3 style={{ fontSize: '1.4rem', marginBottom: '10px' }}>Low Impact × High Criticality</h3>
+              <p style={{ fontSize: '1.1rem', fontStyle: 'italic', opacity: 0.7, marginBottom: '20px' }}>Quick wins</p>
+              <ul style={{ fontSize: '1rem', lineHeight: '1.6rem', listStyle: 'none', paddingLeft: 0, marginBottom: '20px' }}>
+                <li>• First-time feature tours</li>
+                <li>• Success confirmations</li>
+                <li>• Delight moments</li>
+                <li>• Brand storytelling</li>
+              </ul>
+              <p style={{ fontSize: '0.95rem', opacity: 0.8, fontStyle: 'italic' }}>
+                Invest deeply in experience and narrative, but avoid over-engineering the backend.
+              </p>
+            </div>
+
+            {/* Top Right - High Impact × High Criticality */}
+            <div style={{
+              border: '2px solid rgba(255,255,255,0.5)',
+              borderRadius: '12px',
+              padding: '30px',
+              textAlign: 'left',
+              background: 'rgba(255,255,255,0.05)'
+            }}>
+              <h3 style={{ fontSize: '1.4rem', marginBottom: '10px' }}>High Impact × High Criticality</h3>
+              <p style={{ fontSize: '1.1rem', fontStyle: 'italic', opacity: 0.7, marginBottom: '20px' }}>Trust-defining moments</p>
+              <ul style={{ fontSize: '1rem', lineHeight: '1.6rem', listStyle: 'none', paddingLeft: 0, marginBottom: '20px' }}>
+                <li>• Account deactivation</li>
+                <li>• Funds frozen</li>
+                <li>• First-time onboarding</li>
+                <li>• Fraud, disputes, identity verification</li>
+              </ul>
+              <p style={{ fontSize: '0.95rem', opacity: 0.9, fontStyle: 'italic' }}>
+                Precision, clarity, edge cases, accessibility, and failure states matter.
+              </p>
+            </div>
+
+            {/* Bottom Left - Low Impact × Low Criticality */}
+            <div style={{
+              border: '2px solid rgba(255,255,255,0.2)',
+              borderRadius: '12px',
+              padding: '30px',
+              textAlign: 'left'
+            }}>
+              <h3 style={{ fontSize: '1.4rem', marginBottom: '10px' }}>Low Impact × Low Criticality</h3>
+              <p style={{ fontSize: '1.1rem', fontStyle: 'italic', opacity: 0.7, marginBottom: '20px' }}>Optimize later</p>
+              <ul style={{ fontSize: '1rem', lineHeight: '1.6rem', listStyle: 'none', paddingLeft: 0, marginBottom: '20px' }}>
+                <li>• Admin settings</li>
+                <li>• Rarely used tools</li>
+                <li>• Internal-only flows</li>
+                <li>• Nice-to-have optimizations</li>
+              </ul>
+              <p style={{ fontSize: '0.95rem', opacity: 0.8, fontStyle: 'italic' }}>
+                80% is good enough. Revisit only if signals change.
+              </p>
+            </div>
+
+            {/* Bottom Right - High Impact × Low Criticality */}
+            <div style={{
+              border: '2px solid rgba(255,255,255,0.3)',
+              borderRadius: '12px',
+              padding: '30px',
+              textAlign: 'left'
+            }}>
+              <h3 style={{ fontSize: '1.4rem', marginBottom: '10px' }}>High Impact × Low Criticality</h3>
+              <p style={{ fontSize: '1.1rem', fontStyle: 'italic', opacity: 0.7, marginBottom: '20px' }}>Scale and reliability first</p>
+              <ul style={{ fontSize: '1rem', lineHeight: '1.6rem', listStyle: 'none', paddingLeft: 0, marginBottom: '20px' }}>
+                <li>• Repeated flows everyone must do</li>
+                <li>• Compliance steps</li>
+                <li>• Payments setup used constantly</li>
+                <li>• Identity verification retries</li>
+              </ul>
+              <p style={{ fontSize: '0.95rem', opacity: 0.8, fontStyle: 'italic' }}>
+                Thoughtful, scalable, durable design matters more than polish.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Slide 9d - Soft: Addressing craft and quality */}
+      <section id="slide-8d" className="slide motion-soft">
+        <div className="slide-content" style={{ alignItems: 'flex-start', textAlign: 'left', padding: '80px' }}>
+          <h2 style={{ marginBottom: '40px' }}>What about craft, taste,<br/>and design quality?</h2>
+          <p style={{ fontSize: '1.4rem', lineHeight: '2.2rem', opacity: 0.9, maxWidth: '900px' }}>
+            In practice, <strong>Low Impact × Low Criticality</strong> becomes our baseline bar for the
+            Square experience. It should be good enough to live in our experience for the foreseeable
+            future, without burdening our core experience, reliability, or brand perception.
+          </p>
+        </div>
+      </section>
+
       {/* Slide 10 - Steady: Solution introduction, standard transition */}
       <section id="slide-9" className="slide motion-steady">
         <div className="slide-content">

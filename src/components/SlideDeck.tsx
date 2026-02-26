@@ -775,13 +775,12 @@ const SlideDeck = () => {
             alt="Content Quality Matrix"
             className="matrix-image"
             style={{
-              maxWidth: '129vw',
-              maxHeight: '129vh',
+              maxWidth: '95vw',
+              maxHeight: '95vh',
               width: 'auto',
               height: 'auto',
               objectFit: 'contain',
-              marginLeft: '5%',
-              marginTop: '-10%'
+              marginTop: '-5%'
             }}
           />
         </div>

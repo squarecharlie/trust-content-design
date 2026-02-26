@@ -8,6 +8,9 @@ import disputeBeforeImage from '../images/new-dispute-before.png'
 import disputeAfterImage from '../images/new-dispute-after.png'
 import feedbackImage from '../images/feedback.png'
 import contentfulImage from '../images/contentful.png'
+import establishIdentityVideo from '../video/establish identity .mp4'
+import handlingProblemsVideo from '../video/handling problems.mp4'
+import gettingHelpVideo from '../video/getting help.mp4'
 
 const SlideDeck = () => {
   const [gptPrompt, setGptPrompt] = useState('')
@@ -275,7 +278,16 @@ const SlideDeck = () => {
 
   return (
     <div className="slide-deck">
-      <img src={trustLogo} alt="Trust Design Team" className="trust-logo" />
+      <a
+        href="#slide-0"
+        onClick={(e) => {
+          e.preventDefault()
+          window.scrollTo({ top: 0, behavior: 'smooth' })
+        }}
+        style={{ cursor: 'pointer' }}
+      >
+        <img src={trustLogo} alt="Trust Design Team" className="trust-logo" />
+      </a>
 
       {/* Slide 1 - Gentle: Opening slide, big reveal moment with gravitas */}
       <section id="slide-0" className="slide motion-gentle">
@@ -304,36 +316,126 @@ const SlideDeck = () => {
 
       {/* Slide 2a - Steady: First critical flow - animate both columns */}
       <section id="slide-1" className="slide motion-steady">
-        <div className="slide-content two-column">
+        <div className="slide-content two-column" style={{ justifyContent: 'center' }}>
           <div className="column-left" style={{ visibility: 'hidden' }}>
             <h2>The Trust team handles some of the most critical flows</h2>
           </div>
-          <div className="column-right">
-            <h2>Establishing<br/>your identity</h2>
+          <div className="column-right" style={{
+            borderRadius: '80px',
+            minHeight: '700px',
+            minWidth: '600px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            position: 'relative',
+            overflow: 'hidden'
+          }}>
+            <video
+              src={establishIdentityVideo}
+              autoPlay
+              loop
+              muted
+              playsInline
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                zIndex: 0
+              }}
+            />
+            <h2 style={{
+              position: 'relative',
+              zIndex: 1,
+              color: '#ffffff',
+              fontWeight: '700'
+            }}>Establishing<br/>your identity</h2>
           </div>
         </div>
       </section>
 
       {/* Slide 2b - Steady: Second critical flow - keep left fixed */}
       <section id="slide-1b" className="slide motion-steady slide-fixed-left">
-        <div className="slide-content two-column">
+        <div className="slide-content two-column" style={{ justifyContent: 'center' }}>
           <div className="column-left fixed-text" style={{ visibility: 'hidden' }}>
             <h2>The Trust team handles some of the most critical flows</h2>
           </div>
-          <div className="column-right">
-            <h2>Handling<br/>problems</h2>
+          <div className="column-right" style={{
+            borderRadius: '80px',
+            minHeight: '700px',
+            minWidth: '600px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            position: 'relative',
+            overflow: 'hidden'
+          }}>
+            <video
+              src={handlingProblemsVideo}
+              autoPlay
+              loop
+              muted
+              playsInline
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                zIndex: 0
+              }}
+            />
+            <h2 style={{
+              position: 'relative',
+              zIndex: 1,
+              color: '#ffffff',
+              fontWeight: '700'
+            }}>Handling<br/>problems</h2>
           </div>
         </div>
       </section>
 
       {/* Slide 2c - Steady: Third critical flow - keep left fixed */}
       <section id="slide-1c" className="slide motion-steady slide-fixed-left">
-        <div className="slide-content two-column">
+        <div className="slide-content two-column" style={{ justifyContent: 'center' }}>
           <div className="column-left fixed-text" style={{ visibility: 'hidden' }}>
             <h2>The Trust team handles some of the most critical flows</h2>
           </div>
-          <div className="column-right">
-            <h2>Getting help</h2>
+          <div className="column-right" style={{
+            borderRadius: '80px',
+            minHeight: '700px',
+            minWidth: '600px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            position: 'relative',
+            overflow: 'hidden'
+          }}>
+            <video
+              src={gettingHelpVideo}
+              autoPlay
+              loop
+              muted
+              playsInline
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                zIndex: 0
+              }}
+            />
+            <h2 style={{
+              position: 'relative',
+              zIndex: 1,
+              color: '#ffffff',
+              fontWeight: '700'
+            }}>Getting help</h2>
           </div>
         </div>
       </section>
@@ -374,7 +476,7 @@ const SlideDeck = () => {
       {/* Slide 6a - Soft: Code Red emphasis */}
       <section id="slide-5a" className="slide motion-soft">
         <div className="slide-content">
-          <h2>They matter<br/>for <span style={{ color: '#ff0000' }}>Code Red</span></h2>
+          <h2>They matter<br/>for <span style={{ color: '#ff0000' }}>Code Red.</span></h2>
         </div>
       </section>
 

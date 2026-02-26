@@ -192,6 +192,17 @@ const SlideDeck = () => {
               fixedLeftText.classList.remove('visible')
             }
           }
+
+          // Show/hide "They matter" overlay for slides 3, 4, 5, 5a
+          const matterOverlay = document.querySelector('.matter-fixed-overlay')
+          if (matterOverlay) {
+            if (entry.target.id === 'slide-3' || entry.target.id === 'slide-4' ||
+                entry.target.id === 'slide-5' || entry.target.id === 'slide-5a') {
+              matterOverlay.classList.add('visible')
+            } else {
+              matterOverlay.classList.remove('visible')
+            }
+          }
         } else {
           entry.target.classList.remove('active')
         }
@@ -455,31 +466,44 @@ const SlideDeck = () => {
         </div>
       </section>
 
+      {/* Fixed "They matter" text that persists across slides 3-5a */}
+      <div className="matter-fixed-overlay">
+        <h2>They matter</h2>
+      </div>
+
       {/* Slide 6 - Steady: Continuation of thought, standard pace */}
-      <section id="slide-3" className="slide motion-steady">
-        <div className="slide-content">
-          <h2>They matter<br/><span style={{ opacity: 0.3 }}>practically.</span></h2>
+      <section id="slide-3" className="slide motion-steady matter-sequence-slide">
+        <div className="slide-content matter-slide">
+          <div className="matter-word-container">
+            <h2 className="matter-word-practically" style={{ opacity: 0.3 }}>practically.</h2>
+          </div>
         </div>
       </section>
 
       {/* Slide 5 - Fast: Short, punchy statement needs immediate impact */}
-      <section id="slide-4" className="slide motion-fast">
-        <div className="slide-content">
-          <h2>They matter<br/><span style={{ opacity: 0.3 }}>legally.</span></h2>
+      <section id="slide-4" className="slide motion-fast matter-sequence-slide">
+        <div className="slide-content matter-slide">
+          <div className="matter-word-container">
+            <h2 className="matter-word-legally" style={{ opacity: 0.3 }}>legally.</h2>
+          </div>
         </div>
       </section>
 
       {/* Slide 8 - Soft: Emotional weight needs room to breathe */}
-      <section id="slide-5" className="slide motion-soft">
-        <div className="slide-content">
-          <h2>They matter<br/><span style={{ opacity: 0.3 }}>emotionally.</span></h2>
+      <section id="slide-5" className="slide motion-soft matter-sequence-slide">
+        <div className="slide-content matter-slide">
+          <div className="matter-word-container">
+            <h2 className="matter-word-emotionally" style={{ opacity: 0.3 }}>emotionally.</h2>
+          </div>
         </div>
       </section>
 
       {/* Slide 6a - Soft: Code Red emphasis */}
-      <section id="slide-5a" className="slide motion-soft">
-        <div className="slide-content">
-          <h2>They matter<br/>for <span style={{ color: '#ff0000' }}>Code Red.</span></h2>
+      <section id="slide-5a" className="slide motion-soft matter-sequence-slide">
+        <div className="slide-content matter-slide">
+          <div className="matter-word-container">
+            <h2 className="matter-word-codered">for <span style={{ color: '#ff0000' }}>Code Red.</span></h2>
+          </div>
         </div>
       </section>
 

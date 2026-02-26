@@ -912,6 +912,115 @@
   }
 }
 
+/* Fixed "They matter" overlay that persists across matter slides */
+.matter-fixed-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  margin-bottom: 20px;
+}
+
+.matter-fixed-overlay.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.matter-fixed-overlay h2 {
+  font-size: 52px;
+  font-weight: 400;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  color: #000000;
+  margin: 0;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Matter slides - container for changing words */
+.slide-content.matter-slide {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+  padding: 0;
+  margin: 0;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+  width: 100%;
+}
+
+.slide.active .slide-content.matter-slide {
+  opacity: 1 !important;
+  transform: translate(-50%, -50%) !important;
+  transition: none !important;
+}
+
+.slide.motion-steady .slide-content.matter-slide,
+.slide.motion-fast .slide-content.matter-slide,
+.slide.motion-soft .slide-content.matter-slide {
+  opacity: 1 !important;
+  transform: translate(-50%, -50%) !important;
+  transition: none !important;
+}
+
+/* Clipping container to prevent overlap with "They matter" */
+.matter-word-container {
+  overflow: hidden;
+  height: 60px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  margin-top: 52px;
+}
+
+/* Matter word slide up animation */
+@keyframes slideUpMatterWord {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.matter-word-practically,
+.matter-word-legally,
+.matter-word-emotionally,
+.matter-word-codered {
+  opacity: 0;
+  transform: translateY(10px);
+  margin: 0;
+  padding: 0;
+  transition: opacity 0.2s ease-out;
+}
+
+/* When slide is not active, ensure word is completely hidden */
+.slide:not(.active) .matter-word-practically,
+.slide:not(.active) .matter-word-legally,
+.slide:not(.active) .matter-word-emotionally,
+.slide:not(.active) .matter-word-codered {
+  opacity: 0 !important;
+  animation: none !important;
+}
+
+.slide.active .matter-word-practically,
+.slide.active .matter-word-legally,
+.slide.active .matter-word-emotionally,
+.slide.active .matter-word-codered {
+  animation: slideUpMatterWord 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.15s;
+}
+
 .opportunities-module {
   opacity: 0;
   transform: translateY(40px);

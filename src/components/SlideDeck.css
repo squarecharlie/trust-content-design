@@ -850,3 +850,25 @@
     gap: 40px;
   }
 }
+
+/* Before/After Scroll Animation */
+.before-after-scroll-container {
+  height: 200vh;
+  position: relative;
+}
+
+.before-after-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Prefers reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .before-after-scroll-container {
+    height: 100vh;
+  }
+}

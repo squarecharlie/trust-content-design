@@ -2,6 +2,12 @@ import { useEffect, useState } from 'react'
 import './SlideDeck.css'
 import emailImage from '../images/emailtemplate.png'
 import trustLogo from '../images/trust design logo.svg'
+import matrixSvg from '../images/matrix.svg'
+import commsProcessImage from '../images/comms-process.png'
+import disputeBeforeImage from '../images/new-dispute-before.png'
+import disputeAfterImage from '../images/new-dispute-after.png'
+import feedbackImage from '../images/feedback.png'
+import contentfulImage from '../images/contentful.png'
 
 const SlideDeck = () => {
   const [gptPrompt, setGptPrompt] = useState('')
@@ -321,6 +327,13 @@ const SlideDeck = () => {
         </div>
       </section>
 
+      {/* Slide 6a - Soft: Code Red emphasis */}
+      <section id="slide-5a" className="slide motion-soft">
+        <div className="slide-content">
+          <h2>They matter<br/>for <span style={{ color: '#ff0000' }}>Code Red</span></h2>
+        </div>
+      </section>
+
       {/* Slide 7 - Steady: Big stat slide, let the number speak for itself */}
       <section id="slide-6" className="slide motion-steady">
         <div className="slide-content stat-slide">
@@ -330,6 +343,18 @@ const SlideDeck = () => {
             <span className="digit" style={{animationDelay: '200ms'}}>%</span>
           </div>
           <p className="stat-description">of our product design time is copy only projects like emails and notifs</p>
+        </div>
+      </section>
+
+      {/* Slide 7a - Steady: Alignment stat */}
+      <section id="slide-6a" className="slide motion-steady">
+        <div className="slide-content stat-slide">
+          <div className="big-number">
+            <span className="digit" style={{animationDelay: '0ms'}}>2</span>
+            <span className="digit" style={{animationDelay: '100ms'}}>0</span>
+            <span className="digit" style={{animationDelay: '200ms'}}>%</span>
+          </div>
+          <p className="stat-description">of our time is spent getting alignment on content from legal, compliance and products</p>
         </div>
       </section>
 
@@ -353,6 +378,141 @@ const SlideDeck = () => {
             <span className="digit" style={{animationDelay: '0ms'}}>0</span>
           </div>
           <p className="stat-description">content designers</p>
+        </div>
+      </section>
+
+      {/* Slide 8-opportunities - Steady: Content Opportunities (duplicate) */}
+      <section id="slide-8-opportunities" className="slide motion-steady">
+        <div className="slide-content" style={{ padding: '60px 80px', justifyContent: 'flex-start' }}>
+          <h2 style={{
+            marginBottom: '60px',
+            fontSize: '2.5rem',
+            fontWeight: '400',
+            letterSpacing: '-0.02em',
+            lineHeight: '1'
+          }}>Content Opportunities</h2>
+
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '28px',
+            maxWidth: '1100px',
+            margin: '0 auto',
+            width: '100%'
+          }}>
+            {/* Level 1 - Strategy */}
+            <div style={{
+              background: '#000000',
+              padding: '36px 44px',
+              borderRadius: '12px',
+              color: '#ffffff',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.08)'
+            }}>
+              <div style={{
+                fontSize: '0.75rem',
+                fontWeight: '600',
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em',
+                marginBottom: '16px',
+                opacity: 0.7
+              }}>Level 1 — Strategy</div>
+              <h3 style={{
+                fontSize: '2rem',
+                fontWeight: '400',
+                marginBottom: '16px',
+                lineHeight: '0.9',
+                letterSpacing: '-0.02em',
+                textAlign: 'center',
+                color: '#ffffff'
+              }}>
+                Strategic Content Leadership
+              </h3>
+              <p style={{
+                fontSize: '1rem',
+                lineHeight: '1.5',
+                opacity: 0.9,
+                fontWeight: '400',
+                textAlign: 'center',
+                color: '#ffffff'
+              }}>
+                Set voice and disclosure rules for trust moments. Create decision frameworks that tell good sellers enough without educating bad actors. Define what we say, to whom, and where the line is.
+              </p>
+            </div>
+
+            {/* Level 2 - Approach */}
+            <div style={{
+              background: 'linear-gradient(135deg, #f2f2f2 0%, #e0e0e0 100%)',
+              padding: '36px 44px',
+              borderRadius: '12px',
+              color: '#000000',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.08)'
+            }}>
+              <div style={{
+                fontSize: '0.75rem',
+                fontWeight: '600',
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em',
+                marginBottom: '16px',
+                opacity: 0.6
+              }}>Level 2 — Approach</div>
+              <h3 style={{
+                fontSize: '2rem',
+                fontWeight: '400',
+                marginBottom: '16px',
+                lineHeight: '0.9',
+                letterSpacing: '-0.02em',
+                textAlign: 'center'
+              }}>
+                Operational Framework
+              </h3>
+              <p style={{
+                fontSize: '1rem',
+                lineHeight: '1.5',
+                opacity: 0.8,
+                fontWeight: '400',
+                textAlign: 'center'
+              }}>
+                Intake, prioritize, and govern content requests. Align stakeholders. Scale execution with tools like Risk GPT.
+              </p>
+            </div>
+
+            {/* Level 3 - Execution */}
+            <div style={{
+              background: 'linear-gradient(135deg, #f8f8f8 0%, #ececec 100%)',
+              padding: '36px 44px',
+              borderRadius: '12px',
+              color: '#000000',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.08)'
+            }}>
+              <div style={{
+                fontSize: '0.75rem',
+                fontWeight: '600',
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em',
+                marginBottom: '16px',
+                opacity: 0.6
+              }}>Level 3 — Execution</div>
+              <h3 style={{
+                fontSize: '2rem',
+                fontWeight: '400',
+                marginBottom: '16px',
+                lineHeight: '0.9',
+                letterSpacing: '-0.02em',
+                textAlign: 'center'
+              }}>
+                Applied Writing
+              </h3>
+              <p style={{
+                fontSize: '1rem',
+                lineHeight: '1.5',
+                opacity: 0.8,
+                fontWeight: '400',
+                textAlign: 'center'
+              }}>
+                Produce and ship the copy at volume. Raise experiences to the 80 percent and 100 percent quality bar.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -392,230 +552,27 @@ const SlideDeck = () => {
         </div>
       </section>
 
-      {/* Slide 9c - Steady: Clean 2x2 matrix with Cash App typography */}
+      {/* Slide 9c - Steady: 100% moments matrix visualization */}
       <section id="slide-8c" className="slide motion-steady">
-        <div className="slide-content" style={{ padding: '60px 100px' }}>
-          <div style={{
-            maxWidth: '1100px',
-            margin: '0 auto',
-            position: 'relative',
-            height: '600px'
-          }}>
-            {/* Y-axis (vertical line) */}
-            <div style={{
-              position: 'absolute',
-              left: '50%',
-              top: '50px',
-              bottom: '50px',
-              width: '1.5px',
-              background: '#000',
-              transform: 'translateX(-50%)'
-            }}></div>
-
-            {/* Y-axis arrow top */}
-            <div style={{
-              position: 'absolute',
-              left: '50%',
-              top: '42px',
-              transform: 'translateX(-50%)',
-              width: 0,
-              height: 0,
-              borderLeft: '6px solid transparent',
-              borderRight: '6px solid transparent',
-              borderBottom: '10px solid #000'
-            }}></div>
-
-            {/* Y-axis arrow bottom */}
-            <div style={{
-              position: 'absolute',
-              left: '50%',
-              bottom: '42px',
-              transform: 'translateX(-50%)',
-              width: 0,
-              height: 0,
-              borderLeft: '6px solid transparent',
-              borderRight: '6px solid transparent',
-              borderTop: '10px solid #000'
-            }}></div>
-
-            {/* X-axis (horizontal line) */}
-            <div style={{
-              position: 'absolute',
-              top: '50%',
-              left: '50px',
-              right: '50px',
-              height: '1.5px',
-              background: '#000',
-              transform: 'translateY(-50%)'
-            }}></div>
-
-            {/* X-axis arrow left */}
-            <div style={{
-              position: 'absolute',
-              left: '42px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              width: 0,
-              height: 0,
-              borderTop: '6px solid transparent',
-              borderBottom: '6px solid transparent',
-              borderRight: '10px solid #000'
-            }}></div>
-
-            {/* X-axis arrow right */}
-            <div style={{
-              position: 'absolute',
-              right: '42px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              width: 0,
-              height: 0,
-              borderTop: '6px solid transparent',
-              borderBottom: '6px solid transparent',
-              borderLeft: '10px solid #000'
-            }}></div>
-
-            {/* Y-axis label - top */}
-            <div style={{
-              position: 'absolute',
-              left: '50%',
-              top: '15px',
-              transform: 'translateX(-50%)',
-              fontSize: '0.875rem',
-              fontWeight: '400',
-              textAlign: 'center'
-            }}>high criticality</div>
-
-            {/* Y-axis label - bottom */}
-            <div style={{
-              position: 'absolute',
-              left: '50%',
-              bottom: '15px',
-              transform: 'translateX(-50%)',
-              fontSize: '0.875rem',
-              fontWeight: '400',
-              textAlign: 'center'
-            }}>Low criticality</div>
-
-            {/* X-axis label - left */}
-            <div style={{
-              position: 'absolute',
-              left: '15px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              fontSize: '0.875rem',
-              fontWeight: '400'
-            }}>Low impact</div>
-
-            {/* X-axis label - right */}
-            <div style={{
-              position: 'absolute',
-              right: '15px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              fontSize: '0.875rem',
-              fontWeight: '400'
-            }}>High impact</div>
-
-            {/* Top Left - Quick wins */}
-            <div style={{
-              position: 'absolute',
-              left: '60px',
-              top: '70px',
-              width: '380px',
-              textAlign: 'left'
-            }}>
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '16px', fontWeight: '600', letterSpacing: '-0.01em' }}>Quick wins</h3>
-              <ul style={{ fontSize: '0.95rem', lineHeight: '1.6', listStyle: 'disc', paddingLeft: '20px', marginBottom: '16px' }}>
-                <li>First-time feature tours</li>
-                <li>Success confirmations</li>
-                <li>Delight moments</li>
-                <li>Brand storytelling</li>
-              </ul>
-              <p style={{ fontSize: '0.9rem', lineHeight: '1.5', opacity: 0.85 }}>
-                Invest deeply in experience and narrative, but avoid over-engineering the backend.
-              </p>
-            </div>
-
-            {/* Top Right - Trust-defining moments */}
-            <div style={{
-              position: 'absolute',
-              right: '60px',
-              top: '70px',
-              width: '380px',
-              textAlign: 'left'
-            }}>
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '16px', fontWeight: '700', letterSpacing: '-0.01em' }}>Trust-defining moments</h3>
-              <ul style={{ fontSize: '0.95rem', lineHeight: '1.6', listStyle: 'disc', paddingLeft: '20px', marginBottom: '16px' }}>
-                <li>Account deactivation</li>
-                <li>Funds frozen</li>
-                <li>First-time onboarding</li>
-                <li>Fraud, disputes, identity verification</li>
-              </ul>
-              <p style={{ fontSize: '0.9rem', lineHeight: '1.5', opacity: 0.9 }}>
-                Precision, clarity, edge cases, accessibility, and failure states matter.
-              </p>
-            </div>
-
-            {/* Bottom Left - Optimize later */}
-            <div style={{
-              position: 'absolute',
-              left: '60px',
-              bottom: '70px',
-              width: '380px',
-              textAlign: 'left'
-            }}>
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '16px', fontWeight: '600', letterSpacing: '-0.01em' }}>Optimize later</h3>
-              <ul style={{ fontSize: '0.95rem', lineHeight: '1.6', listStyle: 'disc', paddingLeft: '20px', marginBottom: '16px' }}>
-                <li>Admin settings</li>
-                <li>Rarely used tools</li>
-                <li>Internal-only flows</li>
-                <li>Nice-to-have optimizations</li>
-              </ul>
-              <p style={{ fontSize: '0.9rem', lineHeight: '1.5', opacity: 0.85 }}>
-                80% is good enough. Revisit only if signals change.
-              </p>
-            </div>
-
-            {/* Bottom Right - Scale and reliability first */}
-            <div style={{
-              position: 'absolute',
-              right: '60px',
-              bottom: '70px',
-              width: '380px',
-              textAlign: 'left'
-            }}>
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '16px', fontWeight: '600', letterSpacing: '-0.01em' }}>Scale and reliability first</h3>
-              <ul style={{ fontSize: '0.95rem', lineHeight: '1.6', listStyle: 'disc', paddingLeft: '20px', marginBottom: '16px' }}>
-                <li>Repeated flows everyone must do</li>
-                <li>Compliance steps</li>
-                <li>Payments setup used constantly</li>
-                <li>Identity verification retries</li>
-              </ul>
-              <p style={{ fontSize: '0.9rem', lineHeight: '1.5', opacity: 0.85 }}>
-                Thoughtful, scalable, durable design matters more than polish.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Slide 9d - Soft: Addressing craft and quality */}
-      <section id="slide-8d" className="slide motion-soft">
-        <div className="slide-content" style={{ alignItems: 'flex-start', textAlign: 'left', padding: '80px' }}>
-          <h2 style={{ marginBottom: '40px' }}>What about craft, taste,<br/>and design quality?</h2>
-          <p style={{ fontSize: '1.4rem', lineHeight: '2.2rem', opacity: 0.9, maxWidth: '900px' }}>
-            In practice, <strong>Low Impact × Low Criticality</strong> becomes our baseline bar for the
-            Square experience. It should be good enough to live in our experience for the foreseeable
-            future, without burdening our core experience, reliability, or brand perception.
-          </p>
+        <div className="slide-content" style={{ padding: '5px', justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
+          <img
+            src={matrixSvg}
+            alt="Content Quality Matrix"
+            style={{
+              maxWidth: '99vw',
+              maxHeight: '99vh',
+              width: 'auto',
+              height: 'auto',
+              objectFit: 'contain'
+            }}
+          />
         </div>
       </section>
 
       {/* Slide 10 - Steady: Solution introduction, standard transition */}
       <section id="slide-9" className="slide motion-steady">
         <div className="slide-content">
-          <h2>So we built a GPT to<br/>automate the drafting of<br/>our emails</h2>
+          <h2>We also built a GPT to<br/>automate the drafting of<br/>our emails</h2>
         </div>
       </section>
 
@@ -665,6 +622,39 @@ const SlideDeck = () => {
                 </button>
               </div>
             </div>
+
+            <div style={{
+              marginTop: '32px',
+              marginBottom: '24px',
+              maxWidth: '600px',
+              textAlign: 'left',
+              fontSize: '0.9rem',
+              lineHeight: '1.6',
+              color: 'rgba(0, 0, 0, 0.75)'
+            }}>
+              <ul style={{
+                listStyle: 'none',
+                padding: 0,
+                margin: 0,
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '12px'
+              }}>
+                <li style={{ paddingLeft: '20px', position: 'relative' }}>
+                  <span style={{ position: 'absolute', left: '0', opacity: 0.6 }}>•</span>
+                  Drafts risk seller comms from scenario inputs using standard structure and tone
+                </li>
+                <li style={{ paddingLeft: '20px', position: 'relative' }}>
+                  <span style={{ position: 'absolute', left: '0', opacity: 0.6 }}>•</span>
+                  Enforces guardrails like plain language, clear next steps, and no new promises
+                </li>
+                <li style={{ paddingLeft: '20px', position: 'relative' }}>
+                  <span style={{ position: 'absolute', left: '0', opacity: 0.6 }}>•</span>
+                  Drives consistency by reusing approved patterns for common risk states
+                </li>
+              </ul>
+            </div>
+
             <a
               href="https://docs.google.com/document/d/1TDRvZddYvfOWeFXZtJE3X-F0KBJqZB9eYIOPTlf7aCA/edit?tab=t.qzb26l4ycx1c"
               target="_blank"
@@ -694,6 +684,49 @@ const SlideDeck = () => {
         </div>
       </section>
 
+      {/* Slide 12a - Steady: Before/After email comparison */}
+      <section id="slide-11a" className="slide motion-steady">
+        <div className="slide-content" style={{ padding: '60px 80px' }}>
+          <h2 style={{ marginBottom: '40px', textAlign: 'center' }}>Before & After</h2>
+          <div style={{
+            display: 'flex',
+            gap: '40px',
+            justifyContent: 'center',
+            alignItems: 'flex-start',
+            maxWidth: '1400px',
+            margin: '0 auto'
+          }}>
+            <div style={{ flex: '1', maxWidth: '600px' }}>
+              <h3 style={{ fontSize: '1.2rem', marginBottom: '20px', textAlign: 'center', fontWeight: '600' }}>Before</h3>
+              <img
+                src={disputeBeforeImage}
+                alt="Before - Old dispute email"
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  display: 'block',
+                  borderRadius: '8px'
+                }}
+              />
+            </div>
+            <div style={{ flex: '1', maxWidth: '600px' }}>
+              <h3 style={{ fontSize: '1.2rem', marginBottom: '20px', textAlign: 'center', fontWeight: '600' }}>After</h3>
+              <img
+                src={disputeAfterImage}
+                alt="After - New dispute email"
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  display: 'block',
+                  border: '1px solid #e0e0e0',
+                  borderRadius: '8px'
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Slide 13 - Steady: Result statement, standard information delivery */}
       <section id="slide-12" className="slide motion-steady">
         <div className="slide-content">
@@ -701,62 +734,380 @@ const SlideDeck = () => {
         </div>
       </section>
 
-      {/* Slide 14 - Steady: Section transition into projects */}
+      {/* Slide 13a - Steady: Feedback comment example */}
+      <section id="slide-12a" className="slide motion-steady">
+        <div className="slide-content" style={{ padding: '80px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <img
+            src={feedbackImage}
+            alt="Feedback comment example"
+            style={{
+              width: '90%',
+              maxWidth: '1200px',
+              height: 'auto',
+              objectFit: 'contain',
+              borderRadius: '12px',
+              boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
+            }}
+          />
+        </div>
+      </section>
+
+      {/* Slide 14 - Steady: The journey of an email - comms process diagram */}
+      <section id="slide-13a" className="slide motion-steady">
+        <div className="slide-content" style={{ padding: '30px', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', maxWidth: '100%' }}>
+          <img
+            src={commsProcessImage}
+            alt="The journey of an email"
+            style={{
+              width: '92%',
+              maxWidth: '1610px',
+              height: 'auto',
+              objectFit: 'contain'
+            }}
+          />
+        </div>
+      </section>
+
+      {/* Slide 14.5 - Steady: Contentful email management */}
+      <section id="slide-12b" className="slide motion-steady">
+        <div className="slide-content" style={{ padding: '30px', justifyContent: 'flex-start', alignItems: 'center', display: 'flex', flexDirection: 'column' }}>
+          <h2 style={{ marginBottom: '30px', textAlign: 'center', fontSize: '1.5rem' }}>Team is managing 350+ emails</h2>
+          <img
+            src={contentfulImage}
+            alt="Contentful email management dashboard"
+            style={{
+              maxWidth: '98%',
+              maxHeight: '80vh',
+              width: 'auto',
+              height: 'auto',
+              objectFit: 'contain',
+              border: '1px solid #e0e0e0',
+              borderRadius: '8px',
+              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)'
+            }}
+          />
+        </div>
+      </section>
+
+      {/* Slide 14b - Steady: The real challenge */}
+      <section id="slide-12b-challenge" className="slide motion-steady">
+        <div className="slide-content">
+          <h2 style={{ maxWidth: '900px', lineHeight: '1.2' }}>AI can write the words.<br/>Humans need to define the<br/>underlying concepts.</h2>
+          <p style={{ fontSize: '1.4rem', marginTop: '40px', opacity: 0.7, maxWidth: '800px' }}>How do we design flows that match how complex businesses actually think about ownership, control, and structure?</p>
+        </div>
+      </section>
+
+      {/* Slide 14a - Steady: Strategic content gaps */}
+      <section id="slide-12a-gaps" className="slide motion-steady">
+        <div className="slide-content" style={{ alignItems: 'flex-start', textAlign: 'left', padding: '60px 80px' }}>
+          <div style={{ maxWidth: '1000px' }}>
+            <h2 style={{ fontSize: '2.5rem', marginBottom: '40px' }}>Beyond risk emails: foundational content concepts</h2>
+            <div style={{ fontSize: '1.3rem', lineHeight: '2rem' }}>
+              <p style={{ marginBottom: '30px' }}>As we move upmarket, inconsistent concepts confuse teams and sellers:</p>
+              <ul style={{ listStyle: 'none', paddingLeft: 0, marginBottom: '40px' }}>
+                <li style={{ marginBottom: '12px' }}>• "Account Owner" vs "Sign Up Person" vs "Primary Individual"</li>
+                <li style={{ marginBottom: '12px' }}>• "Transfer of Account" vs "Change of Entity" vs "Change of Business Type"</li>
+                <li style={{ marginBottom: '12px' }}>• Account Owner overlapping with Control Person, Beneficial Owner, Business Owner</li>
+              </ul>
+              <p style={{ fontSize: '1.2rem', opacity: 0.8 }}>Result: AMs translate terminology. Teams debate definitions. Sellers navigate concepts that don't match their mental model.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Slide 15 - Steady: Section transition into projects */}
       <section id="slide-13" className="slide motion-steady">
         <div className="slide-content">
           <h2>...and we have a lot more<br/>content only projects<br/>in flight...</h2>
         </div>
       </section>
 
-      {/* Slide 15 - Steady: First project detail */}
-      <section id="slide-14" className="slide motion-steady">
-        <div className="slide-content">
-          <h3>Dispute Communications Updates</h3>
-          <p>Improving in-app, SMS, and email communications to increase seller response rates</p>
-        </div>
-      </section>
-
-      {/* Slide 17 - Steady: Second project, consistent with previous */}
-      <section id="slide-15" className="slide motion-steady">
-        <div className="slide-content">
-          <h3>Refund Controls</h3>
-          <p>Email-heavy fraud prevention initiative reducing $400K in losses</p>
-        </div>
-      </section>
-
-      {/* Slide 18 - Steady: Third project, maintaining rhythm */}
-      <section id="slide-16" className="slide motion-steady">
-        <div className="slide-content">
-          <h3>Square Debit Card Funnel</h3>
-          <p>Document identity verification messaging improvements</p>
-        </div>
-      </section>
-
-      {/* Slide 19 - Fast: Quick scan of additional items, Sharp accent for list */}
-      <section id="slide-17" className="slide motion-fast">
-        <div className="slide-content slide-list">
-          <h2>Additional projects</h2>
+      {/* Slide 15 - Fast: Quick scan of additional items, Sharp accent for list */}
+      <section id="slide-14" className="slide motion-fast">
+        <div className="slide-content slide-list" style={{ alignItems: 'center', textAlign: 'center' }}>
+          <h2>Active Content Projects:</h2>
           <ol>
-            <li>Risk Deactivation Emails - Updated policies, clearer reactivation paths</li>
-            <li>Risk Comms Improvements - Standardizing across channels and markets</li>
-            <li>Dormant Account Email - Best practices research & design</li>
-            <li>Identity Verification Flows - Compliance-friendly messaging</li>
-            <li>Fraud Alert Communications - Empathetic, action-oriented voice</li>
+            <li>
+              <strong><a href="https://linear.app/dashboard-and-labs/project/dispute-communications-updates-35c9627ccd05" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Dispute Communications Updates:</a></strong> <span style={{
+                backgroundColor: '#ff0000',
+                color: '#ffffff',
+                padding: '3px 10px',
+                borderRadius: '12px',
+                fontSize: '0.75rem',
+                fontWeight: '600',
+                textTransform: 'uppercase',
+                letterSpacing: '0.5px',
+                marginLeft: '8px',
+                marginRight: '8px',
+                display: 'inline-block'
+              }}>Code Red</span> Updated in app dispute copy, SMS templates, and email templates to increase seller responses
+            </li>
+            <li><strong><a href="https://linear.app/dashboard-and-labs/project/refund-controls-d3bd8be18d8b" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Refund Controls:</a></strong> New seller facing email templates and in product copy for refund fraud controls</li>
+            <li>
+              <strong><a href="https://linear.app/dashboard-and-labs/project/sq-debit-card-funnel-improvements-4e88823f0a56" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Square Debit Card Funnel:</a></strong> <span style={{
+                backgroundColor: '#ff0000',
+                color: '#ffffff',
+                padding: '3px 10px',
+                borderRadius: '12px',
+                fontSize: '0.75rem',
+                fontWeight: '600',
+                textTransform: 'uppercase',
+                letterSpacing: '0.5px',
+                marginLeft: '8px',
+                marginRight: '8px',
+                display: 'inline-block'
+              }}>Code Red</span> Revised identity check challenge screen copy, email copy, and help content to reduce drop off
+            </li>
+            <li>
+              <strong><a href="https://linear.app/dashboard-and-labs/project/square-risk-deactivation-emails-f22a3f6f760f" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Risk Deactivation Emails:</a></strong> <span style={{
+                backgroundColor: '#ff0000',
+                color: '#ffffff',
+                padding: '3px 10px',
+                borderRadius: '12px',
+                fontSize: '0.75rem',
+                fontWeight: '600',
+                textTransform: 'uppercase',
+                letterSpacing: '0.5px',
+                marginLeft: '8px',
+                marginRight: '8px',
+                display: 'inline-block'
+              }}>Code Red</span> Updated deactivation email templates with clearer outcomes, funds timing, and reactivation steps
+            </li>
+            <li><strong><a href="https://linear.app/dashboard-and-labs/project/risk-comms-improvements-fed14f758f3a" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Risk Comms Improvements:</a></strong> Standardized message framework, reusable templates, and tone guidelines across channels and markets</li>
+            <li><strong><a href="https://linear.app/dashboard-and-labs/project/dormant-account-email-de5c7544028a" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Dormant Account Email:</a></strong> Best practice research, Figma email design, and finalized dormant account email copy</li>
           </ol>
         </div>
       </section>
 
-      {/* Slide 20 - Soft: Reflective question, pause for thought */}
-      <section id="slide-18" className="slide motion-soft">
-        <div className="slide-content">
-          <h2>The question today is:<br/>is this good enough?</h2>
+      {/* Slide 20 - Steady: Content strategy framework */}
+      <section id="slide-18" className="slide motion-steady">
+        <div className="slide-content" style={{ padding: '60px 80px', justifyContent: 'flex-start' }}>
+          <h2 style={{
+            marginBottom: '60px',
+            fontSize: '2.5rem',
+            fontWeight: '400',
+            letterSpacing: '-0.02em',
+            lineHeight: '1'
+          }}>Content Opportunities</h2>
+
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '28px',
+            maxWidth: '1100px',
+            margin: '0',
+            width: '100%'
+          }}>
+            {/* Level 1 - Strategy */}
+            <div style={{
+              background: '#000000',
+              padding: '36px 44px',
+              borderRadius: '12px',
+              color: '#ffffff',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+              position: 'relative'
+            }}>
+              <div style={{
+                position: 'absolute',
+                top: '20px',
+                right: '20px',
+                backgroundColor: '#9e9e9e',
+                color: '#000000',
+                padding: '4px 12px',
+                borderRadius: '12px',
+                fontSize: '0.7rem',
+                fontWeight: '600',
+                textTransform: 'uppercase',
+                letterSpacing: '0.5px'
+              }}>Unexplored</div>
+              <div style={{
+                fontSize: '0.75rem',
+                fontWeight: '600',
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em',
+                marginBottom: '16px',
+                opacity: 0.7,
+                textAlign: 'center'
+              }}>Level 1 — Strategy</div>
+              <h3 style={{
+                fontSize: '2rem',
+                fontWeight: '400',
+                marginBottom: '16px',
+                lineHeight: '0.9',
+                letterSpacing: '-0.02em',
+                textAlign: 'center',
+                color: '#ffffff'
+              }}>
+                Strategic Content Leadership
+              </h3>
+              <p style={{
+                fontSize: '1rem',
+                lineHeight: '1.5',
+                opacity: 0.9,
+                fontWeight: '400',
+                marginBottom: '16px',
+                textAlign: 'center',
+                color: '#ffffff'
+              }}>
+                Set voice and disclosure rules for trust moments. Create decision frameworks that tell good sellers enough without educating bad actors. Define what we say, to whom, and where the line is.
+              </p>
+              <div style={{
+                width: '100%',
+                height: '6px',
+                backgroundColor: 'rgba(255,255,255,0.2)',
+                borderRadius: '3px',
+                overflow: 'hidden'
+              }}>
+                <div style={{
+                  width: '5%',
+                  height: '100%',
+                  backgroundColor: '#9e9e9e',
+                  borderRadius: '3px'
+                }}></div>
+              </div>
+            </div>
+
+            {/* Level 2 - Approach */}
+            <div style={{
+              background: 'linear-gradient(135deg, #f2f2f2 0%, #e0e0e0 100%)',
+              padding: '36px 44px',
+              borderRadius: '12px',
+              color: '#000000',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+              position: 'relative'
+            }}>
+              <div style={{
+                position: 'absolute',
+                top: '20px',
+                right: '20px',
+                backgroundColor: '#f5a623',
+                color: '#ffffff',
+                padding: '4px 12px',
+                borderRadius: '12px',
+                fontSize: '0.7rem',
+                fontWeight: '600',
+                textTransform: 'uppercase',
+                letterSpacing: '0.5px'
+              }}>Just Starting</div>
+              <div style={{
+                fontSize: '0.75rem',
+                fontWeight: '600',
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em',
+                marginBottom: '16px',
+                opacity: 0.6,
+                textAlign: 'center'
+              }}>Level 2 — Approach</div>
+              <h3 style={{
+                fontSize: '2rem',
+                fontWeight: '400',
+                marginBottom: '16px',
+                lineHeight: '0.9',
+                letterSpacing: '-0.02em',
+                textAlign: 'center'
+              }}>
+                Operational Framework
+              </h3>
+              <p style={{
+                fontSize: '1rem',
+                lineHeight: '1.5',
+                opacity: 0.8,
+                fontWeight: '400',
+                marginBottom: '16px',
+                textAlign: 'center'
+              }}>
+                Intake, prioritize, and govern content requests. Align stakeholders. Scale execution with tools like Risk GPT.
+              </p>
+              <div style={{
+                width: '100%',
+                height: '6px',
+                backgroundColor: 'rgba(0,0,0,0.1)',
+                borderRadius: '3px',
+                overflow: 'hidden'
+              }}>
+                <div style={{
+                  width: '15%',
+                  height: '100%',
+                  backgroundColor: '#f5a623',
+                  borderRadius: '3px'
+                }}></div>
+              </div>
+            </div>
+
+            {/* Level 3 - Execution */}
+            <div style={{
+              background: 'linear-gradient(135deg, #f8f8f8 0%, #ececec 100%)',
+              padding: '36px 44px',
+              borderRadius: '12px',
+              color: '#000000',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+              position: 'relative'
+            }}>
+              <div style={{
+                position: 'absolute',
+                top: '20px',
+                right: '20px',
+                backgroundColor: '#ff5a5f',
+                color: '#ffffff',
+                padding: '4px 12px',
+                borderRadius: '12px',
+                fontSize: '0.7rem',
+                fontWeight: '600',
+                textTransform: 'uppercase',
+                letterSpacing: '0.5px'
+              }}>Current Focus</div>
+              <div style={{
+                fontSize: '0.75rem',
+                fontWeight: '600',
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em',
+                marginBottom: '16px',
+                opacity: 0.6,
+                textAlign: 'center'
+              }}>Level 3 — Execution</div>
+              <h3 style={{
+                fontSize: '2rem',
+                fontWeight: '400',
+                marginBottom: '16px',
+                lineHeight: '0.9',
+                letterSpacing: '-0.02em',
+                textAlign: 'center'
+              }}>
+                Applied Writing
+              </h3>
+              <p style={{
+                fontSize: '1rem',
+                lineHeight: '1.5',
+                opacity: 0.8,
+                fontWeight: '400',
+                marginBottom: '16px',
+                textAlign: 'center'
+              }}>
+                Produce and ship the copy at volume. Raise experiences to the 80 percent and 100 percent quality bar.
+              </p>
+              <div style={{
+                width: '100%',
+                height: '6px',
+                backgroundColor: 'rgba(0,0,0,0.1)',
+                borderRadius: '3px',
+                overflow: 'hidden'
+              }}>
+                <div style={{
+                  width: '45%',
+                  height: '100%',
+                  backgroundColor: '#ff5a5f',
+                  borderRadius: '3px'
+                }}></div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Slide 21 - Gentle: Final dramatic moment, key decision point needs weight */}
+      {/* Slide 21 - Gentle: Final slide with goals */}
       <section id="slide-19" className="slide motion-gentle slide-with-back-to-top">
         <div className="slide-content">
-          <h2>The question today is: is<br/>this the best use of our<br/>product design time?</h2>
+          <h2>Goals for today: align on the<br/>content landscape and agree<br/>on the support needed to<br/>improve it.</h2>
           <a
             href="#slide-0"
             className="back-to-top"

@@ -310,19 +310,20 @@ const SlideDeck = () => {
               </svg>
             </div>
           </div>
-          <span className="keyboard-hint">Use arrow keys to navigate</span>
+          <span className="keyboard-hint">Use arrow keys to navigate or scroll</span>
         </div>
       </section>
 
       {/* Slide 2a - Steady: First critical flow - animate both columns */}
       <section id="slide-1" className="slide motion-steady">
-        <div className="slide-content two-column" style={{ justifyContent: 'center' }}>
+        <div className="slide-content two-column" style={{ justifyContent: 'center', alignItems: 'start', paddingTop: '3vh' }}>
           <div className="column-left" style={{ visibility: 'hidden' }}>
             <h2>The Trust team handles some of the most critical flows</h2>
           </div>
           <div className="column-right" style={{
             borderRadius: '80px',
-            minHeight: '700px',
+            height: '75vh',
+            maxHeight: '800px',
             minWidth: '600px',
             display: 'flex',
             alignItems: 'center',
@@ -358,13 +359,14 @@ const SlideDeck = () => {
 
       {/* Slide 2b - Steady: Second critical flow - keep left fixed */}
       <section id="slide-1b" className="slide motion-steady slide-fixed-left">
-        <div className="slide-content two-column" style={{ justifyContent: 'center' }}>
+        <div className="slide-content two-column" style={{ justifyContent: 'center', alignItems: 'start', paddingTop: '3vh' }}>
           <div className="column-left fixed-text" style={{ visibility: 'hidden' }}>
             <h2>The Trust team handles some of the most critical flows</h2>
           </div>
           <div className="column-right" style={{
             borderRadius: '80px',
-            minHeight: '700px',
+            height: '75vh',
+            maxHeight: '800px',
             minWidth: '600px',
             display: 'flex',
             alignItems: 'center',
@@ -400,13 +402,14 @@ const SlideDeck = () => {
 
       {/* Slide 2c - Steady: Third critical flow - keep left fixed */}
       <section id="slide-1c" className="slide motion-steady slide-fixed-left">
-        <div className="slide-content two-column" style={{ justifyContent: 'center' }}>
+        <div className="slide-content two-column" style={{ justifyContent: 'center', alignItems: 'start', paddingTop: '3vh' }}>
           <div className="column-left fixed-text" style={{ visibility: 'hidden' }}>
             <h2>The Trust team handles some of the most critical flows</h2>
           </div>
           <div className="column-right" style={{
             borderRadius: '80px',
-            minHeight: '700px',
+            height: '75vh',
+            maxHeight: '800px',
             minWidth: '600px',
             display: 'flex',
             alignItems: 'center',
@@ -488,7 +491,7 @@ const SlideDeck = () => {
             <span className="digit" style={{animationDelay: '100ms'}}>0</span>
             <span className="digit" style={{animationDelay: '200ms'}}>%</span>
           </div>
-          <p className="stat-description">of our product design time is copy only projects like emails and notifs</p>
+          <p className="stat-description">of our product design time is content heavy projects like emails and notifs</p>
         </div>
       </section>
 
@@ -527,7 +530,7 @@ const SlideDeck = () => {
         </div>
       </section>
 
-      {/* Slide 8-opportunities - Steady: Content Opportunities (duplicate) */}
+      {/* Slide 8-opportunities - Steady: Where we are today (duplicate of slide 30) */}
       <section id="slide-8-opportunities" className="slide motion-steady">
         <div className="slide-content" style={{ padding: '70px 80px', justifyContent: 'flex-start' }}>
           <h2 style={{
@@ -543,7 +546,7 @@ const SlideDeck = () => {
             flexDirection: 'column',
             gap: '40px',
             maxWidth: '1100px',
-            margin: '0 auto',
+            margin: '0',
             width: '100%'
           }}>
             {/* Level 1 - Strategy */}
@@ -555,6 +558,19 @@ const SlideDeck = () => {
               boxShadow: '0 4px 16px rgba(0,0,0,0.12)',
               position: 'relative'
             }}>
+              <div style={{
+                position: 'absolute',
+                top: '24px',
+                right: '24px',
+                backgroundColor: '#ffffff',
+                color: '#000000',
+                padding: '6px 14px',
+                borderRadius: '14px',
+                fontSize: '0.65rem',
+                fontWeight: '700',
+                textTransform: 'uppercase',
+                letterSpacing: '0.08em'
+              }}>Unexplored</div>
               <div style={{
                 fontSize: '0.7rem',
                 fontWeight: '700',
@@ -580,11 +596,26 @@ const SlideDeck = () => {
                 lineHeight: '1.6',
                 opacity: 0.85,
                 fontWeight: '400',
+                marginBottom: '24px',
                 textAlign: 'center',
                 color: '#ffffff'
               }}>
                 Set voice and disclosure rules for trust moments. Create decision frameworks that tell good sellers enough without educating bad actors. Define what we say, to whom, and where the line is.
               </p>
+              <div style={{
+                width: '100%',
+                height: '12px',
+                backgroundColor: 'rgba(255,255,255,0.15)',
+                borderRadius: '6px',
+                overflow: 'hidden'
+              }}>
+                <div style={{
+                  width: '5%',
+                  height: '100%',
+                  backgroundColor: '#9e9e9e',
+                  borderRadius: '6px'
+                }}></div>
+              </div>
             </div>
 
             {/* Level 2 - Approach */}
@@ -596,6 +627,19 @@ const SlideDeck = () => {
               boxShadow: '0 4px 16px rgba(0,0,0,0.12)',
               position: 'relative'
             }}>
+              <div style={{
+                position: 'absolute',
+                top: '24px',
+                right: '24px',
+                backgroundColor: '#000000',
+                color: '#ffffff',
+                padding: '6px 14px',
+                borderRadius: '14px',
+                fontSize: '0.65rem',
+                fontWeight: '700',
+                textTransform: 'uppercase',
+                letterSpacing: '0.08em'
+              }}>Just Starting</div>
               <div style={{
                 fontSize: '0.7rem',
                 fontWeight: '700',
@@ -620,10 +664,25 @@ const SlideDeck = () => {
                 lineHeight: '1.6',
                 opacity: 0.75,
                 fontWeight: '400',
+                marginBottom: '24px',
                 textAlign: 'center'
               }}>
                 Intake, prioritize, and govern content requests. Align stakeholders. Scale execution with tools like Risk GPT.
               </p>
+              <div style={{
+                width: '100%',
+                height: '12px',
+                backgroundColor: 'rgba(0,0,0,0.1)',
+                borderRadius: '6px',
+                overflow: 'hidden'
+              }}>
+                <div style={{
+                  width: '15%',
+                  height: '100%',
+                  backgroundColor: '#6e6e6e',
+                  borderRadius: '6px'
+                }}></div>
+              </div>
             </div>
 
             {/* Level 3 - Execution */}
@@ -635,6 +694,19 @@ const SlideDeck = () => {
               boxShadow: '0 4px 16px rgba(0,0,0,0.12)',
               position: 'relative'
             }}>
+              <div style={{
+                position: 'absolute',
+                top: '24px',
+                right: '24px',
+                backgroundColor: '#000000',
+                color: '#ffffff',
+                padding: '6px 14px',
+                borderRadius: '14px',
+                fontSize: '0.65rem',
+                fontWeight: '700',
+                textTransform: 'uppercase',
+                letterSpacing: '0.08em'
+              }}>Current Focus</div>
               <div style={{
                 fontSize: '0.7rem',
                 fontWeight: '700',
@@ -659,10 +731,25 @@ const SlideDeck = () => {
                 lineHeight: '1.6',
                 opacity: 0.75,
                 fontWeight: '400',
+                marginBottom: '24px',
                 textAlign: 'center'
               }}>
                 Produce and ship the copy at volume. Raise experiences to the 80 percent and 100 percent quality bar.
               </p>
+              <div style={{
+                width: '100%',
+                height: '12px',
+                backgroundColor: 'rgba(0,0,0,0.1)',
+                borderRadius: '6px',
+                overflow: 'hidden'
+              }}>
+                <div style={{
+                  width: '45%',
+                  height: '100%',
+                  backgroundColor: '#4a4a4a',
+                  borderRadius: '6px'
+                }}></div>
+              </div>
             </div>
           </div>
         </div>
@@ -677,6 +764,26 @@ const SlideDeck = () => {
             and <strong>trust</strong> based on their <strong>impact</strong> and <strong>criticality</strong> to
             the seller experience.
           </p>
+        </div>
+      </section>
+
+      {/* Slide 9c - Steady: 100% moments matrix visualization */}
+      <section id="slide-8c" className="slide motion-steady">
+        <div className="slide-content" style={{ padding: '5px', justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
+          <img
+            src={matrixSvg}
+            alt="Content Quality Matrix"
+            className="matrix-image"
+            style={{
+              maxWidth: '129vw',
+              maxHeight: '129vh',
+              width: 'auto',
+              height: 'auto',
+              objectFit: 'contain',
+              marginLeft: '5%',
+              marginTop: '-10%'
+            }}
+          />
         </div>
       </section>
 
@@ -701,26 +808,6 @@ const SlideDeck = () => {
               </ul>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Slide 9c - Steady: 100% moments matrix visualization */}
-      <section id="slide-8c" className="slide motion-steady">
-        <div className="slide-content" style={{ padding: '5px', justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
-          <img
-            src={matrixSvg}
-            alt="Content Quality Matrix"
-            className="matrix-image"
-            style={{
-              maxWidth: '129vw',
-              maxHeight: '129vh',
-              width: 'auto',
-              height: 'auto',
-              objectFit: 'contain',
-              marginLeft: '5%',
-              marginTop: '-10%'
-            }}
-          />
         </div>
       </section>
 
@@ -897,7 +984,7 @@ const SlideDeck = () => {
 
       {/* Slide 13a - Steady: Feedback comment example */}
       <section id="slide-12a" className="slide motion-steady">
-        <div className="slide-content" style={{ padding: '80px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <div className="slide-content" style={{ padding: '80px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
           <img
             src={feedbackImage}
             alt="Feedback comment example"
@@ -912,6 +999,13 @@ const SlideDeck = () => {
               margin: '0 auto'
             }}
           />
+          <p style={{
+            marginTop: '24px',
+            fontSize: '1.2rem',
+            color: 'rgba(0,0,0,0.7)',
+            textAlign: 'center',
+            maxWidth: '840px'
+          }}>team spends a lot of time resolving these</p>
         </div>
       </section>
 
@@ -1228,7 +1322,7 @@ const SlideDeck = () => {
             fontWeight: '400',
             letterSpacing: '-0.02em',
             lineHeight: '0.85'
-          }}>Where we are today</h2>
+          }}>Where we'd like to be</h2>
 
           <div style={{
             display: 'flex',
@@ -1259,7 +1353,7 @@ const SlideDeck = () => {
                 fontWeight: '700',
                 textTransform: 'uppercase',
                 letterSpacing: '0.08em'
-              }}>Unexplored</div>
+              }}>Leading</div>
               <div style={{
                 fontSize: '0.7rem',
                 fontWeight: '700',
@@ -1299,7 +1393,7 @@ const SlideDeck = () => {
                 overflow: 'hidden'
               }}>
                 <div style={{
-                  width: '5%',
+                  width: '95%',
                   height: '100%',
                   backgroundColor: '#9e9e9e',
                   borderRadius: '6px'
@@ -1328,7 +1422,7 @@ const SlideDeck = () => {
                 fontWeight: '700',
                 textTransform: 'uppercase',
                 letterSpacing: '0.08em'
-              }}>Just Starting</div>
+              }}>Excelling</div>
               <div style={{
                 fontSize: '0.7rem',
                 fontWeight: '700',
@@ -1366,7 +1460,7 @@ const SlideDeck = () => {
                 overflow: 'hidden'
               }}>
                 <div style={{
-                  width: '15%',
+                  width: '90%',
                   height: '100%',
                   backgroundColor: '#6e6e6e',
                   borderRadius: '6px'
@@ -1395,7 +1489,7 @@ const SlideDeck = () => {
                 fontWeight: '700',
                 textTransform: 'uppercase',
                 letterSpacing: '0.08em'
-              }}>Current Focus</div>
+              }}>Mastered</div>
               <div style={{
                 fontSize: '0.7rem',
                 fontWeight: '700',
@@ -1433,7 +1527,7 @@ const SlideDeck = () => {
                 overflow: 'hidden'
               }}>
                 <div style={{
-                  width: '45%',
+                  width: '100%',
                   height: '100%',
                   backgroundColor: '#4a4a4a',
                   borderRadius: '6px'
@@ -1491,7 +1585,7 @@ const SlideDeck = () => {
               maxWidth: '900px',
               margin: '10px auto 0'
             }}>
-              and discuss the support needed to improve it.
+              and discuss the support needed to strengthen it.
             </div>
           </div>
 

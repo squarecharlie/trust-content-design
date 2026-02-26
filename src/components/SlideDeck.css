@@ -163,9 +163,9 @@
 
 .chat-input-field {
   width: 100%;
-  padding: 36px 320px 36px 96px;
+  padding: 36px 200px 36px 96px;
   background: #ffffff;
-  border: 3px solid #000000;
+  border: 3px solid rgba(0, 0, 0, 0.15);
   border-radius: 60px;
   font-size: 30px;
   color: #000000;
@@ -179,7 +179,7 @@
 }
 
 .chat-input-field:focus {
-  border-color: #000000;
+  border-color: rgba(0, 0, 0, 0.15);
 }
 
 .blinking-cursor {
@@ -241,7 +241,7 @@
 .chat-button-clear {
   background: #ffffff;
   color: #000000;
-  border: 2px solid #000000;
+  border: 2px solid rgba(0, 0, 0, 0.3);
 }
 
 .chat-button-clear:hover {
@@ -249,12 +249,13 @@
 }
 
 .chat-button-send {
-  background: #000000;
+  background: rgba(0, 0, 0, 1);
   color: #ffffff;
+  border: none;
 }
 
 .chat-button-send:hover {
-  background: #333333;
+  background: rgba(0, 0, 0, 0.85);
 }
 
 .chat-button:active {
@@ -414,18 +415,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .slide:has(.gpt-demo) {
-  align-items: flex-start;
+  align-items: center;
 }
 
 .gpt-title {
-  margin-bottom: 16px;
-  font-size: 38px;
-  font-weight: 500;
+  margin-bottom: 32px;
+  font-size: 6rem;
+  font-weight: 400;
   text-align: center;
+  letter-spacing: -0.02em;
+  line-height: 0.85;
+  color: #000000;
 }
 
 /* Email Output */
@@ -680,7 +684,8 @@
 .fixed-left-text h2 {
   font-size: 32px;
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
   color: #000000;
   margin: 0;
   font-family: 'Cash Sans', -apple-system, system-ui, sans-serif;
@@ -702,7 +707,8 @@
 .slide h1 {
   font-size: 64px;
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
   color: #000000;
   margin: 0;
   font-family: 'Cash Sans', -apple-system, system-ui, sans-serif;
@@ -711,7 +717,8 @@
 .slide h2 {
   font-size: 52px;
   font-weight: 400;
-  line-height: 1.3;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
   color: #000000;
   margin: 0;
   font-family: 'Cash Sans', -apple-system, system-ui, sans-serif;
@@ -788,7 +795,8 @@
 
 .column-left h2 {
   font-size: 56px;
-  line-height: 1.2;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
 }
 
 .column-right {
@@ -799,7 +807,8 @@
 
 .column-right h2 {
   font-size: 72px;
-  line-height: 1.2;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
 }
 
 .column-right ul {
@@ -870,5 +879,378 @@
 @media (prefers-reduced-motion: reduce) {
   .before-after-scroll-container {
     height: 100vh;
+  }
+}
+
+/* Content Opportunities Cascade Animation */
+@keyframes cascadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ambientFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-12px) scale(1.008);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-150%) translateY(-150%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(150%) translateY(150%) rotate(45deg);
+  }
+}
+
+.opportunities-module {
+  opacity: 0;
+  transform: translateY(40px);
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.slide.active .opportunities-module {
+  animation: cascadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards,
+             ambientFloat 5s ease-in-out infinite;
+}
+
+.slide.active .opportunities-module:nth-child(1) {
+  animation-delay: 0.1s, 0s;
+}
+
+.slide.active .opportunities-module:nth-child(2) {
+  animation-delay: 0.3s, 1.5s;
+}
+
+.slide.active .opportunities-module:nth-child(3) {
+  animation-delay: 0.5s, 3s;
+}
+
+/* Shimmer overlay */
+.opportunities-module::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 80%
+  );
+  transform: translateX(-150%) translateY(-150%) rotate(45deg);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.opportunities-module:hover::before {
+  animation: shimmer 0.6s ease-in-out;
+}
+
+.opportunities-module:hover {
+  transform: translateY(-16px) scale(1.03) rotateX(2deg) rotateY(-3deg);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25) !important;
+}
+
+.opportunities-module:nth-child(2):hover {
+  transform: translateY(-16px) scale(1.03) rotateX(1deg) rotateY(2deg);
+}
+
+.opportunities-module:nth-child(3):hover {
+  transform: translateY(-16px) scale(1.03) rotateX(-1deg) rotateY(-2deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .opportunities-module {
+    opacity: 1;
+    transform: none;
+  }
+
+  .slide.active .opportunities-module {
+    animation: cascadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  .opportunities-module:hover {
+    transform: none;
+  }
+
+  .opportunities-module::before {
+    display: none;
+  }
+}
+
+/* Contentful Image Animation */
+@keyframes slideInImage {
+  from {
+    opacity: 0;
+    transform: translateX(-60px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes ambientImageFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.005);
+  }
+}
+
+.contentful-image {
+  opacity: 0;
+  transform: translateX(-60px) scale(0.95);
+}
+
+.slide.active .contentful-image {
+  animation: slideInImage 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards,
+             ambientImageFloat 6s ease-in-out 1s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contentful-image {
+    opacity: 1;
+    transform: none;
+  }
+
+  .slide.active .contentful-image {
+    animation: slideInImage 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+}
+
+/* Feedback Image Animations */
+.feedback-image {
+  opacity: 0;
+  transform: translateX(-60px) scale(0.95);
+}
+
+.slide.active .feedback-image {
+  animation: slideInImage 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards,
+             ambientImageFloat 6s ease-in-out 1s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feedback-image {
+    opacity: 1;
+    transform: none;
+  }
+
+  .slide.active .feedback-image {
+    animation: slideInImage 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+}
+
+/* Before & After Cascade Animation */
+.before-after-item {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.slide.active .before-item {
+  animation: cascadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.1s;
+}
+
+.slide.active .after-item {
+  animation: cascadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.4s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .before-after-item {
+    opacity: 1;
+    transform: none;
+  }
+
+  .slide.active .before-item,
+  .slide.active .after-item {
+    animation: none;
+  }
+}
+
+/* Moments Section Cascade Animation */
+.moments-section {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.slide.active .moments-100 {
+  animation: cascadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.2s;
+}
+
+.slide.active .moments-80 {
+  animation: cascadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.5s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .moments-section {
+    opacity: 1;
+    transform: none;
+  }
+
+  .slide.active .moments-100,
+  .slide.active .moments-80 {
+    animation: none;
+  }
+}
+
+/* Approach Section Cascade Animation */
+.approach-title,
+.approach-description {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.slide.active .approach-title {
+  animation: cascadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.1s;
+}
+
+.slide.active .approach-description {
+  animation: cascadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.4s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .approach-title,
+  .approach-description {
+    opacity: 1;
+    transform: none;
+  }
+
+  .slide.active .approach-title,
+  .slide.active .approach-description {
+    animation: none;
+  }
+}
+
+/* AI Challenge Section Cascade Animation */
+.ai-challenge-title,
+.ai-challenge-description {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.slide.active .ai-challenge-title {
+  animation: cascadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.1s;
+}
+
+.slide.active .ai-challenge-description {
+  animation: cascadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.4s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-challenge-title,
+  .ai-challenge-description {
+    opacity: 1;
+    transform: none;
+  }
+
+  .slide.active .ai-challenge-title,
+  .slide.active .ai-challenge-description {
+    animation: none;
+  }
+}
+
+/* Gaps Section Cascade Animation */
+.gaps-title,
+.gaps-intro,
+.gaps-list,
+.gaps-result {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.slide.active .gaps-title {
+  animation: cascadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.1s;
+}
+
+.slide.active .gaps-intro {
+  animation: cascadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.3s;
+}
+
+.slide.active .gaps-list {
+  animation: cascadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.5s;
+}
+
+.slide.active .gaps-result {
+  animation: cascadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.7s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gaps-title,
+  .gaps-intro,
+  .gaps-list,
+  .gaps-result {
+    opacity: 1;
+    transform: none;
+  }
+
+  .slide.active .gaps-title,
+  .slide.active .gaps-intro,
+  .slide.active .gaps-list,
+  .slide.active .gaps-result {
+    animation: none;
+  }
+}
+
+/* Matrix Image Animations */
+.matrix-image {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.slide.active .matrix-image {
+  animation: slideInMatrix 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards,
+             ambientImageFloat 6s ease-in-out 1s infinite;
+}
+
+@keyframes slideInMatrix {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .matrix-image {
+    opacity: 1;
+    transform: none;
+  }
+
+  .slide.active .matrix-image {
+    animation: slideInMatrix 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   }
 }

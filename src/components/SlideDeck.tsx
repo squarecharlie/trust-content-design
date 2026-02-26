@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import './SlideDeck.css'
 import emailImage from '../images/emailtemplate.png'
 import trustLogo from '../images/trust design logo.svg'
@@ -12,6 +12,8 @@ import contentfulImage from '../images/contentful.png'
 const SlideDeck = () => {
   const [gptPrompt, setGptPrompt] = useState('')
   const [generatedEmail, setGeneratedEmail] = useState<{subject: string, body: string} | null>(null)
+  const [gptTextPopulated, setGptTextPopulated] = useState(false)
+  const gptTextPopulatedRef = useRef(false)
 
   const generateEmail = (prompt: string) => {
     const lowerPrompt = prompt.toLowerCase()
@@ -171,6 +173,13 @@ const SlideDeck = () => {
           entry.target.classList.add('active')
           console.log('Slide activated:', entry.target.id)
 
+          // Reset Risk GPT state when slide becomes active
+          if (entry.target.id === 'slide-10') {
+            setGptPrompt('')
+            setGptTextPopulated(false)
+            gptTextPopulatedRef.current = false
+          }
+
           // Show/hide fixed left text for slides 1, 1b, 1c
           const fixedLeftText = document.querySelector('.fixed-left-text')
           if (fixedLeftText) {
@@ -215,17 +224,52 @@ const SlideDeck = () => {
       }
 
       if (e.key === 'ArrowDown' && currentIndex < slides.length - 1) {
+        // Special handling for Risk GPT slide
+        if (slides[currentIndex].id === 'slide-10' && !gptTextPopulatedRef.current) {
+          setGptPrompt('write an email about credit disputes')
+          setGptTextPopulated(true)
+          gptTextPopulatedRef.current = true
+          return // Don't navigate to next slide
+        }
         slides[currentIndex + 1].scrollIntoView({ behavior: 'smooth', block: 'start' })
       } else if (e.key === 'ArrowUp' && currentIndex > 0) {
         slides[currentIndex - 1].scrollIntoView({ behavior: 'smooth', block: 'start' })
       }
     }
 
+    // Handle scroll wheel for Risk GPT slide
+    const handleWheel = (e: WheelEvent) => {
+      const slides = Array.from(document.querySelectorAll('.slide'))
+      const scrollPosition = window.scrollY + window.innerHeight / 2
+
+      let currentSlide = null
+      for (let i = 0; i < slides.length; i++) {
+        const slide = slides[i] as HTMLElement
+        const slideTop = slide.offsetTop
+        const slideBottom = slideTop + slide.offsetHeight
+
+        if (scrollPosition >= slideTop && scrollPosition < slideBottom) {
+          currentSlide = slide
+          break
+        }
+      }
+
+      // If on Risk GPT slide, scrolling down, and text not populated
+      if (currentSlide?.id === 'slide-10' && e.deltaY > 0 && !gptTextPopulatedRef.current) {
+        e.preventDefault()
+        setGptPrompt('write an email about credit disputes')
+        setGptTextPopulated(true)
+        gptTextPopulatedRef.current = true
+      }
+    }
+
     window.addEventListener('keydown', handleKeyDown)
+    window.addEventListener('wheel', handleWheel, { passive: false })
 
     return () => {
       slides.forEach(slide => observer.unobserve(slide))
       window.removeEventListener('keydown', handleKeyDown)
+      window.removeEventListener('wheel', handleWheel)
     }
   }, [])
 
@@ -383,43 +427,45 @@ const SlideDeck = () => {
 
       {/* Slide 8-opportunities - Steady: Content Opportunities (duplicate) */}
       <section id="slide-8-opportunities" className="slide motion-steady">
-        <div className="slide-content" style={{ padding: '60px 80px', justifyContent: 'flex-start' }}>
+        <div className="slide-content" style={{ padding: '70px 80px', justifyContent: 'flex-start' }}>
           <h2 style={{
-            marginBottom: '60px',
-            fontSize: '2.5rem',
+            marginBottom: '70px',
+            fontSize: '3.5rem',
             fontWeight: '400',
             letterSpacing: '-0.02em',
-            lineHeight: '1'
-          }}>Content Opportunities</h2>
+            lineHeight: '0.85'
+          }}>Where we are today</h2>
 
           <div style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: '28px',
+            gap: '40px',
             maxWidth: '1100px',
             margin: '0 auto',
             width: '100%'
           }}>
             {/* Level 1 - Strategy */}
-            <div style={{
+            <div className="opportunities-module" style={{
               background: '#000000',
-              padding: '36px 44px',
-              borderRadius: '12px',
+              padding: '48px 52px',
+              borderRadius: '16px',
               color: '#ffffff',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.08)'
+              boxShadow: '0 4px 16px rgba(0,0,0,0.12)',
+              position: 'relative'
             }}>
               <div style={{
-                fontSize: '0.75rem',
-                fontWeight: '600',
+                fontSize: '0.7rem',
+                fontWeight: '700',
                 textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-                marginBottom: '16px',
-                opacity: 0.7
+                letterSpacing: '0.15em',
+                marginBottom: '20px',
+                opacity: 0.6,
+                textAlign: 'center'
               }}>Level 1 — Strategy</div>
               <h3 style={{
-                fontSize: '2rem',
+                fontSize: '2.8rem',
                 fontWeight: '400',
-                marginBottom: '16px',
+                marginBottom: '20px',
                 lineHeight: '0.9',
                 letterSpacing: '-0.02em',
                 textAlign: 'center',
@@ -428,9 +474,9 @@ const SlideDeck = () => {
                 Strategic Content Leadership
               </h3>
               <p style={{
-                fontSize: '1rem',
-                lineHeight: '1.5',
-                opacity: 0.9,
+                fontSize: '1.05rem',
+                lineHeight: '1.6',
+                opacity: 0.85,
                 fontWeight: '400',
                 textAlign: 'center',
                 color: '#ffffff'
@@ -440,25 +486,27 @@ const SlideDeck = () => {
             </div>
 
             {/* Level 2 - Approach */}
-            <div style={{
+            <div className="opportunities-module" style={{
               background: 'linear-gradient(135deg, #f2f2f2 0%, #e0e0e0 100%)',
-              padding: '36px 44px',
-              borderRadius: '12px',
+              padding: '48px 52px',
+              borderRadius: '16px',
               color: '#000000',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.08)'
+              boxShadow: '0 4px 16px rgba(0,0,0,0.12)',
+              position: 'relative'
             }}>
               <div style={{
-                fontSize: '0.75rem',
-                fontWeight: '600',
+                fontSize: '0.7rem',
+                fontWeight: '700',
                 textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-                marginBottom: '16px',
-                opacity: 0.6
+                letterSpacing: '0.15em',
+                marginBottom: '20px',
+                opacity: 0.5,
+                textAlign: 'center'
               }}>Level 2 — Approach</div>
               <h3 style={{
-                fontSize: '2rem',
+                fontSize: '2.8rem',
                 fontWeight: '400',
-                marginBottom: '16px',
+                marginBottom: '20px',
                 lineHeight: '0.9',
                 letterSpacing: '-0.02em',
                 textAlign: 'center'
@@ -466,9 +514,9 @@ const SlideDeck = () => {
                 Operational Framework
               </h3>
               <p style={{
-                fontSize: '1rem',
-                lineHeight: '1.5',
-                opacity: 0.8,
+                fontSize: '1.05rem',
+                lineHeight: '1.6',
+                opacity: 0.75,
                 fontWeight: '400',
                 textAlign: 'center'
               }}>
@@ -477,25 +525,27 @@ const SlideDeck = () => {
             </div>
 
             {/* Level 3 - Execution */}
-            <div style={{
+            <div className="opportunities-module" style={{
               background: 'linear-gradient(135deg, #f8f8f8 0%, #ececec 100%)',
-              padding: '36px 44px',
-              borderRadius: '12px',
+              padding: '48px 52px',
+              borderRadius: '16px',
               color: '#000000',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.08)'
+              boxShadow: '0 4px 16px rgba(0,0,0,0.12)',
+              position: 'relative'
             }}>
               <div style={{
-                fontSize: '0.75rem',
-                fontWeight: '600',
+                fontSize: '0.7rem',
+                fontWeight: '700',
                 textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-                marginBottom: '16px',
-                opacity: 0.6
+                letterSpacing: '0.15em',
+                marginBottom: '20px',
+                opacity: 0.5,
+                textAlign: 'center'
               }}>Level 3 — Execution</div>
               <h3 style={{
-                fontSize: '2rem',
+                fontSize: '2.8rem',
                 fontWeight: '400',
-                marginBottom: '16px',
+                marginBottom: '20px',
                 lineHeight: '0.9',
                 letterSpacing: '-0.02em',
                 textAlign: 'center'
@@ -503,9 +553,9 @@ const SlideDeck = () => {
                 Applied Writing
               </h3>
               <p style={{
-                fontSize: '1rem',
-                lineHeight: '1.5',
-                opacity: 0.8,
+                fontSize: '1.05rem',
+                lineHeight: '1.6',
+                opacity: 0.75,
                 fontWeight: '400',
                 textAlign: 'center'
               }}>
@@ -519,8 +569,8 @@ const SlideDeck = () => {
       {/* Slide 9a - Steady: Introducing 80% framework as part of solution */}
       <section id="slide-8a" className="slide motion-steady">
         <div className="slide-content" style={{ alignItems: 'flex-start', textAlign: 'left' }}>
-          <h2 style={{ marginBottom: '40px' }}>Our approach: the 80%<br/>Design Polish framework</h2>
-          <p style={{ fontSize: '1.5rem', lineHeight: '2rem', opacity: 0.8, maxWidth: '800px' }}>
+          <h2 className="approach-title" style={{ marginBottom: '40px' }}>Our approach: the 80%<br/>Design Polish framework</h2>
+          <p className="approach-description" style={{ fontSize: '1.5rem', lineHeight: '2rem', opacity: 0.8, maxWidth: '800px' }}>
             We evaluate the fidelity of our output by assessing <strong>risk</strong>, <strong>leverage</strong>,
             and <strong>trust</strong> based on their <strong>impact</strong> and <strong>criticality</strong> to
             the seller experience.
@@ -532,7 +582,7 @@ const SlideDeck = () => {
       <section id="slide-8b" className="slide motion-steady">
         <div className="slide-content" style={{ alignItems: 'flex-start', textAlign: 'left', padding: '60px 80px' }}>
           <div style={{ maxWidth: '900px' }}>
-            <div style={{ marginBottom: '50px' }}>
+            <div className="moments-section moments-100" style={{ marginBottom: '50px' }}>
               <h3 style={{ fontSize: '2rem', marginBottom: '20px' }}>"100%" moments happen when:</h3>
               <ul style={{ fontSize: '1.3rem', lineHeight: '2rem', listStyle: 'none', paddingLeft: 0 }}>
                 <li style={{ marginBottom: '12px' }}>• The stakes are high (harm, money, access, trust)</li>
@@ -540,7 +590,7 @@ const SlideDeck = () => {
                 <li style={{ marginBottom: '12px' }}>• The interaction repeats at scale (systemic impact)</li>
               </ul>
             </div>
-            <div>
+            <div className="moments-section moments-80">
               <h3 style={{ fontSize: '2rem', marginBottom: '20px' }}>"80% is okay" moments happen when:</h3>
               <ul style={{ fontSize: '1.3rem', lineHeight: '2rem', listStyle: 'none', paddingLeft: 0 }}>
                 <li style={{ marginBottom: '12px' }}>• Stakes are low</li>
@@ -558,12 +608,15 @@ const SlideDeck = () => {
           <img
             src={matrixSvg}
             alt="Content Quality Matrix"
+            className="matrix-image"
             style={{
-              maxWidth: '99vw',
-              maxHeight: '99vh',
+              maxWidth: '129vw',
+              maxHeight: '129vh',
               width: 'auto',
               height: 'auto',
-              objectFit: 'contain'
+              objectFit: 'contain',
+              marginLeft: '5%',
+              marginTop: '-10%'
             }}
           />
         </div>
@@ -579,7 +632,13 @@ const SlideDeck = () => {
       {/* Slide 11 - Sharp: Quick demo moment, micro interaction */}
       <section id="slide-10" className="slide motion-sharp">
         <div className="slide-content gpt-demo">
-          <h3 className="gpt-title">Risk GPT</h3>
+          <h3 className="gpt-title" style={{
+            fontSize: '6rem',
+            fontWeight: '400',
+            letterSpacing: '-0.02em',
+            lineHeight: '0.85',
+            marginBottom: '26px'
+          }}>Risk GPT</h3>
           <form onSubmit={handleSubmit} style={{width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
             <div className="chat-input-wrapper">
               <div className="input-with-cursor">
@@ -696,7 +755,7 @@ const SlideDeck = () => {
             maxWidth: '1400px',
             margin: '0 auto'
           }}>
-            <div style={{ flex: '1', maxWidth: '600px' }}>
+            <div className="before-after-item before-item" style={{ flex: '1', maxWidth: '600px' }}>
               <h3 style={{ fontSize: '1.2rem', marginBottom: '20px', textAlign: 'center', fontWeight: '600' }}>Before</h3>
               <img
                 src={disputeBeforeImage}
@@ -709,7 +768,7 @@ const SlideDeck = () => {
                 }}
               />
             </div>
-            <div style={{ flex: '1', maxWidth: '600px' }}>
+            <div className="before-after-item after-item" style={{ flex: '1', maxWidth: '600px' }}>
               <h3 style={{ fontSize: '1.2rem', marginBottom: '20px', textAlign: 'center', fontWeight: '600' }}>After</h3>
               <img
                 src={disputeAfterImage}
@@ -740,13 +799,15 @@ const SlideDeck = () => {
           <img
             src={feedbackImage}
             alt="Feedback comment example"
+            className="feedback-image"
             style={{
-              width: '90%',
-              maxWidth: '1200px',
+              width: '63%',
+              maxWidth: '840px',
               height: 'auto',
               objectFit: 'contain',
               borderRadius: '12px',
-              boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
+              boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+              margin: '0 auto'
             }}
           />
         </div>
@@ -759,10 +820,11 @@ const SlideDeck = () => {
             src={commsProcessImage}
             alt="The journey of an email"
             style={{
-              width: '92%',
-              maxWidth: '1610px',
+              width: '110%',
+              maxWidth: '1930px',
               height: 'auto',
-              objectFit: 'contain'
+              objectFit: 'contain',
+              marginLeft: '3%'
             }}
           />
         </div>
@@ -770,20 +832,21 @@ const SlideDeck = () => {
 
       {/* Slide 14.5 - Steady: Contentful email management */}
       <section id="slide-12b" className="slide motion-steady">
-        <div className="slide-content" style={{ padding: '30px', justifyContent: 'flex-start', alignItems: 'center', display: 'flex', flexDirection: 'column' }}>
-          <h2 style={{ marginBottom: '30px', textAlign: 'center', fontSize: '1.5rem' }}>Team is managing 350+ emails</h2>
+        <div className="slide-content" style={{ padding: '40px', justifyContent: 'center', alignItems: 'center', display: 'flex', flexDirection: 'column' }}>
+          <h2 style={{ marginBottom: '40px', textAlign: 'center', fontSize: '1.5rem' }}>Team is managing 350+ emails</h2>
           <img
             src={contentfulImage}
             alt="Contentful email management dashboard"
+            className="contentful-image"
             style={{
-              maxWidth: '98%',
-              maxHeight: '80vh',
-              width: 'auto',
+              width: '100%',
+              maxWidth: '1600px',
               height: 'auto',
               objectFit: 'contain',
               border: '1px solid #e0e0e0',
               borderRadius: '8px',
-              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)'
+              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+              margin: '0 auto'
             }}
           />
         </div>
@@ -792,26 +855,8 @@ const SlideDeck = () => {
       {/* Slide 14b - Steady: The real challenge */}
       <section id="slide-12b-challenge" className="slide motion-steady">
         <div className="slide-content">
-          <h2 style={{ maxWidth: '900px', lineHeight: '1.2' }}>AI can write the words.<br/>Humans need to define the<br/>underlying concepts.</h2>
-          <p style={{ fontSize: '1.4rem', marginTop: '40px', opacity: 0.7, maxWidth: '800px' }}>How do we design flows that match how complex businesses actually think about ownership, control, and structure?</p>
-        </div>
-      </section>
-
-      {/* Slide 14a - Steady: Strategic content gaps */}
-      <section id="slide-12a-gaps" className="slide motion-steady">
-        <div className="slide-content" style={{ alignItems: 'flex-start', textAlign: 'left', padding: '60px 80px' }}>
-          <div style={{ maxWidth: '1000px' }}>
-            <h2 style={{ fontSize: '2.5rem', marginBottom: '40px' }}>Beyond risk emails: foundational content concepts</h2>
-            <div style={{ fontSize: '1.3rem', lineHeight: '2rem' }}>
-              <p style={{ marginBottom: '30px' }}>As we move upmarket, inconsistent concepts confuse teams and sellers:</p>
-              <ul style={{ listStyle: 'none', paddingLeft: 0, marginBottom: '40px' }}>
-                <li style={{ marginBottom: '12px' }}>• "Account Owner" vs "Sign Up Person" vs "Primary Individual"</li>
-                <li style={{ marginBottom: '12px' }}>• "Transfer of Account" vs "Change of Entity" vs "Change of Business Type"</li>
-                <li style={{ marginBottom: '12px' }}>• Account Owner overlapping with Control Person, Beneficial Owner, Business Owner</li>
-              </ul>
-              <p style={{ fontSize: '1.2rem', opacity: 0.8 }}>Result: AMs translate terminology. Teams debate definitions. Sellers navigate concepts that don't match their mental model.</p>
-            </div>
-          </div>
+          <h2 className="ai-challenge-title" style={{ maxWidth: '900px', lineHeight: '0.85', letterSpacing: '-0.02em' }}>AI can write the words.<br/>Humans need to define the<br/>underlying concepts.</h2>
+          <p className="ai-challenge-description" style={{ fontSize: '1.4rem', marginTop: '40px', opacity: 0.7, maxWidth: '800px' }}>The identity team is thinking through how we design flows that match how complex businesses actually think about ownership, control, and structure.</p>
         </div>
       </section>
 
@@ -824,115 +869,308 @@ const SlideDeck = () => {
 
       {/* Slide 15 - Fast: Quick scan of additional items, Sharp accent for list */}
       <section id="slide-14" className="slide motion-fast">
-        <div className="slide-content slide-list" style={{ alignItems: 'center', textAlign: 'center' }}>
-          <h2>Active Content Projects:</h2>
-          <ol>
-            <li>
-              <strong><a href="https://linear.app/dashboard-and-labs/project/dispute-communications-updates-35c9627ccd05" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Dispute Communications Updates:</a></strong> <span style={{
-                backgroundColor: '#ff0000',
-                color: '#ffffff',
-                padding: '3px 10px',
-                borderRadius: '12px',
-                fontSize: '0.75rem',
-                fontWeight: '600',
-                textTransform: 'uppercase',
-                letterSpacing: '0.5px',
-                marginLeft: '8px',
-                marginRight: '8px',
-                display: 'inline-block'
-              }}>Code Red</span> Updated in app dispute copy, SMS templates, and email templates to increase seller responses
+        <div className="slide-content" style={{
+          padding: '70px 80px',
+          justifyContent: 'flex-start',
+          maxWidth: '1200px',
+          margin: '0',
+          textAlign: 'left',
+          alignItems: 'flex-start'
+        }}>
+          <h2 style={{
+            fontSize: '3.5rem',
+            fontWeight: '400',
+            lineHeight: '0.9',
+            letterSpacing: '-0.02em',
+            marginBottom: '60px',
+            textAlign: 'left'
+          }}>Active Content Projects</h2>
+
+          <ol style={{
+            listStyle: 'none',
+            padding: '0',
+            margin: '0',
+            counterReset: 'project-counter',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '32px',
+            width: '100%',
+            textAlign: 'left'
+          }}>
+            <li style={{
+              counterIncrement: 'project-counter',
+              display: 'grid',
+              gridTemplateColumns: '40px 1fr',
+              gap: '16px',
+              alignItems: 'flex-start',
+              fontSize: '1.1rem',
+              lineHeight: '1.5'
+            }}>
+              <span style={{
+                fontSize: '1rem',
+                opacity: '0.4',
+                fontWeight: '500',
+                textAlign: 'right'
+              }}>01</span>
+              <div>
+                <a href="https://linear.app/dashboard-and-labs/project/dispute-communications-updates-35c9627ccd05" target="_blank" rel="noopener noreferrer" style={{
+                  color: 'inherit',
+                  textDecoration: 'none',
+                  fontWeight: '500',
+                  borderBottom: '1px solid rgba(0,0,0,0.3)'
+                }}>Dispute Communications Updates</a>
+                <span style={{
+                  backgroundColor: '#000000',
+                  color: '#ffffff',
+                  padding: '4px 12px',
+                  borderRadius: '12px',
+                  fontSize: '0.7rem',
+                  fontWeight: '600',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em',
+                  marginLeft: '12px',
+                  display: 'inline-block'
+                }}>Code Red</span>
+                <p style={{
+                  margin: '8px 0 0 0',
+                  opacity: '0.7',
+                  fontSize: '1rem',
+                  lineHeight: '1.6'
+                }}>Updated in app dispute copy, SMS templates, and email templates to increase seller responses</p>
+              </div>
             </li>
-            <li><strong><a href="https://linear.app/dashboard-and-labs/project/refund-controls-d3bd8be18d8b" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Refund Controls:</a></strong> New seller facing email templates and in product copy for refund fraud controls</li>
-            <li>
-              <strong><a href="https://linear.app/dashboard-and-labs/project/sq-debit-card-funnel-improvements-4e88823f0a56" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Square Debit Card Funnel:</a></strong> <span style={{
-                backgroundColor: '#ff0000',
-                color: '#ffffff',
-                padding: '3px 10px',
-                borderRadius: '12px',
-                fontSize: '0.75rem',
-                fontWeight: '600',
-                textTransform: 'uppercase',
-                letterSpacing: '0.5px',
-                marginLeft: '8px',
-                marginRight: '8px',
-                display: 'inline-block'
-              }}>Code Red</span> Revised identity check challenge screen copy, email copy, and help content to reduce drop off
+            <li style={{
+              counterIncrement: 'project-counter',
+              display: 'grid',
+              gridTemplateColumns: '40px 1fr',
+              gap: '16px',
+              alignItems: 'flex-start',
+              fontSize: '1.1rem',
+              lineHeight: '1.5'
+            }}>
+              <span style={{
+                fontSize: '1rem',
+                opacity: '0.4',
+                fontWeight: '500',
+                textAlign: 'right'
+              }}>02</span>
+              <div>
+                <a href="https://linear.app/dashboard-and-labs/project/refund-controls-d3bd8be18d8b" target="_blank" rel="noopener noreferrer" style={{
+                  color: 'inherit',
+                  textDecoration: 'none',
+                  fontWeight: '500',
+                  borderBottom: '1px solid rgba(0,0,0,0.3)'
+                }}>Refund Controls</a>
+                <p style={{
+                  margin: '8px 0 0 0',
+                  opacity: '0.7',
+                  fontSize: '1rem',
+                  lineHeight: '1.6'
+                }}>New seller facing email templates and in product copy for refund fraud controls</p>
+              </div>
             </li>
-            <li>
-              <strong><a href="https://linear.app/dashboard-and-labs/project/square-risk-deactivation-emails-f22a3f6f760f" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Risk Deactivation Emails:</a></strong> <span style={{
-                backgroundColor: '#ff0000',
-                color: '#ffffff',
-                padding: '3px 10px',
-                borderRadius: '12px',
-                fontSize: '0.75rem',
-                fontWeight: '600',
-                textTransform: 'uppercase',
-                letterSpacing: '0.5px',
-                marginLeft: '8px',
-                marginRight: '8px',
-                display: 'inline-block'
-              }}>Code Red</span> Updated deactivation email templates with clearer outcomes, funds timing, and reactivation steps
+            <li style={{
+              counterIncrement: 'project-counter',
+              display: 'grid',
+              gridTemplateColumns: '40px 1fr',
+              gap: '16px',
+              alignItems: 'flex-start',
+              fontSize: '1.1rem',
+              lineHeight: '1.5'
+            }}>
+              <span style={{
+                fontSize: '1rem',
+                opacity: '0.4',
+                fontWeight: '500',
+                textAlign: 'right'
+              }}>03</span>
+              <div>
+                <a href="https://linear.app/dashboard-and-labs/project/sq-debit-card-funnel-improvements-4e88823f0a56" target="_blank" rel="noopener noreferrer" style={{
+                  color: 'inherit',
+                  textDecoration: 'none',
+                  fontWeight: '500',
+                  borderBottom: '1px solid rgba(0,0,0,0.3)'
+                }}>Square Debit Card Funnel</a>
+                <span style={{
+                  backgroundColor: '#000000',
+                  color: '#ffffff',
+                  padding: '4px 12px',
+                  borderRadius: '12px',
+                  fontSize: '0.7rem',
+                  fontWeight: '600',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em',
+                  marginLeft: '12px',
+                  display: 'inline-block'
+                }}>Code Red</span>
+                <p style={{
+                  margin: '8px 0 0 0',
+                  opacity: '0.7',
+                  fontSize: '1rem',
+                  lineHeight: '1.6'
+                }}>Revised identity check challenge screen copy, email copy, and help content to reduce drop off</p>
+              </div>
             </li>
-            <li><strong><a href="https://linear.app/dashboard-and-labs/project/risk-comms-improvements-fed14f758f3a" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Risk Comms Improvements:</a></strong> Standardized message framework, reusable templates, and tone guidelines across channels and markets</li>
-            <li><strong><a href="https://linear.app/dashboard-and-labs/project/dormant-account-email-de5c7544028a" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Dormant Account Email:</a></strong> Best practice research, Figma email design, and finalized dormant account email copy</li>
+            <li style={{
+              counterIncrement: 'project-counter',
+              display: 'grid',
+              gridTemplateColumns: '40px 1fr',
+              gap: '16px',
+              alignItems: 'flex-start',
+              fontSize: '1.1rem',
+              lineHeight: '1.5'
+            }}>
+              <span style={{
+                fontSize: '1rem',
+                opacity: '0.4',
+                fontWeight: '500',
+                textAlign: 'right'
+              }}>04</span>
+              <div>
+                <a href="https://linear.app/dashboard-and-labs/project/square-risk-deactivation-emails-f22a3f6f760f" target="_blank" rel="noopener noreferrer" style={{
+                  color: 'inherit',
+                  textDecoration: 'none',
+                  fontWeight: '500',
+                  borderBottom: '1px solid rgba(0,0,0,0.3)'
+                }}>Risk Deactivation Emails</a>
+                <span style={{
+                  backgroundColor: '#000000',
+                  color: '#ffffff',
+                  padding: '4px 12px',
+                  borderRadius: '12px',
+                  fontSize: '0.7rem',
+                  fontWeight: '600',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em',
+                  marginLeft: '12px',
+                  display: 'inline-block'
+                }}>Code Red</span>
+                <p style={{
+                  margin: '8px 0 0 0',
+                  opacity: '0.7',
+                  fontSize: '1rem',
+                  lineHeight: '1.6'
+                }}>Updated deactivation email templates with clearer outcomes, funds timing, and reactivation steps</p>
+              </div>
+            </li>
+            <li style={{
+              counterIncrement: 'project-counter',
+              display: 'grid',
+              gridTemplateColumns: '40px 1fr',
+              gap: '16px',
+              alignItems: 'flex-start',
+              fontSize: '1.1rem',
+              lineHeight: '1.5'
+            }}>
+              <span style={{
+                fontSize: '1rem',
+                opacity: '0.4',
+                fontWeight: '500',
+                textAlign: 'right'
+              }}>05</span>
+              <div>
+                <a href="https://linear.app/dashboard-and-labs/project/risk-comms-improvements-fed14f758f3a" target="_blank" rel="noopener noreferrer" style={{
+                  color: 'inherit',
+                  textDecoration: 'none',
+                  fontWeight: '500',
+                  borderBottom: '1px solid rgba(0,0,0,0.3)'
+                }}>Risk Comms Improvements</a>
+                <p style={{
+                  margin: '8px 0 0 0',
+                  opacity: '0.7',
+                  fontSize: '1rem',
+                  lineHeight: '1.6'
+                }}>Standardized message framework, reusable templates, and tone guidelines across channels and markets</p>
+              </div>
+            </li>
+            <li style={{
+              counterIncrement: 'project-counter',
+              display: 'grid',
+              gridTemplateColumns: '40px 1fr',
+              gap: '16px',
+              alignItems: 'flex-start',
+              fontSize: '1.1rem',
+              lineHeight: '1.5'
+            }}>
+              <span style={{
+                fontSize: '1rem',
+                opacity: '0.4',
+                fontWeight: '500',
+                textAlign: 'right'
+              }}>06</span>
+              <div>
+                <a href="https://linear.app/dashboard-and-labs/project/dormant-account-email-de5c7544028a" target="_blank" rel="noopener noreferrer" style={{
+                  color: 'inherit',
+                  textDecoration: 'none',
+                  fontWeight: '500',
+                  borderBottom: '1px solid rgba(0,0,0,0.3)'
+                }}>Dormant Account Email</a>
+                <p style={{
+                  margin: '8px 0 0 0',
+                  opacity: '0.7',
+                  fontSize: '1rem',
+                  lineHeight: '1.6'
+                }}>Best practice research, Figma email design, and finalized dormant account email copy</p>
+              </div>
+            </li>
           </ol>
         </div>
       </section>
 
       {/* Slide 20 - Steady: Content strategy framework */}
       <section id="slide-18" className="slide motion-steady">
-        <div className="slide-content" style={{ padding: '60px 80px', justifyContent: 'flex-start' }}>
+        <div className="slide-content" style={{ padding: '70px 80px', justifyContent: 'flex-start' }}>
           <h2 style={{
-            marginBottom: '60px',
-            fontSize: '2.5rem',
+            marginBottom: '70px',
+            fontSize: '3.5rem',
             fontWeight: '400',
             letterSpacing: '-0.02em',
-            lineHeight: '1'
-          }}>Content Opportunities</h2>
+            lineHeight: '0.85'
+          }}>Where we are today</h2>
 
           <div style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: '28px',
+            gap: '40px',
             maxWidth: '1100px',
             margin: '0',
             width: '100%'
           }}>
             {/* Level 1 - Strategy */}
-            <div style={{
+            <div className="opportunities-module" style={{
               background: '#000000',
-              padding: '36px 44px',
-              borderRadius: '12px',
+              padding: '48px 52px',
+              borderRadius: '16px',
               color: '#ffffff',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+              boxShadow: '0 4px 16px rgba(0,0,0,0.12)',
               position: 'relative'
             }}>
               <div style={{
                 position: 'absolute',
-                top: '20px',
-                right: '20px',
-                backgroundColor: '#9e9e9e',
+                top: '24px',
+                right: '24px',
+                backgroundColor: '#ffffff',
                 color: '#000000',
-                padding: '4px 12px',
-                borderRadius: '12px',
-                fontSize: '0.7rem',
-                fontWeight: '600',
+                padding: '6px 14px',
+                borderRadius: '14px',
+                fontSize: '0.65rem',
+                fontWeight: '700',
                 textTransform: 'uppercase',
-                letterSpacing: '0.5px'
+                letterSpacing: '0.08em'
               }}>Unexplored</div>
               <div style={{
-                fontSize: '0.75rem',
-                fontWeight: '600',
+                fontSize: '0.7rem',
+                fontWeight: '700',
                 textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-                marginBottom: '16px',
-                opacity: 0.7,
+                letterSpacing: '0.15em',
+                marginBottom: '20px',
+                opacity: 0.6,
                 textAlign: 'center'
               }}>Level 1 — Strategy</div>
               <h3 style={{
-                fontSize: '2rem',
+                fontSize: '2.8rem',
                 fontWeight: '400',
-                marginBottom: '16px',
+                marginBottom: '20px',
                 lineHeight: '0.9',
                 letterSpacing: '-0.02em',
                 textAlign: 'center',
@@ -941,11 +1179,11 @@ const SlideDeck = () => {
                 Strategic Content Leadership
               </h3>
               <p style={{
-                fontSize: '1rem',
-                lineHeight: '1.5',
-                opacity: 0.9,
+                fontSize: '1.05rem',
+                lineHeight: '1.6',
+                opacity: 0.85,
                 fontWeight: '400',
-                marginBottom: '16px',
+                marginBottom: '24px',
                 textAlign: 'center',
                 color: '#ffffff'
               }}>
@@ -953,55 +1191,55 @@ const SlideDeck = () => {
               </p>
               <div style={{
                 width: '100%',
-                height: '6px',
-                backgroundColor: 'rgba(255,255,255,0.2)',
-                borderRadius: '3px',
+                height: '12px',
+                backgroundColor: 'rgba(255,255,255,0.15)',
+                borderRadius: '6px',
                 overflow: 'hidden'
               }}>
                 <div style={{
                   width: '5%',
                   height: '100%',
                   backgroundColor: '#9e9e9e',
-                  borderRadius: '3px'
+                  borderRadius: '6px'
                 }}></div>
               </div>
             </div>
 
             {/* Level 2 - Approach */}
-            <div style={{
+            <div className="opportunities-module" style={{
               background: 'linear-gradient(135deg, #f2f2f2 0%, #e0e0e0 100%)',
-              padding: '36px 44px',
-              borderRadius: '12px',
+              padding: '48px 52px',
+              borderRadius: '16px',
               color: '#000000',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+              boxShadow: '0 4px 16px rgba(0,0,0,0.12)',
               position: 'relative'
             }}>
               <div style={{
                 position: 'absolute',
-                top: '20px',
-                right: '20px',
-                backgroundColor: '#f5a623',
+                top: '24px',
+                right: '24px',
+                backgroundColor: '#000000',
                 color: '#ffffff',
-                padding: '4px 12px',
-                borderRadius: '12px',
-                fontSize: '0.7rem',
-                fontWeight: '600',
+                padding: '6px 14px',
+                borderRadius: '14px',
+                fontSize: '0.65rem',
+                fontWeight: '700',
                 textTransform: 'uppercase',
-                letterSpacing: '0.5px'
+                letterSpacing: '0.08em'
               }}>Just Starting</div>
               <div style={{
-                fontSize: '0.75rem',
-                fontWeight: '600',
+                fontSize: '0.7rem',
+                fontWeight: '700',
                 textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-                marginBottom: '16px',
-                opacity: 0.6,
+                letterSpacing: '0.15em',
+                marginBottom: '20px',
+                opacity: 0.5,
                 textAlign: 'center'
               }}>Level 2 — Approach</div>
               <h3 style={{
-                fontSize: '2rem',
+                fontSize: '2.8rem',
                 fontWeight: '400',
-                marginBottom: '16px',
+                marginBottom: '20px',
                 lineHeight: '0.9',
                 letterSpacing: '-0.02em',
                 textAlign: 'center'
@@ -1009,66 +1247,66 @@ const SlideDeck = () => {
                 Operational Framework
               </h3>
               <p style={{
-                fontSize: '1rem',
-                lineHeight: '1.5',
-                opacity: 0.8,
+                fontSize: '1.05rem',
+                lineHeight: '1.6',
+                opacity: 0.75,
                 fontWeight: '400',
-                marginBottom: '16px',
+                marginBottom: '24px',
                 textAlign: 'center'
               }}>
                 Intake, prioritize, and govern content requests. Align stakeholders. Scale execution with tools like Risk GPT.
               </p>
               <div style={{
                 width: '100%',
-                height: '6px',
+                height: '12px',
                 backgroundColor: 'rgba(0,0,0,0.1)',
-                borderRadius: '3px',
+                borderRadius: '6px',
                 overflow: 'hidden'
               }}>
                 <div style={{
                   width: '15%',
                   height: '100%',
-                  backgroundColor: '#f5a623',
-                  borderRadius: '3px'
+                  backgroundColor: '#6e6e6e',
+                  borderRadius: '6px'
                 }}></div>
               </div>
             </div>
 
             {/* Level 3 - Execution */}
-            <div style={{
+            <div className="opportunities-module" style={{
               background: 'linear-gradient(135deg, #f8f8f8 0%, #ececec 100%)',
-              padding: '36px 44px',
-              borderRadius: '12px',
+              padding: '48px 52px',
+              borderRadius: '16px',
               color: '#000000',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+              boxShadow: '0 4px 16px rgba(0,0,0,0.12)',
               position: 'relative'
             }}>
               <div style={{
                 position: 'absolute',
-                top: '20px',
-                right: '20px',
-                backgroundColor: '#ff5a5f',
+                top: '24px',
+                right: '24px',
+                backgroundColor: '#000000',
                 color: '#ffffff',
-                padding: '4px 12px',
-                borderRadius: '12px',
-                fontSize: '0.7rem',
-                fontWeight: '600',
+                padding: '6px 14px',
+                borderRadius: '14px',
+                fontSize: '0.65rem',
+                fontWeight: '700',
                 textTransform: 'uppercase',
-                letterSpacing: '0.5px'
+                letterSpacing: '0.08em'
               }}>Current Focus</div>
               <div style={{
-                fontSize: '0.75rem',
-                fontWeight: '600',
+                fontSize: '0.7rem',
+                fontWeight: '700',
                 textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-                marginBottom: '16px',
-                opacity: 0.6,
+                letterSpacing: '0.15em',
+                marginBottom: '20px',
+                opacity: 0.5,
                 textAlign: 'center'
               }}>Level 3 — Execution</div>
               <h3 style={{
-                fontSize: '2rem',
+                fontSize: '2.8rem',
                 fontWeight: '400',
-                marginBottom: '16px',
+                marginBottom: '20px',
                 lineHeight: '0.9',
                 letterSpacing: '-0.02em',
                 textAlign: 'center'
@@ -1076,27 +1314,27 @@ const SlideDeck = () => {
                 Applied Writing
               </h3>
               <p style={{
-                fontSize: '1rem',
-                lineHeight: '1.5',
-                opacity: 0.8,
+                fontSize: '1.05rem',
+                lineHeight: '1.6',
+                opacity: 0.75,
                 fontWeight: '400',
-                marginBottom: '16px',
+                marginBottom: '24px',
                 textAlign: 'center'
               }}>
                 Produce and ship the copy at volume. Raise experiences to the 80 percent and 100 percent quality bar.
               </p>
               <div style={{
                 width: '100%',
-                height: '6px',
+                height: '12px',
                 backgroundColor: 'rgba(0,0,0,0.1)',
-                borderRadius: '3px',
+                borderRadius: '6px',
                 overflow: 'hidden'
               }}>
                 <div style={{
                   width: '45%',
                   height: '100%',
-                  backgroundColor: '#ff5a5f',
-                  borderRadius: '3px'
+                  backgroundColor: '#4a4a4a',
+                  borderRadius: '6px'
                 }}></div>
               </div>
             </div>
@@ -1106,14 +1344,64 @@ const SlideDeck = () => {
 
       {/* Slide 21 - Gentle: Final slide with goals */}
       <section id="slide-19" className="slide motion-gentle slide-with-back-to-top">
-        <div className="slide-content">
-          <h2>Goals for today: align on the<br/>content landscape and agree<br/>on the support needed to<br/>improve it.</h2>
+        <div className="slide-content" style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          textAlign: 'center',
+          height: '100vh',
+          padding: '60px 60px 50px',
+          maxWidth: '1100px',
+          margin: '0 auto'
+        }}>
+          <div style={{ flex: '0 0 auto' }}></div>
+
+          <div style={{ flex: '0 0 auto' }}>
+            <div style={{
+              fontSize: '0.9rem',
+              fontWeight: '600',
+              textTransform: 'uppercase',
+              letterSpacing: '0.15em',
+              opacity: 0.5,
+              marginBottom: '20px'
+            }}>Goals for today</div>
+
+            <h2 style={{
+              fontSize: '3.8rem',
+              fontWeight: '400',
+              lineHeight: '0.9',
+              letterSpacing: '-0.02em',
+              marginBottom: '0',
+              maxWidth: '900px',
+              margin: '0 auto'
+            }}>
+              Align on the content landscape
+            </h2>
+
+            <div style={{
+              fontSize: '3.8rem',
+              fontWeight: '400',
+              lineHeight: '0.9',
+              letterSpacing: '-0.02em',
+              opacity: 0.4,
+              marginTop: '10px',
+              maxWidth: '900px',
+              margin: '10px auto 0'
+            }}>
+              and discuss the support needed to improve it.
+            </div>
+          </div>
+
           <a
             href="#slide-0"
             className="back-to-top"
             onClick={(e) => {
               e.preventDefault()
               document.getElementById('slide-0')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            }}
+            style={{
+              flex: '0 0 auto'
             }}
           >
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
